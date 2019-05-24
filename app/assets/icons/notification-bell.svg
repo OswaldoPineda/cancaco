@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25.276" height="25.22" viewBox="0 0 25.276 25.22">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="25.276" height="25.22" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Componente_13_2" data-name="Componente 13 – 2" clip-path="url(#clip-path)">
+    <path id="Trazado_48" data-name="Trazado 48" d="M21.852,20.317H14.559a2.917,2.917,0,0,1-5.835,0H1.43A1.4,1.4,0,0,1,.117,19.3a1.544,1.544,0,0,1,.438-1.6,5.832,5.832,0,0,0,2.334-4.644V8.707a8.752,8.752,0,0,1,17.5,0v4.354a5.832,5.832,0,0,0,2.334,4.644,1.37,1.37,0,0,1,.438,1.6A1.4,1.4,0,0,1,21.852,20.317Z" transform="translate(0.969 1)" fill="none" stroke="#707070" stroke-width="2" fill-rule="evenodd"/>
+  </g>
+</svg>

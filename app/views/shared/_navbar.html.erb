@@ -1,0 +1,46 @@
+<nav class="navbar d-flex align-items-center shadow-sm">
+  <!--Main logo-->
+  <div class="logo">
+    <img src=<%=asset_path('CANACO-logo.jpg')%>
+         alt="CANACO-logo"
+         height="60px">
+  </div>
+  <!--categories only desktop-->
+ <div class="categories d-none d-lg-block">
+   
+ </div>
+
+  <!--Search bar-->
+  <div class="search-bar col-8 d-flex align-items-center">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-btn">
+      <div class="input-group-append">
+        <button class="search-btn btn btn-outline-secondary" type="button" id="search-btn">
+            <%= show_svg('search.svg') %>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!--Shopping car-->
+  <div class="shopping-car">
+      <a href="/cart">
+        <%= show_svg('cart.svg') %>
+      </a>
+  </div>
+
+  <!-- desktop only -->
+    <div class="notification-bell d-none d-lg-block">
+      <%=show_svg('notification-bell.svg')%>
+    </div>
+
+    <div class="profile-menu d-none d-lg-block">
+      <div class="profile-photo"></div>
+      <div class="My-profile">My profile</div>
+    </div>
+    
+    <!-- burguer menu only mobile -->
+    <div class="menu-mobile d-lg-none">
+      <%= show_svg('burguer-menu.svg') %>
+    </div>
+</nav>
