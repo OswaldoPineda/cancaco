@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 2019_05_27_161004) do
     t.string "street"
     t.string "interior_number"
     t.integer "outdoor_number"
+    t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_addresses_on_company_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -31,8 +33,10 @@ ActiveRecord::Schema.define(version: 2019_05_27_161004) do
     t.string "name"
     t.integer "phone"
     t.integer "cellphone"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

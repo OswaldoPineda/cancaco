@@ -5,7 +5,7 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :phone
       t.integer :cellphone
-
+      t.references :user
       t.timestamps
     end
   end
