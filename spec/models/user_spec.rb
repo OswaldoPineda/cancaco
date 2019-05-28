@@ -14,6 +14,6 @@ RSpec.describe User, type: :model do
     it { should validate_length_of(:last_name).is_at_most(50) }
   end
   describe 'Validates association' do
-    it { should have_many(:companies) }
+    it { should have_one(:company) }
   end
 end

@@ -3,7 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :companies
+  has_one :company
+  accepts_nested_attributes_for :company
   validates :first_name, :last_name, length: { minimum: 2 } 
   validates :first_name, :last_name, length: { maximum: 50 } 
   validates :first_name, :last_name, :email, :password, presence: true
