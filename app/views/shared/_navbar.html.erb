@@ -1,46 +1,215 @@
-<nav class="navbar d-flex align-items-center shadow-sm">
-  <!--Main logo-->
-  <div class="logo">
-    <img src=<%=asset_path('CANACO-logo.jpg')%>
-         alt="CANACO-logo"
-         height="60px">
-  </div>
-  <!--categories only desktop-->
- <div class="categories d-none d-lg-block">
-   
- </div>
+<div class="container-nav d-flex justify-content-center">
+  <nav class="navbar col-lg-11 d-flex align-items-center shadow">
+    <!--Main logo-->
+    <div class="logo">
+      <a href="/">
+        <img src=<%=asset_path('CANACO-logo.jpg')%> alt="CANACO-logo" height="60px">
+      </a>
+    </div>
+    <!--categories only desktop-->
+    <div class="categories d-none d-lg-block">
+      <!--Dropdow with a subdropdown-->
+      <div class="dropdown">
+        <span class="dropdown-toggle" id="dropdownCategories" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categorías
+        </span>
+        <div class="dropdown-menu categories-menu" aria-labelledby="dropdownCategories">
+          <div class="dropright subdropdown-categories"><a class="dropdown-item dropdown-toggle">Categoría 1</a>
 
-  <!--Search bar-->
-  <div class="search-bar col-8 d-flex align-items-center">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-btn">
-      <div class="input-group-append">
-        <button class="search-btn btn btn-outline-secondary" type="button" id="search-btn">
-            <%= show_svg('search.svg') %>
-        </button>
+            <div class="dropdown-menu submenu-categories py-2">
+              <div class="submenu-container">
+                <div class="title-subcategorie text-center mx-2">
+                  <h4>Subcategoría 1</h4>
+                </div>
+                <hr class="mx-2">
+                <div class="subcategories-container d-flex flex-wrap justify-content-between mx-2">
+
+                  <div class="subcategories-items col-3 mx-2">
+                    <div class="subcategories-title font-weight-bold">
+                      <h5>Título uno</h5>
+                    </div>
+                    <div class="subcategories-list d-flex flex-wrap text-secondary">
+                      <span>sub subcategoría 1</span>
+                      <span>sub subcategoría 2</span>
+                      <span>sub subcategoría 3</span>
+                      <span>sub subcategoría 4</span>
+                    </div>
+                  </div>
+
+                  <div class="subcategories-items col-3 mx-2">
+                    <div class="subcategories-title font-weight-bold w-100">
+                      <h5>Título dos</h5>
+                    </div>
+                    <div class="subcategories-list d-flex flex-wrap text-secondary">
+                      <span>sub subcategoría 1</span>
+                      <span>sub subcategoría 2</span>
+                      <span>sub subcategoría 3</span>
+                      <span>sub subcategoría 4</span>
+                    </div>
+                  </div>
+
+                  <div class="subcategories-items col-3 mx-2">
+                    <div class="subcategories-title font-weight-bold">
+                      <h5>Título tres</h5>
+                    </div>
+                    <div class="subcategories-list d-flex flex-wrap text-secondary">
+                      <span>sub subcategoría 1</span>
+                      <span>sub subcategoría 2</span>
+                      <span>sub subcategoría 3</span>
+                      <span>sub subcategoría 4</span>
+                    </div>
+                  </div>
+
+                  <div class="subcategories-items col-3 mx-2">
+                    <div class="subcategories-title font-weight-bold">
+                      <h5>Título cuatro</h5>
+                    </div>
+                    <div class="subcategories-list d-flex flex-wrap text-secondary">
+                      <span>sub subcategoría 1</span>
+                      <span>sub subcategoría 2</span>
+                      <span>sub subcategoría 3</span>
+                      <span>sub subcategoría 4</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <!--Shopping car-->
-  <div class="shopping-car">
+
+    <!--Search bar-->
+    <div class="search-bar col-7 d-flex align-items-center">
+      <div class="input-group">
+        <form action="/search" method="GET" class="d-flex w-100">
+          <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+            aria-describedby="search-btn">
+          <div class="input-group-append">
+            <button class="search-btn btn btn-outline-secondary" type="submit" id="search-btn">
+              <%= show_svg('search.svg') %>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--Shopping car-->
+    <div class="shopping-car">
       <a href="/cart">
         <%= show_svg('cart.svg') %>
       </a>
-  </div>
-
-  <!-- desktop only -->
-    <div class="notification-bell d-none d-lg-block">
-      <%=show_svg('notification-bell.svg')%>
     </div>
 
-    <div class="profile-menu d-none d-lg-block">
-      <div class="profile-photo"></div>
-      <div class="My-profile">My profile</div>
+    <!-- desktop only -->
+
+    <div class="dropdown notification-bell d-none d-lg-block">
+      <div class="dropdown" id="dropdownNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span><%=show_svg('notification-bell.svg')%></span>
+      </div>
+      <div class="dropdown-menu" aria-labelledby="dropdownNotification">
+        <div class="mt-2 ml-3">Notificaciones</div>
+        <hr class="mb-0">
+        
+        <%=link_to '/notifications', class: :'text-decoration-none' do%>
+          <div class='dropdown-item w-100 px-3 text-secondary text-wrap py-3 notification-item d-flex align-items-center'>
+            <div class="profile-photo d-none d-lg-flex ">
+              <!--When paperclip will be installed the name 'default' should change for :thumb'-->
+              <%= image_tag('default.png', size: "35x35", class: "rounded-circle bg-dark", alt: "Default user image")%>
+            </div>
+            <div class="ml-3">
+              <span class="font-weight-bold">Orlando sotelo de grupo gin</span>
+              <span>
+                Le interesa un producto y te ha enviado mensaje.
+              </span>
+            </div>
+          </div>
+
+          <div class='dropdown-item w-100 px-3 text-secondary text-wrap py-3 notification-item d-flex align-items-center'>
+              <div class="profile-photo d-none  d-lg-flex ">
+                <!--When paperclip will be installed the name 'default' should change for :thumb'-->
+                <%= image_tag('default.png', size: "35x35", class: "rounded-circle bg-dark")%>
+              </div>
+              <div class="ml-3">
+                <span class="font-weight-bold">Orlando sotelo de grupo gin</span>
+                <span>
+                  Le interesa un producto y te ha enviado mensaje.
+                </span>
+              </div>
+            </div>
+        <%end%>
+
+        <hr class="mt-0">
+        <div class="text-center">
+          <a href="/notifications">Ver todo</a>
+        </div>
+      </div>
     </div>
-    
-    <!-- burguer menu only mobile -->
-    <div class="menu-mobile d-lg-none">
-      <%= show_svg('burguer-menu.svg') %>
+
+
+    <div class="profile-menu d-lg-flex align-items-center">
+      <div class="profile-photo d-none  d-lg-flex ">
+        <!--When paperclip will be installed the name 'default' should change for :thumb'-->
+        <%= image_tag('default.png', size: "45x45", class: "rounded-circle bg-dark")%>
+      </div>
+
+      <div class="dropdown">
+        <span class="my-profile d-none d-lg-flex align-items-center ml-2 dropdown-toggle" id="dropdownUserMenu" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Mi perfil
+        </span>
+
+        <span class="dropdown d-block d-lg-none" id="dropdownUserMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= show_svg('burguer-menu.svg') %>
+        </span>
+
+        <div class="dropdown-menu menu-profile dropdown-menu-right px-1" aria-labelledby="dropdownUserMenu">
+          <div class="text-center d-block d-flex justify-content-between px-2">
+            <div class="profile-photo d-block d-lg-none ">
+              <!--When paperclip will be installed the name 'default' should change for :thumb'-->
+              <%= image_tag('default.png', size: "25x25", class: "rounded-circle bg-dark")%>
+            </div>
+            <span>Hola, user</span>
+            <a href="/notifications">
+              <span class="d-block d-lg-none"><img src=<%=asset_path('notification-bell.svg')%> height="23" width="23" alt=""></span>
+            </a>
+          </div>
+          <hr>
+          <div>
+            <a class="dropdown-item" href="/users/edit">
+              <img src=<%=asset_path('user_circle.svg')%> alt="">
+              <span class="ml-2">Mi cuenta</span>
+            </a>
+            <a class="dropdown-item" href="/my-order">
+              <img src=<%=asset_path('my_order.svg')%> alt="">
+              <span class="ml-2">Mi orden</span>
+            </a>
+            <a class="dropdown-item" href="/sell">
+              <img src=<%=asset_path('money_circle.svg')%> alt="">
+              <span class="ml-2">Vender</span>
+            </a>
+            <a class="dropdown-item" href="/purchases">
+              <img src=<%=asset_path('shopping_bag.svg')%> alt="">
+              <span class="ml-2">Compras</span>
+            </a>
+            <a class="dropdown-item d-block d-lg-none" href="/categories">
+              <img src=<%=asset_path('categories.svg')%> alt="">
+              <span class="ml-2">Categorias</span>
+            </a>
+            <%= link_to '/users/sign_out', 'data-no-turbolink'=>true, method: :delete,class: :"dropdown-item d-flex" do%>
+              <div class="salir-svg">
+                <%= show_svg('log_out.svg')%>
+              </div>
+              <span class="ml-3">Salir</span>
+            <%end%>
+            <a class="dropdown-item" href="/help">
+              <img src=<%=asset_path('help_circle.svg')%> alt="">
+              <span class="ml-2">Ayuda</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-</nav>
+  </nav>
+</div>
