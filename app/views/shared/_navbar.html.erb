@@ -87,7 +87,11 @@
           <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-btn">
           <div class="input-group-append">
             <button class="search-btn btn btn-outline-secondary" type="submit" id="search-btn">
+<<<<<<< HEAD
               <%= show_svg('search.svg') %>
+=======
+              <img src=<%=asset_path('search.svg')%> alt="search icon">
+>>>>>>> 777d3c8... Delete helper for icons svg
             </button>
           </div>
         </form>
@@ -97,7 +101,11 @@
     <!--Shopping car-->
     <div class="shopping-car">
       <a href="/cart">
+<<<<<<< HEAD
         <%= show_svg('cart.svg') %>
+=======
+        <img src=<%=asset_path('cart.svg')%> alt="cart icon">
+>>>>>>> 777d3c8... Delete helper for icons svg
       </a>
     </div>
 
@@ -105,7 +113,11 @@
 
     <div class="dropdown notification-bell d-none d-lg-block">
       <div class="dropdown" id="dropdownNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<<<<<<< HEAD
         <span><%=show_svg('notification-bell.svg')%></span>
+=======
+        <span><img src=<%=asset_path('notification-bell.svg')%> height="23" width="23" alt="Notification bell icon"></span>
+>>>>>>> 777d3c8... Delete helper for icons svg
       </div>
       <div class="dropdown-menu" aria-labelledby="dropdownNotification">
         <div class="mt-2 ml-3">Notificaciones</div>
@@ -126,17 +138,17 @@
           </div>
 
           <div class='dropdown-item w-100 px-3 text-secondary text-wrap py-3 notification-item d-flex align-items-center'>
-              <div class="profile-photo d-none  d-lg-flex ">
-                <!--When paperclip will be installed the name 'default' should change for :thumb'-->
-                <%= image_tag('default.png', size: "35x35", class: "rounded-circle bg-dark")%>
-              </div>
-              <div class="ml-3">
-                <span class="font-weight-bold">Orlando sotelo de grupo gin</span>
-                <span>
-                  Le interesa un producto y te ha enviado mensaje.
-                </span>
-              </div>
+            <div class="profile-photo d-none  d-lg-flex ">
+              <!--When paperclip will be installed the name 'default' should change for :thumb'-->
+              <%= image_tag('default.png', size: "35x35", class: "rounded-circle bg-dark")%>
             </div>
+            <div class="ml-3">
+              <span class="font-weight-bold">Orlando sotelo de grupo gin</span>
+              <span>
+                Le interesa un producto y te ha enviado mensaje.
+              </span>
+            </div>
+          </div>
         <%end%>
 
         <hr class="mt-0">
@@ -158,9 +170,9 @@
           aria-expanded="false">
           Mi perfil
         </span>
-
+        
         <span class="dropdown d-block d-lg-none" id="dropdownUserMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= show_svg('burguer-menu.svg') %>
+          <img src=<%=asset_path('burger_menu.svg')%> alt="">
         </span>
 
         <div class="dropdown-menu menu-profile dropdown-menu-right px-1" aria-labelledby="dropdownUserMenu">
@@ -198,7 +210,7 @@
             </a>
             <%= link_to '/users/sign_out', 'data-no-turbolink'=>true, method: :delete,class: :"dropdown-item d-flex" do%>
               <div class="salir-svg">
-                <%= show_svg('log_out.svg')%>
+                <img src=<%=asset_path('log_out.svg')%> alt="">
               </div>
               <span class="ml-3">Salir</span>
             <%end%>
