@@ -1,3 +1,11 @@
+.banner-homepage-info {
+  font-size: 30px;
+
+  @media screen and (min-width: 720px) {
+    font-size: 50px;
+  }
+}
+
 .banner-homepage-offer {
   font-size: 30px;
 
