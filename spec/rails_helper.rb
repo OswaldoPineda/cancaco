@@ -1,7 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 require 'factory_bot'
-require 'capybara/rails'
+require 'capybara'
 require 'capybara/rspec'
 
 ENV['RAILS_ENV'] ||= 'test'
