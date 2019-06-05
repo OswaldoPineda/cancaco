@@ -2,6 +2,13 @@
 <%= render partial: "shared/banner-offer" %>
 <%= render partial: "shared/slider" %>
 <%= render partial: "shared/banner-info" %>
+<div class="bg-secondary my-5 py-4">
+  <div class="d-flex justify-content-around flex-wrap container">
+    <%= render partial: "shared/offercards", locals: {image: "http://lorempixel.com/225/225/fashion/"} %>
+    <%= render partial: "shared/offercards", locals: {image: "http://lorempixel.com/225/225/technics/"} %>
+  </div>
+  <%= render partial: "shared/offercards_banner", locals: {image: "http://lorempixel.com/400/225/food/"} %>
+</div>
 
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
