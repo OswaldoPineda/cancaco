@@ -7,6 +7,8 @@ ruby '2.6.3'
 gem 'bootsnap', '>= 1.1.0', require: false
 # bootstrap sass for styles
 gem 'bootstrap', '~> 4.3.1'
+# Devise
+gem 'devise'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Jquery for bootstrap
