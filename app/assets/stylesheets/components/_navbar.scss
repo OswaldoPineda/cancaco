@@ -1,0 +1,60 @@
+.navbar {
+  background-color: #fff;
+  margin-top: 4%; 
+  
+  .dropdown-menu {
+    margin-top: 27px;
+  }
+
+  .categories-menu {
+    width: 185px;
+  }
+
+  .categories-menu > a {
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .menu-profile {
+    margin-right: -17px;
+    width: 200px;
+  }
+
+  .dropdown:hover {
+    cursor: pointer;
+  }
+
+  .subdropdown-categories:hover > .submenu-categories {
+    cursor: default;
+    display: block;
+  }
+
+  .submenu-categories {
+    margin-left: 0;
+    margin-top: -9px;
+    width: 700px;
+  }
+
+  .subcategories-items {
+    margin-top: 20px;
+  }
+
+  .notification-bell > .dropdown-menu {
+    left: -126px;
+    width: 300px;
+  }
+
+  .notification-item > a:hover {
+    text-decoration: none;
+  }
+
+  .salir-svg {
+    img {
+      margin-left: -2px;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    margin-top: 50px;
+  }
+
+}

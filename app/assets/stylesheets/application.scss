@@ -12,9 +12,8 @@
  *
  */
  @import "bootstrap";
- @import 'components/slider';
- @import "layouts/_sign-up"
- @import "layouts/_sign-up";
+ @import "components/navbar";
  @import "components/banners-homepage";
+ @import "components/slider";
  @import "components/_footer";
- 
+ @import "layouts/_sign-up";
