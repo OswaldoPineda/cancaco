@@ -77,7 +77,6 @@ jobs:
             bundle exec rspec --seed $RAND_SEED \
                               --format progress \
                               --format RspecJunitFormatter \
-                              --format LookOut::RSpec::LookOutFormatter \
                               --out test_results/rspec.xml \
                               $TEST_FILES
       - store_test_results:
