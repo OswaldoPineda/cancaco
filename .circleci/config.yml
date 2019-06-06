@@ -1,0 +1,92 @@
+version: 2.1
+executors:
+  meundies_executor:
+    docker:
+      - image: circleci/ruby:2.6.3-node-browsers
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          PGHOST: 127.0.0.1
+          PGUSER: canaco-b2b_test_user
+          RAILS_ENV: test
+      - image: circleci/postgres:9.5-alpine
+        environment:
+          POSTGRES_USER: canaco-b2b_test_user
+          POSTGRES_DB: canaco-b2b_test_db
+          POSTGRES_PASSWORD: ''
+
+commands:
+  bundle:
+    description: 'Install and cache gems'
+    steps:
+      - run: bundle -v || gem install bundler
+      - restore_cache:
+          keys:
+            - canaco-b2b-bundle-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+
+      - run: bundle check || bundle install
+      - save_cache:
+          key: canaco-b2b-bundle-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+  yarn:
+    description: 'Install and cache node packages'
+    steps:
+      - restore_cache:
+          keys:
+            - canaco-b2b-yarn-{{ checksum "yarn.lock" }}
+            - canaco-b2b-yarn-
+      - run:
+          name: Yarn Install
+          command: |
+            yarn install --cache-folder ~/.cache/yarn
+      - save_cache:
+          key: canaco-b2b-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - .cache/yarn
+  prepare_db:
+    description: 'Setup database'
+    steps:
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Database setup
+          command: |
+            bin/rails db:create --trace
+            bin/rails db:schema:load --trace
+
+jobs:
+  rspec:
+    executor: canaco-b2b_executor
+    parallelism: 1
+    steps:
+      - checkout
+      - bundle
+      - yarn
+      - prepare_db
+      - run:
+          name: Run rspec in parallel
+          command: |
+            export TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+            export RAND_SEED=`ruby -e"print rand(0xFFFF)"`
+            echo bin/rspec --seed $RAND_SEED $TEST_FILES
+            mkdir /tmp/test-results
+            bundle exec rspec --seed $RAND_SEED \
+                              --format progress \
+                              --format RspecJunitFormatter \
+                              --format LookOut::RSpec::LookOutFormatter \
+                              --out test_results/rspec.xml \
+                              $TEST_FILES
+      - store_test_results:
+          path: test_results
+
+
+
+workflows:
+  version: 2
+  build_rspec_cypress:
+    jobs:
+      - rspec
