@@ -1,4 +1,3 @@
-
 <div class="p-5 background-image-container" style=" background-image: url(<%= asset_path 'CANACO.svg' %>)">
 </div>
 <div class="bg-light border-top">
@@ -48,7 +47,7 @@
               <%= address_fields.label :"Estado*" %>
               <%= address_fields.text_field :state, autocomplete: "state", class: "form-control", id: "state" %>
               <%= address_fields.label :"Colonia*" %>
-              <%= address_fields.text_field :neighborhood, autocomplete: "neighborhood", class: "form-control" %>
+              <%= address_fields.select :neighborhood, options_for_select(['No hay codigo postal']),{}, {class: "form-control", id: "neighborhood"} %>
               <%= address_fields.label :"Calle*" %>
               <%= address_fields.text_field :street, autocomplete: "street", class: "form-control" %>
               <div class="row">

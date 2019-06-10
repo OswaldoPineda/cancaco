@@ -9,6 +9,10 @@ window.Canaco.Signup = {
           success: function(response){
             $("#city").val(response.municipio);
             $("#state").val(response.estado);
+            $('#neighborhood').empty();
+            $.each(response.colonias, function(key, value){
+              $('#neighborhood').append('<option value=' + key + '>' + value + '</option>');
+            });
           }
       });
     });
