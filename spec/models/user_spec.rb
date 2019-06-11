@@ -16,4 +16,24 @@ RSpec.describe User, type: :model do
   describe 'Validates association' do
     it { should have_one(:company) }
   end
+
+  context 'validates email format' do
+    let(:user) { create(:user, email: email) }
+
+    context 'with invalid email' do
+      let(:email) { 'invalid' }
+
+      it 'throws an exception' do
+        expect{ user.save! }.to raise_error("La validación falló: Correo es inválido")
+      end
+    end
+
+    context 'with valid email' do
+      let(:email) { 'valid-email@example.com' }
+
+      it 'creates the user' do
+        expect(user.save!).to eq(true)
+      end
+    end
+  end
 end
