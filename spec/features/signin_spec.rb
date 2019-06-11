@@ -11,6 +11,7 @@ RSpec.feature 'Sign Up', type: :feature do
   end
 
   scenario 'Sign in with valid user' do
+    user.confirm
     fill_in 'user[email]', with: user.email
     fill_in 'user[password]', with: user.password
     click_on 'Iniciar sesión'

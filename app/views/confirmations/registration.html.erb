@@ -1,0 +1,11 @@
+<div class="container col-10 col-md-8 col-lg-6 my-5 border rounded py-5">
+  <div class="text-center">
+    <div class="my-1">
+      <%= image_tag 'canaco-logo.jpg', size: '120x110' %>
+    </div>
+    <h2>¡Confirma tu correo electrónico!</h2>
+    <p class="mb-0 text-secondary">¡Gracias por unirte! acabamos de enviarte un mensaje</p>
+    <p class="mb-0 text-secondary">de confirmación a: <strong><%= @user.email %></strong></p>
+    <%= link_to 'Volver al inicio', root_path, class: "btn btn-lg bg-secondary text-white mt-5 px-md-5" %>
+  </div>
+</div>
