@@ -7,6 +7,9 @@
     { "url": "heroku/nodejs" },
     { "url": "heroku/ruby" }
   ],
+  "scripts": {
+    "postdeploy": "pg_dump $STAGING_DATABASE_URL | psql $DATABASE_URL"
+  },
   "env": {
     "LANG": { "required": true },
     "RACK_ENV": { "required": true },
