@@ -36,7 +36,6 @@ RSpec.feature 'Navbar', type: :feature do
     expect(page).to have_content('Mi orden')
     expect(page).to have_content('Vender')
     expect(page).to have_content('Compras')
-    expect(page).to have_content('Salir')
     expect(page).to have_content('Ayuda')
   end
 end
