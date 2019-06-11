@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature 'Navbar', type: :feature do
-  before do 
+  before do
     visit '/'
   end
 
   scenario 'logo canaco' do
     find(:xpath, "//div[@class='logo']").click
-    expect(current_path).to eq(root_path) 
+    expect(current_path).to eq(root_path)
   end
 
   scenario 'click on characteristics dropdown' do
@@ -17,11 +17,11 @@ RSpec.feature 'Navbar', type: :feature do
 
   scenario 'search in searchbar' do
     fill_in "Search",	with: "this is a simple search."
-    find(:xpath, "//button[@id='search-btn']") 
+    find(:xpath, "//button[@id='search-btn']")
   end
 
   scenario 'shopping cart' do
-    find(:xpath, "//a[@href='/cart']") 
+    find(:xpath, "//a[@href='/cart']")
   end
 
   scenario 'notification bell dropdown' do
