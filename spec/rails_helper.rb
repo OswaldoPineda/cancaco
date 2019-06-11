@@ -41,6 +41,10 @@ RSpec.configure do |config|
   # Config factory bot
   config.include FactoryBot::Syntax::Methods
 
+  # Include devise helpers for integration test
+  config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
