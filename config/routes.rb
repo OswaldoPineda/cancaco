@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   # Root path
   root to: 'home#index'
+
+  get '/users/account_options', to: 'account#index'
 end
