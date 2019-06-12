@@ -3,7 +3,7 @@
   "private": true,
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && bundle exec rspec --format=documentation spec"
     }
   },
   "lint-staged": {
