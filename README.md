@@ -1,24 +1,22 @@
-# README
+# CANACO B2B
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Development Started
 
-Things you may want to cover:
+TODO: Add steps to start the project in local
 
-* Ruby version
 
-* System dependencies
+### Running Tests
 
-* Configuration
+```
+bundle exec rake
+```
+### Linters Included:
 
-* Database creation
+- Rubocop
+- erblint
 
-* Database initialization
+### Running Linters
 
-* How to run the test suite
+Install Husky to run linters before each commit by doing `yarn install`.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
