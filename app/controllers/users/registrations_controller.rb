@@ -2,10 +2,10 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   def new
-  super
+    super
   end
 
   def create
-  super
+    super
   end
 end

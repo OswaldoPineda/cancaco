@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.feature 'Sign Up', type: :feature do
   given(:user) { FactoryBot.create(:user) }
-  
+
   background do
     visit root_path
     visit new_user_session_path

@@ -18,19 +18,19 @@ RSpec.feature 'Sign Up', type: :feature do
     fill_in 'user[password]', with: '123456'
     fill_in 'user[password_confirmation]', with: '123456'
     fill_company_fields([
-                          affiliation: '123456789',
-                          name: 'Magmalabs',
-                          phone: '1234567',
-                          cellphone: '1234567890'
-                        ])
+      affiliation: '123456789',
+      name: 'Magmalabs',
+      phone: '1234567',
+      cellphone: '1234567890'
+    ])
     fill_address_fields([
-                          zip_code: '29000',
-                          city: 'Colima',
-                          state: 'Colima',
-                          neighborhood: 'Centro',
-                          street: 'Aldama',
-                          outdoor_number: '123'
-                        ])
+      zip_code: '29000',
+      city: 'Colima',
+      state: 'Colima',
+      neighborhood: 'Centro',
+      street: 'Aldama',
+      outdoor_number: '123'
+    ])
     click_on 'Crear tu cuenta'
     expect(current_path).not_to eq(new_user_registration_path)
   end
@@ -42,19 +42,19 @@ RSpec.feature 'Sign Up', type: :feature do
     fill_in 'user[password]', with: '123456'
     fill_in 'user[password_confirmation]', with: '123456'
     fill_company_fields([
-                          affiliation: '123456789',
-                          name: 'Magmalabs',
-                          phone: '1234567',
-                          cellphone: '1234567890'
-                        ])
+      affiliation: '123456789',
+      name: 'Magmalabs',
+      phone: '1234567',
+      cellphone: '1234567890'
+    ])
     fill_address_fields([
-                          zip_code: '29000',
-                          city: 'Colima',
-                          state: 'Colima',
-                          neighborhood: 'Centro',
-                          street: 'Aldama',
-                          outdoor_number: '123'
-                        ])
+      zip_code: '29000',
+      city: 'Colima',
+      state: 'Colima',
+      neighborhood: 'Centro',
+      street: 'Aldama',
+      outdoor_number: '123'
+    ])
     expect(current_path).to eq(new_user_registration_path)
   end
 
@@ -65,19 +65,19 @@ RSpec.feature 'Sign Up', type: :feature do
     fill_in 'user[password]', with: '1234'
     fill_in 'user[password_confirmation]', with: '1234'
     fill_company_fields([
-                          affiliation: '123456789',
-                          name: 'Magmalabs',
-                          phone: '1234567',
-                          cellphone: '1234567890'
-                        ])
+      affiliation: '123456789',
+      name: 'Magmalabs',
+      phone: '1234567',
+      cellphone: '1234567890'
+    ])
     fill_address_fields([
-                          zip_code: '29000',
-                          city: 'Colima',
-                          state: 'Colima',
-                          neighborhood: 'Centro',
-                          street: 'Aldama',
-                          outdoor_number: '123'
-                        ])
+      zip_code: '29000',
+      city: 'Colima',
+      state: 'Colima',
+      neighborhood: 'Centro',
+      street: 'Aldama',
+      outdoor_number: '123'
+    ])
     expect(current_path).to eq(new_user_registration_path)
   end
 
@@ -88,19 +88,19 @@ RSpec.feature 'Sign Up', type: :feature do
     fill_in 'user[password]', with: '123456'
     fill_in 'user[password_confirmation]', with: '1234567'
     fill_company_fields([
-                          affiliation: '123456789',
-                          name: 'Magmalabs',
-                          phone: '1234567',
-                          cellphone: '1234567890'
-                        ])
+      affiliation: '123456789',
+      name: 'Magmalabs',
+      phone: '1234567',
+      cellphone: '1234567890'
+    ])
     fill_address_fields([
-                          zip_code: '29000',
-                          city: 'Colima',
-                          state: 'Colima',
-                          neighborhood: 'Centro',
-                          street: 'Aldama',
-                          outdoor_number: '123'
-                        ])
+      zip_code: '29000',
+      city: 'Colima',
+      state: 'Colima',
+      neighborhood: 'Centro',
+      street: 'Aldama',
+      outdoor_number: '123'
+    ])
     expect(current_path).to eq(new_user_registration_path)
   end
 
