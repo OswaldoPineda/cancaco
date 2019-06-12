@@ -1,0 +1,46 @@
+---
+linters:
+  FinalNewline:
+    enabled: true
+  Rubocop:
+    enabled: true
+    rubocop_config:
+      inherit_from:
+        - .rubocop.yml
+      Layout/InitialIndentation:
+        Enabled: false
+      Layout/TrailingBlankLines:
+        Enabled: false
+      Style/FrozenStringLiteralComment:
+        Enabled: false
+  RightTrim:
+    enabled: true
+    # enforced_style: '-'
+  SpaceAroundErbTag:
+    enabled: true
+  SelfClosingTag:
+    enabled: true
+  ErbSafety:
+    enabled: false
+    better_html_config: .better-html.yml
+  NoJavascriptTagHelper:
+    enabled: true
+  AllowedScriptType:
+    enabled: true
+    allowed_types:
+      - 'application/json'
+      - 'text/javascript'
+      - 'text/html'
+      - 'text/template'
+    allow_blank: false
+    disallow_inline_scripts: false
+
+  # Following rules should be enabled and/or implemented as needed
+  DeprecatedClasses:
+    enabled: false
+    # exclude:
+    #   - 'app/views/shared/deprecated/**'
+    # addendum: "See UX wiki for help."
+    # rule_set:
+    #   - deprecated: ['badge[-_\w]*']
+    #
