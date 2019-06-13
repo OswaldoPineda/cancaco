@@ -9,6 +9,10 @@
   "lint-staged": {
     "*.{rb,rake,jbuilder}": [
       "bundle exec rubocop --force-exclusion"
+    ],
+    "*.html.erb": [
+      "bundle exec erblint --autocorrect",
+      "git add"
     ]
   },
   "devDependencies": {
