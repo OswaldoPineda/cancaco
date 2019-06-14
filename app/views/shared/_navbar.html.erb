@@ -4,7 +4,7 @@
     <nav class="navbar col-lg-11 d-flex align-items-center">
       <!--Main logo-->
       <div class="logo">
-        <a href="/">
+        <a href="/" data-turbolinks="false">
           <img src="<%= asset_path('canaco-logo.jpg') %>" alt="CANACO-logo" height="60px" />
         </a>
       </div>
@@ -17,67 +17,38 @@
             Categorías
           </span>
           <div class="dropdown-menu categories-menu" aria-labelledby="dropdownCategories">
-            <div class="dropright subdropdown-categories"><a class="dropdown-item dropdown-toggle">Categoría 1</a>
-
-              <div class="dropdown-menu submenu-categories py-2">
-                <div class="submenu-container">
-                  <div class="title-subcategorie text-center mx-2">
-                    <h4>Subcategoría 1</h4>
-                  </div>
-                  <hr class="mx-2" />
-                  <div class="subcategories-container d-flex flex-wrap justify-content-between mx-2">
-
-                    <div class="subcategories-items col-3 mx-2">
-                      <div class="subcategories-title font-weight-bold">
-                        <h5>Título uno</h5>
-                      </div>
-                      <div class="subcategories-list d-flex flex-wrap text-secondary">
-                        <span>sub subcategoría 1</span>
-                        <span>sub subcategoría 2</span>
-                        <span>sub subcategoría 3</span>
-                        <span>sub subcategoría 4</span>
-                      </div>
-                    </div>
-
-                    <div class="subcategories-items col-3 mx-2">
-                      <div class="subcategories-title font-weight-bold w-100">
-                        <h5>Título dos</h5>
-                      </div>
-                      <div class="subcategories-list d-flex flex-wrap text-secondary">
-                        <span>sub subcategoría 1</span>
-                        <span>sub subcategoría 2</span>
-                        <span>sub subcategoría 3</span>
-                        <span>sub subcategoría 4</span>
+            <% Category.all.each do |category| %>
+              <div class="droprignt subdropdown-categories">
+                <div class="dropdown-submenu">
+                  <% if category.subcategories.size == 0 %>
+                    <a href="/categories/<%= category.title %>" class="dropdown-item"><%= category.title %></a>
+                  <% else %>
+                    <a class="dropdown-item dropdown-toggle"><%= category.title %></a>
+                    <div class="dropdown-menu submenu-categories py-2">
+                      <div class="submenu-container">
+                        <div class="title-subcategorie text-center mx-2">
+                          <a href="/categories/<%= category.title %>" class="text-decoration-none text-info">
+                            <h4><%= category.title %></h4>
+                          </a>
+                        </div>
+                        <hr class="mx-2" />
+                        <div class="subcategories-container d-flex flex-wrap justify-content-between mx-2">
+                          <div class="subcategories-items col-6 mx-2">
+                            <div class="subcategories-list d-flex flex-wrap text-secondary">
+                              <% category.subcategories.all.each do |subcategory| %>
+                                <a href="/subcategories/<%= subcategory.title %>" class="text-muted w-100">
+                                  <%= subcategory.title %>
+                                </a>
+                              <% end %>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-
-                    <div class="subcategories-items col-3 mx-2">
-                      <div class="subcategories-title font-weight-bold">
-                        <h5>Título tres</h5>
-                      </div>
-                      <div class="subcategories-list d-flex flex-wrap text-secondary">
-                        <span>sub subcategoría 1</span>
-                        <span>sub subcategoría 2</span>
-                        <span>sub subcategoría 3</span>
-                        <span>sub subcategoría 4</span>
-                      </div>
-                    </div>
-
-                    <div class="subcategories-items col-3 mx-2">
-                      <div class="subcategories-title font-weight-bold">
-                        <h5>Título cuatro</h5>
-                      </div>
-                      <div class="subcategories-list d-flex flex-wrap text-secondary">
-                        <span>sub subcategoría 1</span>
-                        <span>sub subcategoría 2</span>
-                        <span>sub subcategoría 3</span>
-                        <span>sub subcategoría 4</span>
-                      </div>
-                    </div>
-                  </div>
+                  <% end %>
                 </div>
               </div>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -86,7 +57,7 @@
       <div class="search-bar col-7 d-flex align-items-center">
         <div class="input-group">
           <form action="/search" method="GET" class="d-flex w-100">
-            <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+            <input type="text" class="h-100 form-control" placeholder="Search" aria-label="Search"
               aria-describedby="search-btn" />
             <div class="input-group-append">
               <button class="search-btn btn btn-outline-secondary" type="submit" id="search-btn">

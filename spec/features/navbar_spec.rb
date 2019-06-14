@@ -12,7 +12,7 @@ RSpec.feature 'Navbar', type: :feature do
 
   scenario 'click on characteristics dropdown' do
     find(:xpath, "//span[@id='dropdownCategories']").click
-    expect(page).to have_content('Categoría 1')
+    expect(page).to have_content('Categorías')
   end
 
   scenario 'search in searchbar' do
