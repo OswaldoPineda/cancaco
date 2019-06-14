@@ -34,9 +34,9 @@ categories = {"Tecnología" => [ "Computación",
             }
 
 categories.each do |main_category, subcategory|
-  category = Category.first_or_create(title: main_category)
+  category = Category.find_or_create_by(title: main_category)
 
   subcategory.each do |sub|
-    category.subcategories.first_or_create(title: sub)
+    category.subcategories.find_or_create_by(title: sub)
   end
 end
