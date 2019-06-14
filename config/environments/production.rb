@@ -66,7 +66,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'https://canaco-b2b-production.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: ENV["MAIL_URL_HOST"] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.sendgrid.net',
