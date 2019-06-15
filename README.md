@@ -19,4 +19,7 @@ bundle exec rake
 
 Install Husky to run linters before each commit by doing `yarn install`.
 
+# General Ruby code quality
+We use ruby critic to get a score that shows the quality
 
+`$ rubycritic`
