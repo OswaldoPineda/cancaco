@@ -4,8 +4,6 @@ FactoryBot.define do
     city { 'Colima' }
     state { 'Villa de alvarez' }
     street { 'Aldama' }
-    interiorNumber { '21A' }
-    outdoorNumber { '134' }
     neighborhood { 'Centro' }
     association :company
   end

@@ -29,10 +29,6 @@
             <%= company_fields.text_field :affiliation, autocomplete: "affiliation", class: "form-control" %>
             <%= company_fields.label :"Nombre de la empresa*" %>
             <%= company_fields.text_field :name, autocomplete: Company.name, class: "form-control" %>
-            <%= company_fields.label :"Teléfono fijo*" %>
-            <%= company_fields.text_field :phone, autocomplete: "phone", class: "form-control" %>
-            <%= company_fields.label :"Teléfono móvil" %>
-            <%= company_fields.text_field :cellphone, autocomplete: "cellphone", class: "form-control" %>
           <% end %>
         </div>
         <div class="col-sm-12 col-md"> 
@@ -48,16 +44,6 @@
               <%= address_fields.select :neighborhood, options_for_select(['No hay codigo postal']),{}, {class: "form-control", id: "neighborhood"} %>
               <%= address_fields.label :"Calle*" %>
               <%= address_fields.text_field :street, autocomplete: "street", class: "form-control" %>
-              <div class="row">
-                <div class="col">
-                  <%= address_fields.label :"No exterior*" %>
-                  <%= address_fields.text_field :outdoor_number, autocomplete: "outdoor_number", class: "form-control" %>
-                </div>
-                <div class="col">
-                  <%= address_fields.label :"NO interior*" %>
-                  <%= address_fields.text_field :interior_number, autocomplete: "interior_number", class: "form-control" %>
-                </div>
-              </div>
             <% end %>
           <% end %>
         </div>
