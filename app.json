@@ -1,7 +1,8 @@
 {
   "name": "canaco-b2b",
   "addons": [
-    "heroku-postgresql"
+    "heroku-postgresql",
+    "sendgrid"
   ],
   "buildpacks": [
     { "url": "heroku/nodejs" },
