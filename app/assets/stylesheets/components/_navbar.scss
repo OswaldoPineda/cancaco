@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   height: 200px;
-  
+
   @media only screen and (min-width: 990px) {
     background-position: center;
     background-size: cover;
@@ -21,13 +21,20 @@
     margin-top: 27px;
   }
 
-  .categories-menu {
-    width: 185px;
+  .dropdown-submenu {
+    position: relative;
   }
 
-  .categories-menu > a {
-    padding: 10px 0;
-    text-align: center;
+  .dropdown-submenu a::after {
+    position: absolute;
+    right: 6px;
+    top: .8em;
+    transform: rotate(-90deg);
+  }
+
+  .dropdown-submenu .dropdown-menu {
+    left: 100%;
+    top: 0;
   }
 
   .menu-profile {
@@ -39,19 +46,9 @@
     cursor: pointer;
   }
 
-  .subdropdown-categories:hover > .submenu-categories {
-    cursor: default;
-    display: block;
-  }
-
   .submenu-categories {
-    margin-left: 0;
     margin-top: -9px;
-    width: 700px;
-  }
-
-  .subcategories-items {
-    margin-top: 20px;
+    width: 500px;
   }
 
   .notification-bell > .dropdown-menu {
