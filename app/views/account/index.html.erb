@@ -1,7 +1,7 @@
 <div class="w-100 d-flex justify-content-center">
   <div class="col-11 rounded border my-5 p-5">
     <div class="text-muted mb-5">
-      <h2>Hola <%= current_user.first_name %>!</h2>
+      <h2>Hola <%= current_user.full_name %>!</h2>
     </div>
     <div class="container-fluid px-0 d-flex flex-wrap justify-content-center justify-content-xl-between">
       <%= link_to '/users/edit', name: "MisDatos", class:"px-0 m-2 col-12 col-md-5 col-lg-3 col-xl-2 text-decoration-none border border-dark rounded text-secondary" do %>

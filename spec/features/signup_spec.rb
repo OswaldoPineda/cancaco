@@ -12,7 +12,7 @@ RSpec.feature 'Sign Up', type: :feature do
   end
 
   scenario 'Sign up with valid values' do
-    fill_in 'user[first_name]', with: 'Oswaldo'
+    fill_in 'user[full_name]', with: 'Oswaldo'
     fill_in 'user[last_name]', with: 'Pineda Rivera'
     fill_in 'user[email]', with: 'new@test.com'
     fill_in 'user[password]', with: '123456'
@@ -33,7 +33,7 @@ RSpec.feature 'Sign Up', type: :feature do
   end
 
   scenario 'Sign up with email already taken' do
-    fill_in 'user[first_name]', with: 'Oswaldo'
+    fill_in 'user[full_name]', with: 'Oswaldo Pineda Rivera'
     fill_in 'user[last_name]', with: 'Pineda Rivera'
     fill_in 'user[email]', with: user.email
     fill_in 'user[password]', with: '123456'
@@ -53,7 +53,7 @@ RSpec.feature 'Sign Up', type: :feature do
   end
 
   scenario 'Sign up with a very short password' do
-    fill_in 'user[first_name]', with: 'Oswaldo'
+    fill_in 'user[full_name]', with: 'Oswaldo'
     fill_in 'user[last_name]', with: 'Pineda Rivera'
     fill_in 'user[email]', with: 'new@test.com'
     fill_in 'user[password]', with: '1234'
@@ -73,7 +73,7 @@ RSpec.feature 'Sign Up', type: :feature do
   end
 
   scenario 'Sign up with a within invalid password confirmation' do
-    fill_in 'user[first_name]', with: 'Oswaldo'
+    fill_in 'user[full_name]', with: 'Oswaldo'
     fill_in 'user[last_name]', with: 'Pineda Rivera'
     fill_in 'user[email]', with: 'new@test.com'
     fill_in 'user[password]', with: '123456'
@@ -93,7 +93,7 @@ RSpec.feature 'Sign Up', type: :feature do
   end
 
   scenario 'Sign up with a blank fields' do
-    fill_in 'user[first_name]', with: 'Oswaldo'
+    fill_in 'user[full_name]', with: 'Oswaldo'
     fill_in 'user[last_name]', with: 'Pineda Rivera'
     fill_in 'user[email]', with: 'new@test.com'
     fill_in 'user[password]', with: '123456'
