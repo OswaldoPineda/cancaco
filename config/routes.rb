@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get '/users/account_options', to: 'account#index'
+  get '/purchases', to: 'buy#index'
 end
