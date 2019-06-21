@@ -6,8 +6,6 @@ class User < ApplicationRecord
          :confirmable
   has_one :company, dependent: :destroy
   accepts_nested_attributes_for :company
-  validates :last_name, length: { minimum: 2 }
-  validates :last_name, length: { maximum: 50 }
-  validates :full_name, :last_name, :email, :password, presence: true
+  validates :full_name, :email, :password, presence: true
   validates :email, format: { with: Devise.email_regexp }
 end
