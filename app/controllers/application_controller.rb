@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up,
                                       keys: [:full_name,
-                                             company_attributes: [:affiliation, :name,
+                                             company_attributes: [:affiliation, :name, :category_id,
                                                                   address_attributes: [:zip_code,
                                                                                        :city,
                                                                                        :state,

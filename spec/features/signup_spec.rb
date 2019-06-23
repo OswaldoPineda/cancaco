@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.feature 'Sign Up', type: :feature do
   given(:user) { FactoryBot.create(:user) }
+  given!(:category) { Category.create(title: 'Hogar') }
   given(:company_id) { 'user[company_attributes]' }
   given(:address_id) { 'user[company_attributes][address_attributes]' }
   background do
@@ -99,6 +100,7 @@ RSpec.feature 'Sign Up', type: :feature do
   def fill_company_fields(*params)
     fill_in "#{company_id}[affiliation]", with: params[0][:affiliation]
     fill_in "#{company_id}[name]", with: params[0][:name]
+    find("#user_company_attributes_category_id option[value = '#{category.id}']").select_option
   end
 
   def fill_address_fields(*params)
