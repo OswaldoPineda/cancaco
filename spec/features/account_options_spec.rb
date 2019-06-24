@@ -14,7 +14,7 @@ RSpec.feature 'Account options', type: :feature do
   end
 
   scenario 'User is signed in' do
-    expect(page).to have_content("Hola #{user.full_name}!")
+    expect(page).to have_content("Hola #{user.full_name.split.first}!")
   end
 
   scenario "Click 'mis datos' option" do
