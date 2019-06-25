@@ -9,7 +9,7 @@
         <% else %>
           <div class="d-flex col-xl-4 col-lg-6 col-md-12 justify-content-around">
         <% end %>
-            <%= link_to "/purchases/#{category.id}", class: "text-decoration-none" do %>
+            <%= link_to "/category/#{category.id}", class: "text-decoration-none" do %>
               <div class="d-flex flex-column justify-content-center align-items-center bg-secondary m-2 p-2 border rounded tags">
                 <span class="m-2"><%= image_tag( "categories/#{category.title}.svg", size: '100x100' ) %></span>
                 <span class="text-white m-2"><h4><%= category.title %></h4></span>

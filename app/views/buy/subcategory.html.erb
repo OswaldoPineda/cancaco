@@ -1,0 +1,24 @@
+<div class="container col-11 bg-white py-3 container-subcategories">
+  <div class="row rounded justify-content-center bg-white mx-1 mx-md-5 my-3 border border-dark">
+    <div class="col-12 text-center px-1 py-3 main-title">
+      <p>Elige una subcategoría</p>
+    </div>
+    <div class="col-12 col-md-8 d-flex mt-3 justify-content-center category">
+      <div class="container row rounded bg-secondary justify-content-center mx-3 mx-md-5 mb-2 mb-md-5 pt-2 pt-md-3">
+        <div class="container col-10 d-flex justify-content-center category-image">
+          <img src='<%= asset_path("categories/#{@title}.svg") %>' class="image" alt="Tecnología" />
+        </div>
+        <div class="container col-12 text-center p-1 py-md-3 category-title">
+          <p class="text-white"><%= @title %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 my-3 px-0 pr-md-3 text-center text-md-left subcategories-list">
+      <% @subcategories.each do |subcategory| %>
+        <ul>
+          <li><%= link_to subcategory.title.to_s, "/request/#{subcategory.id}" %><li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

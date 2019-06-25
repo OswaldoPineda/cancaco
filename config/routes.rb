@@ -12,4 +12,5 @@ Rails.application.routes.draw do
 
   get '/users/account_options', to: 'account#index'
   get '/purchases', to: 'buy#index'
+  get '/category/:id', to: 'subcategories#index'
 end
