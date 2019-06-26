@@ -7,10 +7,6 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:password) }
   end
 
-  describe 'Validates association' do
-    it { should have_one(:company) }
-  end
-
   context 'validates email format' do
     let(:user) { create(:user, email: email) }
 
