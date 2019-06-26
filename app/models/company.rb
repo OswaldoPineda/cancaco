@@ -1,6 +1,6 @@
 class Company < ApplicationRecord
-  belongs_to :user
   has_one :address, dependent: :destroy
+  has_one :user, dependent: :destroy
   belongs_to :category, dependent: :destroy
   accepts_nested_attributes_for :address
   validates :affiliation, :name, presence: true

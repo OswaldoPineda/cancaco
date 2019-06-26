@@ -11,7 +11,6 @@ RSpec.describe Company, type: :model do
     it { should validate_length_of(:affiliation).is_equal_to(10) }
   end
   describe 'Validate association' do
-    it { should belong_to(:user) }
     it { should have_one(:address) }
   end
 end
