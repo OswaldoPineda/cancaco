@@ -3,8 +3,12 @@
 class RegistrationsController < Devise::RegistrationsController
   def new
     @categories = Category.all
-    @company = Company.new
-    super
+    build_resource({})
+    set_minimum_password_length
+    resource.build_company
+    resource.company.build_address
+    yield resource if block_given?
+    respond_with resource
   end
 
   def create
@@ -16,5 +20,9 @@ class RegistrationsController < Devise::RegistrationsController
 
   def after_inactive_sign_up_path_for(resource)
     "/confirmations/?user_id=#{resource[:id]}"
+  end
+
+  def set_errors
+    @error_messages = []
   end
 end
