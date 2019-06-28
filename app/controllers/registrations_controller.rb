@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class RegistrationsController < Devise::RegistrationsController
+  before_action :set_errors
+
   def new
     @categories = Category.all
     build_resource({})

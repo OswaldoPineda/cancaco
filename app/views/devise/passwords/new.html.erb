@@ -1,4 +1,5 @@
 <div class="container forgot-password-container col-11 col-md-8 col-lg-5 bg-white border rounded px-5 pb-5 pt-3">
+  <% @error_messages = resource.errors.messages %>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <div class="my-1 d-flex justify-content-center">
       <%= image_tag 'canaco-logo.jpg', size: '120x110' %>
@@ -13,6 +14,9 @@
     <div class="field pb-5">
       <%= f.label "Dirección de correo electrónico" %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      <div class="invalid-feedback">
+        <%= invalid_feedback_message(messages: @error_messages, field: :email) %>
+      </div>
     </div>
     <%= f.submit "Enviar correo", class: "btn btn-block btn-secondary" %>
     <div class="row signup-signin-links d-flex justify-content-between mx-1 py-2">
