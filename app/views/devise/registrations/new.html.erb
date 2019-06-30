@@ -1,5 +1,5 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <% @error_messages = resource.errors.messages %>
   <div class="container border bg-light rounded pt-3 pb-5 px-5 mt-3">
     <div class="row mb-3 mt-1">
       <div class="col text-center">
@@ -10,56 +10,94 @@
     </div>
     <div class="row">
       <div class="col-sm-12 col-md">
-        <%= f.fields_for :company, @company do |company_fields| %>
+        <%= f.fields_for :company do |company_fields| %>
           <%= company_fields.label :"Número de Afiliación*" %>
           <%= company_fields.text_field :affiliation, autocomplete: "affiliation", class: "form-control" %>
+          <div class="invalid-feedback">
+            <%= invalid_feedback_message(messages: @error_messages, field: :"company.affiliation") %>
+          </div>
         <% end %>
         <%= f.label :"Nombre completo*" %>
         <%= f.text_field :full_name, autocomplete: "full_name", class: "form-control" %>
+        <div class="invalid-feedback">
+          <%= invalid_feedback_message(messages: @error_messages, field: :full_name) %>
+        </div>
         <%= f.label :"Correo electrónico*" %>
         <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
-        <%= f.fields_for :company, @company do |company_fields| %>
+        <div class="invalid-feedback">
+          <%= invalid_feedback_message(messages: @error_messages, field: :email) %>
+        </div>
+        <%= f.fields_for :company do |company_fields| %>
           <%= company_fields.label :"Nombre de la empresa*" %>
           <%= company_fields.text_field :name, autocomplete: Company.name, class: "form-control" %>
+          <div class="invalid-feedback">
+            <%= invalid_feedback_message(messages: @error_messages, field: :"company.name") %>
+          </div>
         <% end %>
       </div>
       <div class="col-sm-12 col-md">
-        <%= f.fields_for :company, @company do |company_fields| %>
+        <%= f.fields_for :company do |company_fields| %>
           <%= company_fields.label :"Categoría de la empresa*" %>
           <%= company_fields.select :category_id,
-                                    options_from_collection_for_select(@categories, :id, :title),
-                                    { include_blank: "Selecciona una categoría" },
+                                    options_from_collection_for_select(
+                                      @categories,
+                                      :id,
+                                      :title,
+                                      company_fields.object.category_id
+                                    ),
+                                    {},
                                     class: "form-control" %>
-          <%= company_fields.fields_for :address, Address.new do |address_fields| %>
+          <%= company_fields.fields_for :address do |address_fields| %>
             <%= address_fields.label :"Código postal*" %>
             <%= address_fields.text_field :zip_code,
                                           autocomplete: "zip_code",
                                           class: "form-control",
                                           id: "zip_code" %>
+            <div class="invalid-feedback">
+                <%= invalid_feedback_message(messages: @error_messages, field: :"company.address.zip_code") %>
+            </div>
             <%= address_fields.label :"Ciudad*" %>
             <%= address_fields.text_field :city, autocomplete: "city", class: "form-control", id: "city" %>
+            <div class="invalid-feedback">
+              <%= invalid_feedback_message(messages: @error_messages, field: :"company.address.city") %>
+            </div>
             <%= address_fields.label :"Estado*" %>
             <%= address_fields.text_field :state, autocomplete: "state", class: "form-control", id: "state" %>
+            <div class="invalid-feedback">
+              <%= invalid_feedback_message(messages: @error_messages, field: :"company.address.state") %>
+            </div>
           <% end %>
         <% end %>
       </div>
       <div class="col-sm-12 col-md">
-        <%= f.fields_for :company, @company do |company_fields| %>
-          <%= company_fields.fields_for :address, Address.new do |address_fields| %>
+        <%= f.fields_for :company do |company_fields| %>
+          <%= company_fields.fields_for :address do |address_fields| %>
             <%= address_fields.label :"Colonia*" %>
             <%= address_fields.select :neighborhood,
-                                      options_for_select(['No hay codigo postal']),
+                                      options_for_select(['Debe existir código postal']),
                                       {},
                                       class: "form-control",
                                       id: "neighborhood" %>
+            <div class="invalid-feedback">
+              <%= invalid_feedback_message(messages: @error_messages, field: :"company.address.neighborhood") %>
+            </div>
             <%= address_fields.label :"Calle*" %>
             <%= address_fields.text_field :street, autocomplete: "street", class: "form-control" %>
+            <div class="invalid-feedback">
+              <%= invalid_feedback_message(messages: @error_messages, field: :"company.address.street") %>
+            </div>
           <% end %>
         <% end %>
         <%= f.label :"Contraseña*" %>
         <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+        <div class="invalid-feedback">
+          <%= invalid_feedback_message(messages: @error_messages, field: :password) %>
+        </div>
         <%= f.label :"Confirma tu contraseña*" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        <div class="invalid-feedback">
+          <%= invalid_feedback_message(messages: @error_messages, field: :password_confirmation) %>
+        </div>
         <small class="text-muted">&#9432; La contraseña debe tener al menos 6 caracteres.</small>
       </div>
     </div>

@@ -132,12 +132,12 @@ es:
     format: "%{attribute} %{message}"
     messages:
       accepted: debe ser aceptado
-      blank: no puede estar en blanco
-      confirmation: no coincide
-      empty: no puede estar vacío
-      equal_to: debe ser igual a %{count}
-      even: debe ser un número par
-      exclusion: está reservado
+      blank: Este campo no puede estar en blanco.
+      confirmation: La contraseña no coincide.
+      empty: Este campo no puede estar vacío.
+      equal_to: Debe ser igual a %{count}.
+      even: Debe ser un número par
+      exclusion: Este campo está reservado
       greater_than: debe ser mayor que %{count}
       greater_than_or_equal_to: debe ser mayor o igual que %{count}
       inclusion: no está incluido en la lista
@@ -151,16 +151,16 @@ es:
       other_than: debe ser diferente a %{count}
       present: debe estar en blanco
       required: debe existir
-      taken: ya ha sido tomado
+      taken: Este correo ya ha sido tomado.
       too_long:
-        one: es demasiado largo (máximo 1 carácter)
-        other: es demasiado largo (máximo %{count} caracteres)
+        one: Es demasiado largo (máximo 1 carácter)
+        other: Es demasiado largo (máximo %{count} caracteres)
       too_short:
-        one: es demasiado corto (mínimo 1 carácter)
-        other: es demasiado corto (mínimo %{count} caracteres)
+        one: Es demasiado corto (mínimo 1 carácter)
+        other: Es demasiado corto (mínimo %{count} caracteres)
       wrong_length:
-        one: longitud errónea (debe ser de 1 carácter)
-        other: longitud errónea (debe ser de %{count} caracteres)
+        one: Longitud errónea (debe ser de 1 carácter)
+        other: Longitud errónea (debe ser de %{count} caracteres)
     template:
       body: 'Revise que los siguientes campos sean válidos:'
       header:
