@@ -1,25 +1,58 @@
-<h2>Change your password</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+<div class="container col-10 col-md-8 col-lg-5 bg-light border rounded px-5 pb-5 pt-3">
+  <div class="my-1 d-flex justify-content-center">
+    <%= image_tag 'canaco-logo.jpg', size: '120x110' %>
   </div>
+  <h3 class="col-12 text-center my-3">Crea nueva contraseña</h3>
+  <%= form_for(resource,
+               as: resource_name,
+               url: password_path(resource_name),
+               html: { class: "d-flex flex-column align-items-center", method: :put }) do |f| %>
+    <% @error_messages = resource.errors.messages %>
+    <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <div class="field w-100">
+      <%= f.label :password, "Nueva contraseña" %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control" %>
+      <% if @minimum_password_length %>
+        <%= image_tag 'info_circle.svg', size: '15x15' %>
+        <em>(La contraseña debe ser al menos de <%= @minimum_password_length %> carácteres)</em>
+      <% end %>
+      <div class="invalid-feedback">
+        <%= invalid_feedback_message(messages: @error_messages, field: :password) %>
+      </div>
+    </div><br />
+
+    <div class="field w-100">
+      <%= f.label :password_confirmation, "Confirmar nueva contraseña" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+      <div class="invalid-feedback">
+        <%= invalid_feedback_message(messages: @error_messages, field: :password_confirmation) %>
+      </div><br />
+    </div>
+
+    <div class="actions w-100">
+      <%= f.submit "Cambiar mi contraseña", class: "btn btn-block btn-secondary" %>
+    </div>
+    <div class="d-flex row justify-content-between w-100">
+      <%= link_to "Iniciar Sesión", new_session_path(resource_name) %>
+      <%= link_to "Regístrate", new_registration_path(resource_name) %>
+    </div>
+  <% end %>
+</div>
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 border-top border-dark">
+      <div class="row mt-3 justify-content-around">
+        <a href="#">Condiciones de uso</a>
+        <a href="#">Aviso de privacidad</a>
+        <a href="#">Ayuda</a>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <p class="text-center font-weight-light">&copy; 1990-2019, CANACO o afiliados. Todos los derechos reservados</p>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
