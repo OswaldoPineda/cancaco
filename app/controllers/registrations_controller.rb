@@ -18,6 +18,26 @@ class RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def edit
+    @categories = Category.all
+    @company = Company.new
+    super
+  end
+
+  def update
+    @categories = Category.all
+    @company = Company.new
+    account_update_params = devise_parameter_sanitizer.sanitize(:account_update)
+    resource_updated = resource.update_with_password(account_update_params)
+    if resource_updated
+      set_flash_message :notice, :updated
+      respond_with resource, location: after_update_path_for(resource)
+    else
+      clean_up_passwords resource
+      respond_with resource
+    end
+  end
+
   protected
 
   def after_inactive_sign_up_path_for(resource)
