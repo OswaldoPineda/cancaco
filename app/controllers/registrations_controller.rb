@@ -2,6 +2,7 @@
 
 class RegistrationsController < Devise::RegistrationsController
   before_action :set_errors
+  before_action :load_categories_and_company, only: [:create, :edit, :update]
 
   def new
     @categories = Category.all
@@ -13,20 +14,7 @@ class RegistrationsController < Devise::RegistrationsController
     respond_with resource
   end
 
-  def create
-    @categories = Category.all
-    super
-  end
-
-  def edit
-    @categories = Category.all
-    @company = Company.new
-    super
-  end
-
   def update
-    @categories = Category.all
-    @company = Company.new
     account_update_params = devise_parameter_sanitizer.sanitize(:account_update)
     resource_updated = resource.update_with_password(account_update_params)
     if resource_updated
@@ -39,6 +27,11 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   protected
+
+  def load_categories_and_company
+    @categories = Category.all
+    @company = Company.new
+  end
 
   def after_inactive_sign_up_path_for(resource)
     "/confirmations/?user_id=#{resource[:id]}"
