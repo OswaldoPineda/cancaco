@@ -4,11 +4,11 @@
     <title>CanacoB2b</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <% if content_for? :for_head %>
       <%= yield :for_head %>
     <% end %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -26,11 +26,11 @@
           }
           var $subMenu = $(this).next('.dropdown-menu');
           $subMenu.toggleClass('show');
-  
+
           $(this).parents('div.dropdown.show').on('hidden.bs.dropdown', function(e) {
             $('.dropdown-menu.categories-menu .show').removeClass('show');
           });
-  
+
           return false;
         });
       })
