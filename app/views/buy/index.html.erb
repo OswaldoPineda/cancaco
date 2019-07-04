@@ -1,7 +1,7 @@
 <div class="bg-light">
   <div class='d-flex justify-content-center'>
     <div class="d-flex flex-column align-items-center border rounded mb-2 bg-white col-lg-11">
-      <h1 class="m-4">¿Qué estás buscando?</h1>
+      <h1 class="m-4 title">¿Qué estás buscando?</h1>
       <div class="d-flex row col-xl-10 col-md-12 justify-content-center">
         <% @categories.each do |category| %>
         <% if @categories.size < 9 %>
@@ -10,7 +10,7 @@
           <div class="d-flex col-xl-4 col-lg-6 col-md-12 justify-content-around">
         <% end %>
             <%= link_to "/category/#{category.id}", class: "text-decoration-none" do %>
-              <div class="d-flex flex-column justify-content-center align-items-center bg-secondary m-2 p-2 border rounded tags">
+              <div class="d-flex flex-column justify-content-center align-items-center m-2 p-2 border rounded tags targets-buy-color">
                 <span class="m-2"><%= image_tag( "categories/#{category.title}.svg", size: '100x100' ) %></span>
                 <span class="text-white m-2"><h4><%= category.title %></h4></span>
               </div>

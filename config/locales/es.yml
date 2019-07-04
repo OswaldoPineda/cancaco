@@ -17,6 +17,7 @@ es:
         email: "Correo"
         password: "Contraseña"
         password_confirmation: "Confirma tu contraseña"
+        remember_me: "Recordarme"
       company:
         name: "Nombre de la empresa"
         affiliation: "Número de afiliación"

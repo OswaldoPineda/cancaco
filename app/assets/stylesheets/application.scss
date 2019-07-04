@@ -12,8 +12,9 @@
  *
  */
  @import "bootstrap";
+ @import "utils/variables";
+ @import "components/globals";
  @import "components/navbar";
- @import "components/banners-homepage";
  @import "components/slider";
  @import "components/footer";
  @import "layout/forgot_password";
