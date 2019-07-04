@@ -3,10 +3,10 @@
     <div class="my-1 d-flex justify-content-center">
       <%= image_tag 'canaco-logo.jpg', size: '120x110' %>
     </div>
-    <%= f.label :"Correo electronico" %>
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
     <div class="d-flex">
-      <%= f.label :"Contraseña" %>
+      <%= f.label :password %>
       <%= link_to "¿Olvidaste tu contraseña?",
                   new_password_path(resource_name),
                   class: "ml-auto d-none d-md-block" %><br />

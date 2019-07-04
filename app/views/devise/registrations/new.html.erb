@@ -11,24 +11,24 @@
     <div class="row">
       <div class="col-sm-12 col-md">
         <%= f.fields_for :company do |company_fields| %>
-          <%= company_fields.label :"Número de Afiliación*" %>
+          <%= company_fields.label :"company.affiliation", class: 'required' %>
           <%= company_fields.text_field :affiliation, autocomplete: "affiliation", class: "form-control" %>
           <div class="invalid-feedback">
             <%= invalid_feedback_message(messages: @error_messages, field: :"company.affiliation") %>
           </div>
         <% end %>
-        <%= f.label :"Nombre completo*" %>
+        <%= f.label :full_name, class: 'required' %>
         <%= f.text_field :full_name, autocomplete: "full_name", class: "form-control" %>
         <div class="invalid-feedback">
           <%= invalid_feedback_message(messages: @error_messages, field: :full_name) %>
         </div>
-        <%= f.label :"Correo electrónico*" %>
+        <%= f.label :email, class: 'required' %>
         <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
         <div class="invalid-feedback">
           <%= invalid_feedback_message(messages: @error_messages, field: :email) %>
         </div>
         <%= f.fields_for :company do |company_fields| %>
-          <%= company_fields.label :"Nombre de la empresa*" %>
+          <%= company_fields.label :"company.name", class: 'required' %>
           <%= company_fields.text_field :name, autocomplete: Company.name, class: "form-control" %>
           <div class="invalid-feedback">
             <%= invalid_feedback_message(messages: @error_messages, field: :"company.name") %>
@@ -37,7 +37,7 @@
       </div>
       <div class="col-sm-12 col-md">
         <%= f.fields_for :company do |company_fields| %>
-          <%= company_fields.label :"Categoría de la empresa*" %>
+          <%= company_fields.label :"company.category", class: 'required' %>
           <%= company_fields.select :category_id,
                                     options_from_collection_for_select(
                                       @categories,
@@ -48,7 +48,7 @@
                                     {},
                                     class: "form-control" %>
           <%= company_fields.fields_for :address do |address_fields| %>
-            <%= address_fields.label :"Código postal*" %>
+            <%= address_fields.label :"company.address.zip_code", class: 'required' %>
             <%= address_fields.text_field :zip_code,
                                           autocomplete: "zip_code",
                                           class: "form-control",
@@ -56,12 +56,12 @@
             <div class="invalid-feedback">
                 <%= invalid_feedback_message(messages: @error_messages, field: :"company.address.zip_code") %>
             </div>
-            <%= address_fields.label :"Ciudad*" %>
+            <%= address_fields.label :"company.address.city", class: 'required' %>
             <%= address_fields.text_field :city, autocomplete: "city", class: "form-control", id: "city" %>
             <div class="invalid-feedback">
               <%= invalid_feedback_message(messages: @error_messages, field: :"company.address.city") %>
             </div>
-            <%= address_fields.label :"Estado*" %>
+            <%= address_fields.label :"company.address.state", class: 'required' %>
             <%= address_fields.text_field :state, autocomplete: "state", class: "form-control", id: "state" %>
             <div class="invalid-feedback">
               <%= invalid_feedback_message(messages: @error_messages, field: :"company.address.state") %>
@@ -72,7 +72,7 @@
       <div class="col-sm-12 col-md">
         <%= f.fields_for :company do |company_fields| %>
           <%= company_fields.fields_for :address do |address_fields| %>
-            <%= address_fields.label :"Colonia*" %>
+            <%= address_fields.label :"company.address.neighborhood", class: 'required' %>
             <%= address_fields.select :neighborhood,
                                       options_for_select(['Debe existir código postal']),
                                       {},
@@ -81,19 +81,19 @@
             <div class="invalid-feedback">
               <%= invalid_feedback_message(messages: @error_messages, field: :"company.address.neighborhood") %>
             </div>
-            <%= address_fields.label :"Calle*" %>
+            <%= address_fields.label :"company.address.street", class: 'required' %>
             <%= address_fields.text_field :street, autocomplete: "street", class: "form-control" %>
             <div class="invalid-feedback">
               <%= invalid_feedback_message(messages: @error_messages, field: :"company.address.street") %>
             </div>
           <% end %>
         <% end %>
-        <%= f.label :"Contraseña*" %>
+        <%= f.label :password, class: 'required' %>
         <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
         <div class="invalid-feedback">
           <%= invalid_feedback_message(messages: @error_messages, field: :password) %>
         </div>
-        <%= f.label :"Confirma tu contraseña*" %><br />
+        <%= f.label :password_confirmation, class: 'required' %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
         <div class="invalid-feedback">
           <%= invalid_feedback_message(messages: @error_messages, field: :password_confirmation) %>
