@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :buy, only: :index
   get '/category/:id', to: 'subcategories#index'
   resources :conversation, only: :index
+  resources :petitions, only: [:new, :create]
 end
