@@ -11,6 +11,7 @@ es:
       user: "usuario"
       company: "compañía"
       address: "dirección"
+      petition: "solicitud"
     attributes:
       user:
         full_name: "Nombre completo"
@@ -29,6 +30,12 @@ es:
         state: "Estado"
         neighborhood: "Colonia"
         street: "Calle"
+      petition:
+        title: "Título"
+        description: "Descripción"
+        quantity: "Cantidad"
+        deadline: "Fecha límite"
+        active: "Activo"
   date:
     abbr_day_names:
     - dom
