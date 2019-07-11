@@ -6,4 +6,5 @@ class Company < ApplicationRecord
   validates :affiliation, :name, presence: true
   validates :name, length: { minimum: 2, maximum: 100 }
   validates :affiliation, length: { is: 10 }
+  has_many :notifications, foreign_key: :recipient_id, dependent: :delete_all
 end
