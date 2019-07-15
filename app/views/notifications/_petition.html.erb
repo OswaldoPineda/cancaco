@@ -1,0 +1,14 @@
+<%= link_to '/notifications', class: :'text-decoration-none' do %>
+  <% @user = notification.company.user %>
+  <div class='dropdown-item w-100 px-3 text-secondary text-wrap py-3 notification-item d-flex align-items-center'>
+    <div class="profile-photo d-none d-lg-flex ">
+      <!--When paperclip will be installed the name 'default' should change for :thumb'-->
+      <%= image_tag('default.png', size: "35x35",
+                                   class: "rounded-circle bg-dark", alt: "Default user image") %>
+    </div>
+    <div class="ml-3">
+      <span class="font-weight-bold"><%= @user.full_name %> de <%= notification.company.name %> esta buscando</span>
+      <span><%= notification.action %></span>
+    </div>
+  </div>
+<% end %>
