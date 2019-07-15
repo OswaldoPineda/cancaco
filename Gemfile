@@ -71,6 +71,7 @@ group :test do
   gem 'capybara'
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
+  gem 'rspec-sidekiq'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end

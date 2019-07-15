@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :measure do
-    sequence(:title) { |i| "measure#{i}" }
+    sequence(:name) { |i| "measure#{i}" }
   end
 end

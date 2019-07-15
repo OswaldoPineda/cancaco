@@ -3,6 +3,7 @@ require 'spec_helper'
 require 'factory_bot'
 require 'capybara'
 require 'capybara/rspec'
+require 'sidekiq/testing'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
@@ -40,6 +41,8 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
+  # Config sidekiq for testing
+  config.include ActiveJob::TestHelper
   # Config factory bot
   config.include FactoryBot::Syntax::Methods
 
@@ -80,5 +83,8 @@ RSpec.configure do |config|
       with.test_framework :rspec
       with.library :rails
     end
+  end
+  RSpec::Sidekiq.configure do |config|
+    config.warn_when_jobs_not_processed_by_sidekiq = false
   end
 end
