@@ -1,10 +1,10 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <% @error_messages = resource.errors.messages %>
-  <div class="container border bg-light rounded pt-3 pb-5 px-5 mt-3">
+  <div class="container col-11 col-md-10 border bg-light rounded pt-3 pb-5 px-3 px-md-5 mt-3 mt-md-5 text-form">
     <div class="row mb-3 mt-1">
       <div class="col text-center">
         <p class="my-0">¿Eres afiliado?</p>
-        <h4 class="my-0">Registra tu empresa hoy</h4>
+        <h4 class="my-0 subtitle">Registra tu empresa hoy</h4>
         <p class="my-0 font-weight-light">Comienza a disfrutar de los beneficios</p>
       </div>
     </div>
@@ -93,7 +93,7 @@
         <div class="invalid-feedback">
           <%= invalid_feedback_message(messages: @error_messages, field: :password) %>
         </div>
-        <%= f.label :password_confirmation, class: 'required' %><br />
+        <%= f.label :password_confirmation, class: 'required' %><br>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
         <div class="invalid-feedback">
           <%= invalid_feedback_message(messages: @error_messages, field: :password_confirmation) %>
@@ -106,7 +106,7 @@
         <p class="small text-sm-center text-md-left">Al continuar aceptas las condiciones de uso y el aviso de privacidad de CANACO</p>
       </div>
       <div class="col-xs-12 col-md-4">
-        <%= f.submit "Crear tu cuenta", class: "btn btn-block text-white bg-secondary mt-1" %>
+        <%= f.submit "Crear tu cuenta", class: "btn btn-block text-white primary-button mt-1" %>
       </div>
     </div>
   </div>

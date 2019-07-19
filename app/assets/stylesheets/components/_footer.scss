@@ -1,21 +1,25 @@
 .footer {
-  color: #fff;
+  background-color: $info;
 
-  .paragraph-container {
-    margin: 0 auto;
-    max-width: 360px;
+  a {
+    color: $white;
+    font-family: $roboto;
+    text-decoration: none;
+  }
+
+  .address-container {
+    .logo {
+      .img {
+        height: 3rem;
+
+        @media screen and (min-width: 815px) { height: 4rem; }
+      }
+    }
   }
 
   ul {
     list-style: none;
 
-    li {
-      padding: 7px;
-
-      a {
-        color: #fff;
-        text-decoration: none;
-      }
-    }
+    li { padding: 7px; }
   }
 }

@@ -1,0 +1,116 @@
+.primary-button {
+  background-color: $primary;
+  color: $white;
+  font-size: 1rem;
+
+  @media screen and (min-width: 815px) { font-size: 1.2rem; }
+}
+
+.primary-button:hover {
+  background-color: $secondary;
+  color: $white;
+}
+
+.banners-button {
+  background-color: $primary;
+  color: $white;
+  font-family: $roboto;
+  font-size: 1rem;
+
+  @media screen and (min-width: 1024px) { font-size: 2rem; }
+}
+
+.banners-button:hover {
+  background-color: $secondary;
+  color: $white;
+}
+
+.title {
+  color: $primary;
+  font-family: $roboto;
+  font-size: 2.3rem;
+  font-weight: lighter;
+
+  @media screen and (min-width: 815px) { font-size: 2.8rem; }
+
+  @media screen and (min-width: 1180px) { font-size: 3.8rem; }
+}
+
+.special-info {
+  color: $secondary;
+  font-family: $roboto;
+  font-size: 1.5rem;
+  font-weight: lighter;
+
+  @media screen and (min-width: 815px) { font-size: 2.3rem; }
+
+  @media screen and (min-width: 1180px) { font-size: 3.3rem; }
+}
+
+.info-text {
+  color: $secondary;
+  font-family: $roboto;
+  font-size: 1.3rem;
+  font-weight: lighter;
+
+  @media screen and (min-width: 815px) { font-size: 1.8rem; }
+
+  @media screen and (min-width: 1180px) { font-size: 2.5rem; }
+}
+
+.subtitle {
+  color: $secondary;
+  font-family: $roboto;
+  font-size: 1.5rem;
+  font-weight: lighter;
+
+  @media screen and (min-width: 815px) { font-size: 2rem; }
+
+  @media screen and (min-width: 1180px) { font-size: 2.5rem; }
+}
+
+.paragraph {
+  color: $black;
+  font-family: $roboto;
+  font-size: 1rem;
+  font-weight: lighter;
+
+  @media screen and (min-width: 815px) { font-size: 1.5rem; }
+
+  @media screen and (min-width: 1180px) { font-size: 2rem; }
+}
+
+.navbar-text {
+  color: $white;
+  font-family: $roboto;
+  font-size: 1rem;
+  font-weight: normal;
+
+  @media screen and (min-width: 815px) { font-size: 1.2rem; }
+
+  @media screen and (min-width: 1180px) { font-size: 1.4rem; }
+}
+
+.footer-text {
+  color: $white;
+  font-family: $roboto;
+  font-size: 0.95rem;
+  font-weight: normal;
+
+  @media screen and (min-width: 815px) { font-size: 1rem; }
+
+  @media screen and (min-width: 1180px) { font-size: 1.5rem; }
+}
+
+.banner-color { background-color: $banners; }
+
+.targets-buy-color {
+  background-color: $secondary;
+  color: $white;
+}
+
+.text-form {
+  font-size: 1rem;
+
+  @media screen and (min-width: 815px) { font-size: 1.2rem; }
+}

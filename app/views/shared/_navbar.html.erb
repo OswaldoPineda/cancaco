@@ -1,18 +1,17 @@
-<div class="background-image-container mb-2"
-  style="background-image: url('<%= asset_path 'canaco-letras.png' %>')">
-  <div class="container-nav d-flex position-absolute w-100 justify-content-center">
-    <nav class="navbar col-lg-11 d-flex align-items-center">
+<div class="navbar-container navbar-text pt-0">
+  <div class="d-flex position-absolute w-100 justify-content-center">
+    <nav class="container navbar col-12 d-flex align-items-top px-1 px-md-5">
       <!--Main logo-->
-      <div class="logo">
+      <div class="logo pl-1 pl-md-3 pl-lg-4 pl-xl-5">
         <a href="/" data-turbolinks="false">
-          <img src="<%= asset_path('canaco-logo.jpg') %>" alt="CANACO-logo" height="60px" />
+          <img src="<%= asset_path('navbar-logo.png') %>" alt="CANACO-logo">
         </a>
       </div>
       <!--categories only desktop-->
       <div class="categories d-none d-lg-block">
         <!--Dropdow with a subdropdown-->
         <div class="dropdown">
-          <span class="dropdown-toggle" id="dropdownCategories" data-toggle="dropdown" aria-haspopup="true"
+          <span class="dropdown-toggle text-white" id="dropdownCategories" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             Categorías
           </span>
@@ -31,7 +30,7 @@
                             <h4><%= category.title %></h4>
                           </a>
                         </div>
-                        <hr class="mx-2" />
+                        <hr class="mx-2">
                         <div class="subcategories-container d-flex flex-wrap justify-content-between mx-2">
                           <div class="subcategories-items col-6 mx-2">
                             <div class="subcategories-list d-flex flex-wrap text-secondary">
@@ -54,14 +53,15 @@
       </div>
 
       <!--Search bar-->
-      <div class="search-bar col-7 d-flex align-items-center">
+      <div class="search-bar col-5 d-flex align-items-center">
         <div class="input-group">
           <form action="/search" method="GET" class="d-flex w-100">
-            <input type="text" class="h-100 form-control" placeholder="Search" aria-label="Search"
-              aria-describedby="search-btn" />
+            <input type="text" class="text-truncate h-100 form-control" placeholder="Busca productos, servicios y más..."
+              aria-label="Search"
+              aria-describedby="search-btn">
             <div class="input-group-append">
-              <button class="search-btn btn btn-outline-secondary" type="submit" id="search-btn">
-                <img src="<%= asset_path('search.svg') %>" alt="search icon" />
+              <button class="search-btn btn" type="submit" id="search-btn">
+                <img src="<%= asset_path('search.svg') %>" alt="search icon" width="25" height="25">
               </button>
             </div>
           </form>
@@ -71,7 +71,7 @@
       <!--Shopping car-->
       <div class="shopping-car">
         <a href="/cart">
-          <img src="<%= asset_path('cart.svg') %>" alt="cart icon" />
+          <img src="<%= asset_path('cart.svg') %>" alt="cart icon" width="25" height="25">
         </a>
       </div>
 
@@ -80,12 +80,12 @@
       <div class="dropdown notification-bell d-none d-lg-block">
         <div class="dropdown" id="dropdownNotification" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
-          <span><img src="<%= asset_path('notification-bell.svg') %>" height="23" width="23"
-              alt="Notification bell icon" /></span>
+          <span><img src="<%= asset_path('notification-bell.svg') %>" width="25" height="25"
+              alt="Notification bell icon"></span>
         </div>
         <div class="dropdown-menu" aria-labelledby="dropdownNotification">
           <div class="mt-2 ml-3">Notificaciones</div>
-          <hr class="mb-0" />
+          <hr class="mb-0">
 
           <%= link_to '/notifications', class: :'text-decoration-none' do %>
           <div
@@ -118,7 +118,7 @@
           </div>
           <% end %>
 
-          <hr class="mt-0" />
+          <hr class="mt-0">
           <div class="text-center">
             <a href="/notifications">Ver todo</a>
           </div>
@@ -131,15 +131,15 @@
           <%= image_tag('default.png', size: "45x45", class: "rounded-circle bg-dark") %>
         </div>
 
-        <div class="dropdown">
-          <span class="my-profile d-none d-lg-flex align-items-center ml-2 dropdown-toggle" id="dropdownUserMenu"
+        <div class="dropdown pr-1 pr-md-3 pr-lg-4 pr-xl-5">
+          <span class="my-profile d-none d-lg-flex align-items-center ml-2 dropdown-toggle text-white" id="dropdownUserMenu"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Mi perfil
+            Mi cuenta
           </span>
 
           <span class="dropdown d-block d-lg-none" id="dropdownUserMenu" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            <img src="<%= asset_path('burger_menu.svg') %>" alt="burguer menu icon" />
+            <img src="<%= asset_path('burger-menu.svg') %>" alt="burguer menu icon" width="25" height="25">
           </span>
 
           <div class="dropdown-menu menu-profile pt-0 dropdown-menu-right px-1" aria-labelledby="dropdownUserMenu">
@@ -152,36 +152,36 @@
 
                 <span>Hola, <%= current_user.full_name.split.first %></span>
                 <a href="/notifications">
-                  <span class="d-block d-lg-none"><img src="<%= asset_path('notification-bell.svg') %>" height="23" width="23"
-                      alt="notification-bell icon" /></span>
+                  <span class="d-block d-lg-none"><img src="<%= asset_path('notification-bell.svg') %>" width="25" height="25"
+                      alt="notification-bell icon"></span>
                 </a>
               <% else %>
               <div class="w-100 d-flex justify-content-center">
                 <%= button_to "Identíficate", '/users/sign_in',
-                              method: :get, class: "btn btn-secondary rounded-pill" %>
+                              method: :get, class: "btn primary-button rounded-pill" %>
               </div>
               <% end %>
             </div>
-            <hr class="my-0" />
+            <hr class="my-0">
             <div>
               <a class="dropdown-item" href="/users/account_options">
-                <img src="<%= asset_path('user_circle.svg') %>" alt="user default picture" />
+                <img src="<%= asset_path('user_circle.svg') %>" alt="user default picture">
                 <span class="ml-2">Mi cuenta</span>
               </a>
               <a class="dropdown-item" href="/my-order">
-                <img src="<%= asset_path('my_order.svg') %>" alt="my order icon" />
+                <img src="<%= asset_path('my_order.svg') %>" alt="my order icon">
                 <span class="ml-2">Mi orden</span>
               </a>
               <a class="dropdown-item" href="/sell">
-                <img src="<%= asset_path('money_circle.svg') %>" alt="circle money icon" />
+                <img src="<%= asset_path('money_circle.svg') %>" alt="circle money icon">
                 <span class="ml-2">Vender</span>
               </a>
               <a class="dropdown-item" href="/purchases">
-                <img src="<%= asset_path('shopping_bag.svg') %>" alt="shopping bag icon" />
+                <img src="<%= asset_path('shopping_bag.svg') %>" alt="shopping bag icon">
                 <span class="ml-2">Compras</span>
               </a>
               <a class="dropdown-item d-block d-lg-none" href="/categories">
-                <img src="<%= asset_path('categories.svg') %>" alt="categories icon" />
+                <img src="<%= asset_path('categories.svg') %>" alt="categories icon">
                 <span class="ml-2">Categorias</span>
               </a>
               <% if user_signed_in? %>
@@ -190,13 +190,13 @@
                             method: :delete,
                             class: :"dropdown-item d-flex" do %>
                   <div class="salir-svg">
-                    <img src="<%= asset_path('log_out.svg') %>" alt="log out icon" />
+                    <img src="<%= asset_path('log_out.svg') %>" alt="log out icon">
                   </div>
                   <span class="ml-3">Salir</span>
                 <% end %>
               <% end %>
               <a class="dropdown-item" href="/help">
-                <img src="<%= asset_path('help_circle.svg') %>" alt="help circle icon" />
+                <img src="<%= asset_path('help_circle.svg') %>" alt="help circle icon">
                 <span class="ml-2">Ayuda</span>
               </a>
             </div>

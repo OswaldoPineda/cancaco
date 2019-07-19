@@ -6,7 +6,7 @@ RSpec.feature 'Navbar', type: :feature do
   end
 
   scenario 'logo canaco' do
-    find(:xpath, "//div[@class='logo']").click
+    find(:xpath, "//div[@class='logo pl-1 pl-md-3 pl-lg-4 pl-xl-5']").click
     expect(current_path).to eq(root_path)
   end
 
@@ -16,7 +16,7 @@ RSpec.feature 'Navbar', type: :feature do
   end
 
   scenario 'search in searchbar' do
-    fill_in "Search",	with: "this is a simple search."
+    fill_in "Busca productos, servicios y más...",	with: "this is a simple search."
     find(:xpath, "//button[@id='search-btn']")
   end
 

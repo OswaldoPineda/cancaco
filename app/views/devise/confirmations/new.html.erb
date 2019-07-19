@@ -1,8 +1,12 @@
-<div class="container col-10 col-md-8 col-lg-5 bg-light border rounded px-5 pb-5 pt-3">
+<div class="container col-11 col-md-8 col-lg-5 bg-light border rounded px-3 px-md-5 pb-5 pt-3 mt-3 mt-md-5 text-form">
   <div class="my-1 d-flex justify-content-center">
-    <%= image_tag 'canaco-logo.jpg', size: '120x110' %>
+    <%= image_tag 'canaco-logo.png', size: '160x110' %>
   </div>
-  <h3 class="col-12 text-center my-3">Reenviar confirmación de cuenta</h3>
+  <h3 class="col-12 text-left my-3 px-0 subtitle">Reenviar confirmación de cuenta</h3>
+  <p class="taxt-left text-muted">
+    Te reenviaremos nuevamente un correo con las instrucciones
+    para reestablecer tu contraseña.
+  </p>
   <%= form_for(resource,
                as: resource_name,
                url: confirmation_path(resource_name),
@@ -10,7 +14,7 @@
     <% @error_messages = resource.errors.messages %>
 
     <div class="field w-100">
-      <%= f.label :email %><br />
+      <%= f.label :email %><br>
       <%= f.email_field :email,
                         autofocus: true,
                         autocomplete: "email",
@@ -23,9 +27,9 @@
       </div>
     </div>
 
-    <br />
+    <br>
     <div class="actions w-100">
-      <%= f.submit "Reenviar confirmación", class: "btn btn-block btn-secondary" %>
+      <%= f.submit "Reenviar confirmación", class: "btn btn-block primary-button" %>
     </div>
     <div class="row justify-content-between w-100">
       <%= link_to "Iniciar Sesión", new_session_path(resource_name) %>

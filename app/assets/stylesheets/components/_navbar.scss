@@ -1,21 +1,24 @@
-.background-image-container {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 200px;
+.navbar-container {
+  background-color: $white;
+  height: 70px;
 
-  @media only screen and (min-width: 990px) {
-    background-position: center;
-    background-size: cover;
-    height: 250px;
-  }
+  @media screen and (min-width: 768px) { height: 100px; }
+
 }
 
 .navbar {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-  margin-top: 4%; 
+  background-color: $primary;
+  border-bottom: 1px solid $primary;
   z-index: 1;
+
+  .logo {
+
+    img {
+      height: 30px;
+
+      @media screen and (min-width: 568px) { height: 60px; }
+    }
+  }
 
   .dropdown-menu {
     margin-top: 27px;
@@ -44,6 +47,10 @@
 
   .dropdown:hover {
     cursor: pointer;
+  }
+
+  .search-btn {
+    background-color: $info;
   }
 
   .submenu-categories {
