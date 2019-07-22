@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :confirmable
   belongs_to :company, optional: true, dependent: :destroy
   accepts_nested_attributes_for :company
-  validates :full_name, :email, :password, presence: true
+  validates :full_name, :email, presence: true
+  validates :password, presence: true, on: :create
   validates :email, format: { with: Devise.email_regexp }
 end

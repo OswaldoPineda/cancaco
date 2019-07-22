@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :address do
-    zipCode { '29000' }
+    zip_code { '29000' }
     city { 'Colima' }
     state { 'Villa de alvarez' }
     street { 'Aldama' }

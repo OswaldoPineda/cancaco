@@ -16,12 +16,13 @@ es:
         full_name: "Nombre completo"
         email: "Correo"
         password: "Contraseña"
+        current_password: "Contraseña actual"
         password_confirmation: "Confirma tu contraseña"
         remember_me: "Recordarme"
       company:
         name: "Nombre de la empresa"
         affiliation: "Número de afiliación"
-        category: "Categoría de la empresa"
+        category_id: "Categoría de la empresa"
       company/address:
         zip_code: "Código postal"
         city: "Ciudad"

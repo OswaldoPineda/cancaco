@@ -12,5 +12,8 @@ class ApplicationController < ActionController::Base
                                                                                        :state,
                                                                                        :neighborhood,
                                                                                        :street]]])
+
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: [:full_name, company_attributes: [:id, :category_id]])
   end
 end

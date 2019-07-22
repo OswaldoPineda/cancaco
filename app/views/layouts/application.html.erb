@@ -13,6 +13,9 @@
   </head>
 
   <body>
+    <% if current_page?(controller: '/confirmations', action: 'registration', id: params[:id]) == false %>
+      <%= render partial: 'shared/info_messages' %>
+    <% end %>
     <% if current_page?(controller: '/devise/sessions', action: 'new', id: params[:id]) or
           current_page?(controller: '/registrations', action: 'new', id: params[:id]) or
           current_page?(controller: '/devise/passwords', action: 'new', id: params[:id]) or
@@ -24,9 +27,6 @@
       <%= render partial: 'shared/navbar' %>
       <%= yield %>
       <%= render partial: 'shared/footer' %>
-    <% end %>
-    <% if current_page?(controller: '/confirmations', action: 'registration', id: params[:id]) == false %>
-      <%= render partial: 'shared/info_messages' %>
     <% end %>
 
     <script type="text/javascript">
