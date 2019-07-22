@@ -1,0 +1,78 @@
+.container-404-error, .container-422-error, .container-500-error {
+  font-family: $roboto, sans-serif;
+  font-weight: lighter;
+
+  .logo{
+    .canaco-logo {
+      height: 4rem;
+
+      @media screen and (min-width: 568px) { height: 6rem; }
+
+      @media screen and (min-width: 1025px) { height: 8rem; }
+    }
+  }
+
+  .error-message {
+    color: $secondary;
+    font-size: 1rem;
+
+    @media screen and (min-width: 568px) { font-size: 1.7rem; }
+
+    @media screen and (min-width: 1025px) { font-size: 2rem; }
+
+    .btn { background-color: $secondary; }
+
+    .btn:hover {
+      background-color:$primary;
+      color: $white;
+    }
+  }
+}
+
+.container-404-error {
+  background: url(asset_path('404-mb.png'));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+
+  @media screen and (min-width: 768px) {
+    background: url(asset_path('404.png'));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+}
+
+.container-422-error {
+  background: url(asset_path('422-mb.png'));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+
+  @media screen and (min-width: 768px) {
+    background: url(asset_path('422.png'));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+}
+
+.container-500-error {
+  background: url(asset_path('500-mb.png'));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+
+  @media screen and (min-width: 768px) {
+    background: url(asset_path('500.png'));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+}
