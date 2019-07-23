@@ -1,0 +1,34 @@
+<div class="chat-zone w-100 overflow-auto p-1">
+  <div class="petition-notification d-flex flex-column col-12 rounded">
+    <h3 class="m-1">Alan Anguiano</h3>
+    <p class="mx-1 my-0">Está buscando <b>cotización</b> de <b>40 neumáticos.</b></p>
+    <!--The words "cotización" and "40 neumáticos" should be variables from the users request-->
+    <%= link_to 'Responder solicitud', '', class: "m-1" %>
+  </div><hr>
+
+  <div class="msn d-flex justify-content-end w-100">
+    <div class="d-flex flex-column w-75 mb-1 bg-primary text-white rounded-left">
+      <p class="m-1">Hola, yo puedo cubrir su solicitud el día viernes.</p>
+    </div>
+  </div>
+  <!--The chat system only need one of this div called "msn" with a conditional to choose
+  the alignment left or right, and the border rounded left or right-->
+  <div class="msn d-flex justify-content-start w-100">
+    <div class="d-flex flex-column w-75 mb-1 bg-secondary text-white rounded-right">
+      <p class="m-1">Hola, agradecía si pudiese ser el jueves, saludos.</b></p>
+    </div>
+  </div>
+</div>
+
+<div class="typing-zone w-100 border">
+  <%= form_for '', remote: true, html: { class: "w-100 h-100" } do |f| %>
+    <div class="d-flex text-area w-100 h-100 m-0 align-items-end">
+      <%= f.text_area :message, class: "chat-input w-75 h-100" %>
+      <div class="d-flex align-items-center justify-content-center w-25 h-100">
+        <%= f.submit "Enviar", class: "send-button btn btn-primary p-0" %>
+      </div>
+    </div>
+
+    <%= f.hidden_field :conversation_id %>
+   <% end %>
+</div>
