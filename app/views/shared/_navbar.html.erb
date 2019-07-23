@@ -1,6 +1,8 @@
 <div class="navbar-container navbar-text pt-0">
   <div class="d-flex position-absolute w-100 justify-content-center">
     <nav class="container navbar col-12 d-flex align-items-top px-1 px-md-5">
+      <% @user_notifications = current_user_notifications(current_user) %>
+      <% @notifications_dropdown = last_notifications(@user_notifications) %>
       <!--Main logo-->
       <div class="logo pl-1 pl-md-3 pl-lg-4 pl-xl-5">
         <a href="/" data-turbolinks="false">
@@ -82,42 +84,30 @@
           aria-expanded="false">
           <span><img src="<%= asset_path('notification-bell.svg') %>" width="25" height="25"
               alt="Notification bell icon"></span>
+          <div id="notification-counter">
+            <strong>
+              <% if @user_notifications.any? %>
+                <%= @user_notifications.size %>
+              <% end %>
+            </strong>
+          </div>
         </div>
-        <div class="dropdown-menu" aria-labelledby="dropdownNotification">
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownNotification">
           <div class="mt-2 ml-3">Notificaciones</div>
           <hr class="mb-0">
-
-          <%= link_to '/notifications', class: :'text-decoration-none' do %>
-          <div
-            class='dropdown-item w-100 px-3 text-secondary text-wrap py-3 notification-item d-flex align-items-center'>
-            <div class="profile-photo d-none d-lg-flex ">
-              <!--When paperclip will be installed the name 'default' should change for :thumb'-->
-              <%= image_tag('default.png', size: "35x35",
-                                           class: "rounded-circle bg-dark", alt: "Default user image") %>
-            </div>
-            <div class="ml-3">
-              <span class="font-weight-bold">Orlando sotelo de grupo gin</span>
-              <span>
-                Le interesa un producto y te ha enviado mensaje.
-              </span>
-            </div>
+          <div class="notification-cable overflow-auto">
+            <% if @notifications_dropdown.empty? %>
+              <div class='dropdown-item w-100 disabled text-wrap py-3 notification-item d-flex align-items-center'
+                   id="empty-notification-message">
+                <div class="ml-3">
+                  <span>Sin notificaciones pendientes...</span>
+                </div>
+              </div>
+            <% else %>
+              <%= ApplicationController.render partial: 'notifications/notifications_dropdown',
+                                               locals: { notifications: @notifications_dropdown } %>
+            <% end %>
           </div>
-
-          <div
-            class='dropdown-item w-100 px-3 text-secondary text-wrap py-3 notification-item d-flex align-items-center'>
-            <div class="profile-photo d-none  d-lg-flex ">
-              <!--When paperclip will be installed the name 'default' should change for :thumb'-->
-              <%= image_tag('default.png', size: "35x35", class: "rounded-circle bg-dark") %>
-            </div>
-            <div class="ml-3">
-              <span class="font-weight-bold">Orlando sotelo de grupo gin</span>
-              <span>
-                Le interesa un producto y te ha enviado mensaje.
-              </span>
-            </div>
-          </div>
-          <% end %>
-
           <hr class="mt-0">
           <div class="text-center">
             <a href="/notifications">Ver todo</a>

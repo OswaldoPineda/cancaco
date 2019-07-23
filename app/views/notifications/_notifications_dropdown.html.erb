@@ -1,0 +1,4 @@
+<% notifications.each do |notification| %>
+  <%= ApplicationController.render partial: "notifications/#{notification.notifiable_type.underscore}",
+                                    locals: { notification: notification } %>
+<% end %>

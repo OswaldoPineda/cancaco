@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # routes for devise
@@ -6,6 +7,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'confirmations', to: 'confirmations#registration'
   end
+
+  # Sidekiq
+  mount Sidekiq::Web => '/sidekiq'
 
   # Root path
   root to: 'home#index'

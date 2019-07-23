@@ -5,8 +5,5 @@ FactoryBot.define do
     quantity { 5 }
     deadline { '2019-06-30' }
     active { true }
-    association :measure
-    association :category
-    association :company
   end
 end
