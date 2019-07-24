@@ -138,6 +138,7 @@ es:
     messages:
       accepted: debe ser aceptado
       blank: Este campo no puede estar en blanco.
+      category_not_found: No existe esa categoría, inténtelo de nuevo.
       confirmation: La contraseña no coincide.
       empty: Este campo no puede estar vacío.
       equal_to: Debe ser igual a %{count}.
@@ -156,6 +157,7 @@ es:
       other_than: debe ser diferente a %{count}
       present: debe estar en blanco
       required: debe existir
+      subcategory_not_found: No existe esa subcategoria, inténtelo de nuevo.
       taken: Este correo ya ha sido tomado.
       too_long:
         one: Es demasiado largo (máximo 1 carácter)
@@ -232,6 +234,9 @@ es:
     precision:
       format:
         delimiter: ","
+  success:
+    messages:
+      petition_published: Su solicitud ha sido publicada correctamente.  
   support:
     array:
       last_word_connector: " y "
