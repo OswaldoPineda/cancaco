@@ -17,11 +17,21 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-4 my-3 px-0 pr-md-3 text-center text-lg-left subcategories-list">
-      <% @subcategories.each do |subcategory| %>
+    <div class="col-12 col-md-4 my-3 px-0 pr-md-3 text-center text-md-left subcategories-list">
+      <% if @subcategories.empty? %>
+        <h2 class="mb-5">Esta categoría no tiene subcategorías</h2>
         <ul>
-          <li><%= link_to subcategory.title.to_s, "/request/#{subcategory.id}" %></li>
+          <li><%= link_to 'Continuar con categoría',
+                          new_petition_path(category: @category),
+                          method: :get,
+                          class: "btn btn-info" %><li>
         </ul>
+      <% else %>
+        <% @subcategories.each do |subcategory| %>
+          <ul>
+            <li><%= link_to subcategory.title, new_petition_path(category: @category, subcategory: subcategory) %><li>
+          </ul>
+        <% end %>
       <% end %>
     </div>
   </div>

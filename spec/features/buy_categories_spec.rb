@@ -6,7 +6,7 @@ RSpec.feature 'Buy categories', type: :feature do
   background(:each) do |scenario|
     user.confirm
     sign_in user unless scenario.metadata[:sign_out]
-    visit '/purchases'
+    visit buy_index_path
   end
 
   scenario 'user is not signed in', :sign_out do

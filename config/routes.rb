@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get '/users/account_options', to: 'account#index'
-  get '/purchases', to: 'buy#index'
+  resources :buy, only: :index
   get '/category/:id', to: 'subcategories#index'
   resources :conversation, only: :index
+  resources :petitions, only: [:new, :create]
 end
