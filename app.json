@@ -14,6 +14,7 @@
   },
   "env": {
     "LANG": { "required": true },
+    "MAIL_URL_HOST": { "required": true},
     "RACK_ENV": { "required": true },
     "RAILS_ENV": { "required": true },
     "RAILS_LOG_TO_STDOUT": { "required": true },
