@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_205249) do
+ActiveRecord::Schema.define(version: 2019_07_31_185936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,8 +45,6 @@ ActiveRecord::Schema.define(version: 2019_07_29_205249) do
   create_table "conversations", force: :cascade do |t|
     t.bigint "sender_id"
     t.bigint "recipient_id"
-    t.string "subject_type"
-    t.integer "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
