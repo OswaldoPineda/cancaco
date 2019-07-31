@@ -1,0 +1,28 @@
+.card {
+  height: 413px;
+
+  .card-description {
+    height: 100px;
+    overflow: hidden;
+
+    p {
+      /* autoprefixer: off */
+      -webkit-box-orient: vertical;
+      /* autoprefixer: on */
+      display: block;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .card-deadline {
+    background-color: $info;
+    border-radius: 0 4px 4px 0;
+    color: $white;
+    left: -20px;
+    padding: 7px;
+    position: relative;
+  }
+}
