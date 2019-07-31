@@ -57,17 +57,16 @@
       <!--Search bar-->
       <div class="search-bar col-5 d-flex align-items-center">
         <div class="input-group">
-          <%= form_tag(search_by_title_path, method: "get", class: 'd-flex w-100') do %>
-            <%= search_field_tag :search,
-                                 params[:search],
-                                 placeholder: "Busca productos, servicios y más...",
-                                 class: "h-100 form-control" %>
+          <form action="/search" method="GET" class="d-flex w-100">
+            <input type="text" class="text-truncate h-100 form-control" placeholder="Busca productos, servicios y más..."
+              aria-label="Search"
+              aria-describedby="search-btn">
             <div class="input-group-append">
               <button class="search-btn btn" type="submit" id="search-btn">
                 <img src="<%= asset_path('search.svg') %>" alt="search icon" width="25" height="25">
               </button>
             </div>
-          <% end %>
+          </form>
         </div>
       </div>
 
