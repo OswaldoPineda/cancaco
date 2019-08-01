@@ -1,0 +1,54 @@
+<div>
+    <%= render partial: recipient_or_sender_partial(current_user, @conversation) %>
+
+  <div class="chat-zone w-100 overflow-auto pt-0 p-1" data-turbolinks="false">
+    <div class="col px-0">
+      <div class="chat" data-channel-subscribe="conversation"
+                        data-conversation-id="<%= @conversation.id %>"
+                        data-current-id="<%= current_user.id %>">
+
+        <% @conversation.messages.order('created_at ASC').each do |message| %>
+          <% if message.user_id == current_user.id %>
+            <div class="w-100 d-flex justify-content-end">
+              <div class="chat-message-container text-wrap bg-primary px-3 py-2 my-1 text-white">
+          <% else %>
+            <div class="w-100 d-flex">
+              <div class="chat-message-container text-wrap bg-secondary px-3 py-2 my-1 text-white">
+          <% end %>
+              <div class="message-box">
+                <div class="message-content px-1 text-wrap text-break">
+                  <p class="mb-1 ">
+                    <%= message.message %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="typing-zone w-100 border d-flex justify-content-center">
+    <%= form_for @conversation_message, remote: true, html: { autocomplete: :off, class: "px-0 w-100 h-100" } do |f| %>
+      <div class="d-flex text-area w-100 h-100 m-0 justify-content-between align-items-center">
+        <%= f.text_field :message, class: "chat-input col-10", autofocus: true %>
+        <%= f.submit "Enviar", class: "send-button btn col-2 btn-primary p-0" %>
+      </div>
+      <%= f.hidden_field :current_id, value: current_user.id %>
+      <%= f.hidden_field :conversation_id %>
+    <% end %>
+  </div>
+
+  <div class="d-none" data-role="message-template">
+    <div class="w-100 d-flex">
+      <div class="chat-message-container text-wrap px-3 py-2 my-1 text-white">
+        <div class="message-box">
+          <div class="message-content px-1 text-wrap text-break">
+            <p class="mb-1" data-role="message-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

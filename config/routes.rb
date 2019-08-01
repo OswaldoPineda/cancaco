@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # Root path
   root to: 'home#index'
 
+  resources :conversations, only: [:index, :show, :create]
+  resources :messages, only: :create
+
   get '/users/account_options', to: 'account#index'
 
   resources :conversation, only: :index

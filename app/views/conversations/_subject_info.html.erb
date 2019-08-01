@@ -1,0 +1,13 @@
+<div class="bg-white d-block p-1 border">
+  <div class="petition-notification d-flex flex-column col-12 rounded">
+
+    <h3 class="m-1"><%= @recipient.name %></h3>
+    <% if @notifications.size == 1 %>
+      <p class="mx-1 my-0">Está buscando <b>cotización</b> de <b><%= @notifications.first.action %></b></p>
+      <div class="text-primary mb-1">ver mi solicitud</div>
+    <% else %>
+      <p class="mx-1 my-0">Tiene <b><%= @notifications.size %></b> solicitdues que pueden interesarte.</p>
+      <div class="text-primary mb-1">ver todas</div>
+    <% end %>
+  </div>
+</div>

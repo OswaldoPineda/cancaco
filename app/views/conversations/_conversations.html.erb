@@ -1,0 +1,46 @@
+<div class="p-2">
+  <input type="text" class="h-100 form-control d-none d-xl-block" placeholder="Buscar usuario" aria-label="Search"
+    aria-describedby="search-btn">
+  <hr class="d-none d-xl-block">
+  <% if @conversations.present? %>
+    <nav class="nav flex-column" data-turbolinks="false">
+    <% @conversations.each do |conversation| %>
+      <%= link_to conversation_path(conversation),
+                  class: :"d-flex link-conversation row align-items-center justify-content-sm-around
+                           justify-content-center w-100 m-0 p-0 btn btn-outline-dark border-0",
+                  id: conversation.id.to_s do %>
+        <div class="profile-photo my-2 col-12 col-md-2 justify-content-center profile-image">
+          <%= profile_photo(current_user, '50x50') %>
+        </div>
+        <div class="d-none col-8 d-md-flex flex-column align-content text-left">
+          <% conversation_company = company_recipient(current_user, conversation) %>
+          <h5 class="text-truncate m-0"><%= conversation_company.name %></h5>
+          <p class="text-truncate m-0 last-message" id="message<%= conversation.id %>">
+            <% unless conversation.messages.empty? %>
+              <% last_message = conversation.messages.last %>
+              <% if last_message.user_id == current_user.id %>
+                <b>Tú:</b>
+              <% end %>
+              <span><%= last_message.message %></span>
+            <% end %>
+          </p>
+        </div>
+        <div class="message-number-container d-flex align-items-center justify-content-center p-0">
+          <% unread_msg = conversation.messages.where('read = ? AND recipient_id = ?', false, current_user.id) %>
+          <% if unread_msg.empty? %>
+            <div id="conversation-number<%= conversation.id %>" class="rounded-circle d-none align-items-center new-messages justify-content-center text-white bg-danger">
+          <% else %>
+            <div id="conversation-number<%= conversation.id %>" class="rounded-circle d-flex align-items-center new-messages justify-content-center text-white bg-danger">
+          <% end %>
+            <span class="message-number"><%= unread_msg.size %></span>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    </nav>
+  <% else %>
+    <div class="text-muted d-flex justify-content-center align-items-center">
+      No hay conversaciones.
+    </div>
+  <% end %>
+</div>
