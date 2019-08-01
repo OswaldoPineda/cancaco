@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   get '/category/:id', to: 'subcategories#index'
   resources :conversation, only: :index
   resources :petitions, only: [:new, :create]
+  get '/search', to: 'search#search_by_title', as: 'search_by_title'
 end
