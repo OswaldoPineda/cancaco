@@ -26,7 +26,7 @@
           <a href="/">
             <img src="<%= asset_path('arrow-left.svg') %>" class="font-weight-bolder back-link" alt="Icono de busqueda">
           </a>
-          <h1 class="font-weight-bolder text-break"><%= params[:search].capitalize %></h1>
+            <h1 class="font-weight-bolder text-break"><%= search_title(title: @title, params: params[:search]) %></h1>
           <div>
             <p class="font-weight-light"><%= @results.size %> resultados</p>
           </div>

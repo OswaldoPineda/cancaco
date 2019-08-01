@@ -34,8 +34,16 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/search', to: 'search#search_by_title', as: 'search_by_title'
   match '/404', to: 'errors#not_found', via: :all
   match '/422', to: 'errors#permission_denied', via: :all
   match '/500', to: 'errors#internal_server_error', via: :all
+
+  # search
+  resources :search do
+    collection do
+      get '/', to: 'search#search_by_title'
+      get '/category', to: 'search#search_by_category'
+      get '/subcategory', to: 'search#search_by_subcategory'
+    end
+  end
 end
