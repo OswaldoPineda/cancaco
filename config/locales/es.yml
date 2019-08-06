@@ -237,6 +237,7 @@ es:
   success:
     messages:
       petition_published: Su solicitud ha sido publicada correctamente.  
+      sale_published: Su venta ha sido publicada correctamente.
   support:
     array:
       last_word_connector: " y "
