@@ -14,18 +14,10 @@
   </head>
 
   <body>
-    <% if current_page?(controller: '/confirmations', action: 'registration', id: params[:id]) == false %>
+    <% if notice?(params['controller'], params['action']) %>
       <%= render partial: 'shared/info_messages' %>
     <% end %>
-    <% if current_page?(controller: '/devise/sessions', action: 'new', id: params[:id]) or
-          current_page?(controller: '/registrations', action: 'new', id: params[:id]) or
-          current_page?(controller: '/devise/passwords', action: 'new', id: params[:id]) or
-          current_page?(controller: '/devise/passwords', action: 'edit', id: params[:id]) or
-          current_page?(controller: '/devise/confirmations', action: 'new', id: params[:id]) or
-          current_page?(controller: '/confirmations', action: 'registration', id: params[:id]) or
-          current_page?(controller: '/errors', action: 'not_found', id: params[:id]) or
-          current_page?(controller: '/errors', action: 'permission_denied', id: params[:id]) or
-          current_page?(controller: '/errors', action: 'internal_server_error', id: params[:id]) %>
+    <% unless navbar_and_footer?(params['controller'], params['action']) %>
       <%= yield %>
     <% else %>
       <%= render partial: 'shared/navbar' %>
