@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.feature 'Buy categories', type: :feature do
+RSpec.feature 'Categories', type: :feature do
   given(:user) { create(:user) }
 
   background(:each) do |scenario|
     user.confirm
     sign_in user unless scenario.metadata[:sign_out]
-    visit buy_index_path
+    visit categories_path
   end
 
   scenario 'user is not signed in', :sign_out do

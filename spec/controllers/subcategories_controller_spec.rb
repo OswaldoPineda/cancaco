@@ -12,7 +12,7 @@ RSpec.describe SubcategoriesController, type: :controller do
   describe 'Get #index' do
     it "Obtain template to subcategory view" do
       get :index, params: { id: category.id }
-      should render_template(:subcategory)
+      should render_template(:index)
     end
   end
 end

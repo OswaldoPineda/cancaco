@@ -14,7 +14,7 @@ class PetitionsController < ApplicationController
     @measures = Measure.all
     @petition = fill_request
     if @petition.save
-      redirect_to buy_index_path, notice: I18n.t('success.messages.petition_published')
+      redirect_to categories_path, notice: I18n.t('success.messages.petition_published')
     else
       @category = Category.find(@petition.category_id)
       @subcategory = @category.subcategories.find(@petition.subcategory_id) if params[:subcategory]
@@ -38,7 +38,7 @@ class PetitionsController < ApplicationController
   def valid_categories_and_subcategories
     @category = Category.find_by(id: params[:category])
     if @category.nil?
-      redirect_to buy_index_path, alert: I18n.t('errors.messages.category_not_found')
+      redirect_to categories_path, alert: I18n.t('errors.messages.category_not_found')
     else
       valid_subcategory
     end
@@ -47,7 +47,7 @@ class PetitionsController < ApplicationController
   def valid_subcategory
     @subcategory = @category.subcategories.find_by(id: params[:subcategory])
     if @subcategory.nil? && category_has_subcategory?
-      redirect_to buy_index_path, alert: I18n.t('errors.messages.subcategory_not_found')
+      redirect_to categories_path, alert: I18n.t('errors.messages.subcategory_not_found')
     end
   end
 

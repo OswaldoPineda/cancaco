@@ -28,14 +28,14 @@ RSpec.describe PetitionsController, type: :controller do
     context 'When receive invalid category' do
       it 'redirect to /buy' do
         get :new, params: { category: 100_000_000, subcategory: subcategory.id }
-        should redirect_to(buy_index_path)
+        should redirect_to(categories_path)
       end
     end
 
     context 'When receive invalid subcategory' do
       it 'redirect to /buy' do
         get :new, params: { category: category.id, subcategory: -12 }
-        should redirect_to(buy_index_path)
+        should redirect_to(categories_path)
       end
     end
   end
@@ -44,7 +44,7 @@ RSpec.describe PetitionsController, type: :controller do
     before do
       post :create, params: { petition: petition }
     end
-    it { should redirect_to(buy_index_path) }
+    it { should redirect_to(categories_path) }
     it { should set_flash }
   end
 

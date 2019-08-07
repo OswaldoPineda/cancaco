@@ -5,6 +5,5 @@ class SubcategoriesController < ApplicationController
     @category = Category.find_by(id: params[:id])
     @subcategories = @category.subcategories
     @title = @category.title
-    render template: 'buy/subcategory'
   end
 end

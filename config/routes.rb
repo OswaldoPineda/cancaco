@@ -15,8 +15,13 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get '/users/account_options', to: 'account#index'
-  resources :buy, only: :index
-  get '/category/:id', to: 'subcategories#index'
+
+  # Categories routes
+  resources :categories, only: :index
+
+  # Subcategories routes
+  resources :subcategories, only: :index
+
   resources :conversation, only: :index
   resources :petitions, only: [:new, :create]
   get '/search', to: 'search#search_by_title', as: 'search_by_title'
