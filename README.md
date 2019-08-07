@@ -2,8 +2,9 @@
 
 ## Development Started
 
-TODO: Add steps to start the project in local
-
+Pre-requisites
+------
+To maintain the same code structure we use [.editorconfig](docs/editor-config.md) click on the link to know how to install on different code editors.
 
 ### Running Tests
 
