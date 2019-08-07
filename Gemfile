@@ -13,8 +13,12 @@ gem 'devise'
 gem 'jbuilder', '~> 2.5'
 # Jquery for bootstrap
 gem 'jquery-rails'
+# Use this gem to complement premailer gem.
+gem 'nokogiri'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+# Use premailer to keep the css styles on the email clients.
+gem 'premailer-rails'
 # Use Puma as the app server
 gem 'puma', '~> 4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

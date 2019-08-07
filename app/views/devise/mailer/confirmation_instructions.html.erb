@@ -1,5 +1,18 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<div class="email-structure">
+  <div class="logo">
+    <img src="https://drive.google.com/uc?export=view&id=1WXjGyLDxRhP2-6a3lEpZo9sCZ4vrQvQA" alt="Logo de CANACO">
+  </div>
+  <div class="text">
+    <p class="subtitle">Por favor completa tu registro</p>
+    <p class="paragraph">
+      ¡Bienvenido <%= @resource.full_name %>!<br>
+      Gracias por registrarte en la
+      plataforma de compraventa bussines to bussines de CANACO. Para usar todos
+      los servicios de la plataforma, confirma tu dirección de correo electrónico
+      dando clic en el botón de abajo.
+    </p>
+    <%= link_to 'Verificar ahora',
+                confirmation_url(@resource, confirmation_token: @token),
+                class: 'button' %>
+  </div>
+</div>
