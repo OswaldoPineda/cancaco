@@ -2,3 +2,7 @@ label.required:after {
   content: " *";
   color: #d9534f;
 }
+
+.welcome-text { color: $secondary; }
+
+.info-text { font-size: 0.8rem; }
