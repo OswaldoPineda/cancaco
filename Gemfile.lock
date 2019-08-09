@@ -181,7 +181,7 @@ GEM
       premailer (~> 1.7, >= 1.7.9)
     psych (3.1.0)
     public_suffix (3.1.1)
-    puma (4.0.1)
+    puma (4.1.0)
       nio4r (~> 2.0)
     rack (2.0.7)
     rack-protection (2.0.5)
@@ -372,7 +372,7 @@ DEPENDENCIES
   nokogiri
   pg (>= 0.18, < 2.0)
   premailer-rails
-  puma (~> 4.0)
+  puma (~> 4.1)
   rails (~> 5.2.3)
   rails-controller-testing
   redis (~> 4.1.0)
