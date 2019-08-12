@@ -1,5 +1,5 @@
 class Petition < ApplicationRecord
-  validates :title, :description, :quantity, :deadline, :active, :measure_id, presence: true
+  validates :title, :description, :quantity, :deadline, :measure_id, presence: true
   belongs_to :category
   belongs_to :company
   belongs_to :measure
