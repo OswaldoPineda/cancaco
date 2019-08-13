@@ -155,26 +155,26 @@
             </div>
             <hr class="my-0">
             <div>
-              <a class="dropdown-item" href="/users/account_options">
-                <img src="<%= asset_path('user_circle.svg') %>" alt="user default picture">
+              <%= link_to users_account_options_path, class: "dropdown-item" do %>
+                <%= image_tag 'user_circle.svg', alt: "Icono de usuario" %>
                 <span class="ml-2">Mi cuenta</span>
-              </a>
+              <% end %>
               <a class="dropdown-item" href="/my-order">
                 <img src="<%= asset_path('my_order.svg') %>" alt="my order icon">
                 <span class="ml-2">Mi orden</span>
               </a>
-              <a class="dropdown-item" href="/sell">
+              <%= link_to categories_sales_path,class: "dropdown-item" do %>
                 <img src="<%= asset_path('money_circle.svg') %>" alt="circle money icon">
                 <span class="ml-2">Vender</span>
-              </a>
-              <a class="dropdown-item" href="<%= buy_index_path %>">
+              <%end %>
+              <%= link_to categories_petitions_path,class: "dropdown-item" do %>
                 <img src="<%= asset_path('shopping_bag.svg') %>" alt="shopping bag icon">
                 <span class="ml-2">Compras</span>
-              </a>
-              <a class="dropdown-item d-block d-lg-none" href="/categories">
+              <% end %>
+              <div class="dropdown-item d-block d-lg-none">
                 <img src="<%= asset_path('categories.svg') %>" alt="categories icon">
                 <span class="ml-2">Categorias</span>
-              </a>
+              </div>
               <% if user_signed_in? %>
                 <%= link_to '/users/sign_out',
                             'data-no-turbolink' => true,

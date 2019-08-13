@@ -4,7 +4,7 @@
       <h1 class="title">Elige una subcategoría</h1>
     </div>
     <div class="col-12 col-lg-6 d-flex mt-3 justify-content-center">
-      <div class="container row rounded justify-content-center mx-3 mx-md-5 mb-2 mb-md-5 pt-2 pt-md-3 category targets-buy-color">
+      <div class="container row rounded justify-content-center mx-3 mx-md-5 mb-2 mb-md-5 pt-2 pt-md-3 category targets-categories-color">
         <div class="container col-10 d-flex justify-content-center category-image">
           <% if FileTest.exist?("app/assets/icons/categories/#{@title}.svg") %>
              <img src='<%= asset_path("categories/#{@title}.svg") %>' class="image">
@@ -29,7 +29,10 @@
       <% else %>
         <% @subcategories.each do |subcategory| %>
           <ul>
-            <li><%= link_to subcategory.title, new_petition_path(category: @category, subcategory: subcategory) %><li>
+            <li>
+              <%= link_to subcategory.title,
+                          petition_or_sale_form(category: @category, subcategory: subcategory) %>
+              <li>
           </ul>
         <% end %>
       <% end %>

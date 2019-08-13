@@ -15,10 +15,25 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get '/users/account_options', to: 'account#index'
-  resources :buy, only: :index
-  get '/category/:id', to: 'subcategories#index'
+
   resources :conversation, only: :index
-  resources :petitions, only: [:new, :create]
+
+  # Petitions routes
+  resources :petitions do
+    collection do
+      get '/categories', to: 'categories#index'
+      get '/subcategories', to: 'subcategories#index'
+    end
+  end
+
+  #Sales routes
+  resources :sales do
+    collection do
+      get '/categories', to: 'categories#index'
+      get '/subcategories', to: 'subcategories#index'
+    end
+  end
+
   get '/search', to: 'search#search_by_title', as: 'search_by_title'
   match '/404', to: 'errors#not_found', via: :all
   match '/422', to: 'errors#permission_denied', via: :all

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe BuyController, type: :controller do
+RSpec.describe CategoriesController, type: :controller do
   let!(:category) { FactoryBot.create(:category) }
   let(:user) { FactoryBot.create(:user) }
   before do

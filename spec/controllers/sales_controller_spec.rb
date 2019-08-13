@@ -1,15 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe PetitionsController, type: :controller do
+RSpec.describe SalesController, type: :controller do
   let(:measure) { FactoryBot.create(:measure) }
   let(:category) { FactoryBot.create(:category) }
   let!(:subcategory) { FactoryBot.create(:subcategory, category_id: category.id) }
   let(:company) { FactoryBot.create(:company) }
   let(:user) { FactoryBot.create(:user, company_id: company.id) }
-  let(:petition) {
-    FactoryBot.attributes_for(:petition,
+  let(:sale) {
+    FactoryBot.attributes_for(:sale,
                               category_id: category.id,
-                              measure_id: measure.id,
                               subcategory_id: subcategory.id,
                               company_id: company.id )
   }
@@ -22,38 +21,38 @@ RSpec.describe PetitionsController, type: :controller do
   describe 'GET #new' do
     it 'valid params' do
       get :new, params: { category: category.id, subcategory: subcategory.id }
-      should render_template('petitions/new')
+      should render_template('sales/new')
     end
 
     context 'When receive invalid category' do
-      it 'redirect to /petition/categories' do
+      it 'redirect to /sales/categories' do
         get :new, params: { category: 100_000_000, subcategory: subcategory.id }
-        should redirect_to(categories_petitions_path)
+        should redirect_to(categories_sales_path)
       end
     end
 
     context 'When receive invalid subcategory' do
-      it 'redirect to /petitions/categories' do
+      it 'redirect to /sales/categories' do
         get :new, params: { category: category.id, subcategory: -12 }
-        should redirect_to(categories_petitions_path)
+        should redirect_to(categories_sales_path)
       end
     end
   end
 
   describe 'POST #create' do
     before do
-      post :create, params: { petition: petition }
+      post :create, params: { sale: sale }
     end
-    it { should redirect_to(categories_petitions_path) }
+    it { should redirect_to(categories_sales_path) }
     it { should set_flash }
   end
 
   describe 'POST #create invalid' do
     before do
-      post :create, params: { petition: { category_id: category.id,
-                                          subcategory_id: subcategory.id,
-                                          deadline: '' } }
+      post :create, params: { sale: { category_id: category.id,
+                                      subcategory_id: subcategory.id,
+                                      title: '' } }
     end
-    it { should render_template('petitions/new') }
+    it { should render_template('sales/new') }
   end
 end
