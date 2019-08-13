@@ -1,0 +1,65 @@
+<div class="modal fade modal-edit" id="editModal<%= address_id %>" tabindex="-1" role="dialog"
+  aria-labelledby="editModal<%= address_id %>" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar dirección</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% @address_edit = Address.find(address_id) %>
+        <%= form_for @address_edit, id: "edit-form-#{address_id}", method: :put do |f| %>
+          <div class="form-group">
+            <%= f.label :zip_code, class: 'required' %>
+            <%= f.number_field :zip_code,
+                               id: "zip_code_edit_#{address_id}",
+                               class: 'zip_code_edit form-control',
+                               placeholder: 'Código postal',
+                               required: true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :state, class: 'required' %>
+            <%= f.text_field :state, autocomplete: "state",
+                                     class: "form-control",
+                                     id: "state_edit_#{address_id}",
+                                     required: true %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :city, class: 'required' %>
+            <%= f.text_field :city,
+                             autocomplete: "city",
+                             class: "form-control",
+                             id: "city_edit_#{address_id}",
+                             required: true %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :neighborhood, class: 'required' %>
+            <%= f.select :neighborhood,
+                         options_for_select([@address_edit.neighborhood]),
+                         {},
+                         class: "form-control",
+                         id: "neighborhood_edit_#{address_id}",
+                         required: true %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :street, class: 'required' %>
+            <%= f.text_field :street, autocomplete: "street",
+                                      class: "form-control",
+                                      id: "street_edit_#{address_id}",
+                                      required: true %>
+          </div>
+
+          <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary mt-3" id="edit-<%= address_id %>-btn">Guardar cambios</button>
+            <button type="button" class="btn btn-secondary ml-2 mt-3" data-dismiss="modal">Cancelar</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

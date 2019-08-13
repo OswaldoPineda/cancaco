@@ -6,7 +6,7 @@ RSpec.feature 'Sign Up', type: :feature do
   given(:user) { FactoryBot.create(:user) }
   given!(:category) { Category.create(title: 'Hogar') }
   given(:company_id) { 'user[company_attributes]' }
-  given(:address_id) { 'user[company_attributes][address_attributes]' }
+  given(:address_id) { 'user[company_attributes][addresses_attributes]' }
   background do
     visit root_path
     visit new_user_registration_path

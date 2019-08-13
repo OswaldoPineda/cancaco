@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
     build_resource({})
     set_minimum_password_length
     resource.build_company
-    resource.company.address.build
+    resource.company.addresses.build
     yield resource if block_given?
     respond_with resource
   end

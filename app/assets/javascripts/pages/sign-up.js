@@ -2,12 +2,12 @@ window.Canaco = window.Canaco || {};
 
 window.Canaco.Signup = {
   init: function() {
-    $("#zip_code").blur(fillData);
+    $('#zip_code').blur(fillData);
 
     $(document).ready(function() {
-      var cp = $('#zip_code').val().trim();
-      if (cp.length > 0) {
-        fillData(); 
+      var zipCode = $('#zip_code').val().trim();
+      if (zipCode.length > 0) {
+        fillData();
       }
     });
   }
@@ -18,8 +18,8 @@ var fillData = function(e){
     url: 'https://api-codigos-postales.herokuapp.com/v2/codigo_postal/'+$("#zip_code").val(),
     type: 'GET',
     success: function(response){
-      $("#city").val(response.municipio);
-      $("#state").val(response.estado);
+      $('#city').val(response.municipio);
+      $('#state').val(response.estado);
       $('#neighborhood').empty();
       $.each(response.colonias, function(key, value){
         $('#neighborhood').append('<option value="'+ value +'">' + value + '</option>');

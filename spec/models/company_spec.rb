@@ -11,6 +11,6 @@ RSpec.describe Company, type: :model do
     it { should validate_length_of(:affiliation).is_equal_to(10).on(:create) }
   end
   describe 'Validate association' do
-    it { should have_many(:address) }
+    it { should have_many(:addresses) }
   end
 end

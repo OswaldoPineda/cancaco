@@ -1,0 +1,50 @@
+<div class="container-fluid my-5 d-flex align-items-center">
+  <div class="container-addresses w-100 mt-2 py-4 mx-1 mx-md-3 mx-lg-4 mx-xl-5">
+    <span class="ml-5"><a href="/users/account_options" style="text-decoration: none;">Mi cuenta </a> &gt; Mis direcciones</span>
+    <div class="container-cards d-flex flex-wrap px-5 justify-content-md-between justify-content-lg-start">
+      <a href=""
+        class="card card-address text-decoration-none my-4 ml-md-5 col-12 col-md-5 col-lg-3 col-xl-2 ml-sm-1 d-flex align-items-center justify-content-center"
+        data-toggle="modal" data-target="#addModal" id="addAddress">
+        <div class="d-flex flex-wrap align-items-center justify-content-center">
+          <div class="d-flex w-100 justify-content-center mb-3">
+            <div class="close">
+              <img src=" <%= asset_path('plus.svg') %>" alt="signo de suma">
+            </div>
+          </div>
+          <span class="w-100 text-center text-secondary">Agregar dirección</span>
+        </div>
+      </a>
+      <% @addresses.each do |address| %>
+        <div class="card p-4 card-address col-12 col-md-5 col-lg-3 col-xl-2 ml-sm-1 ml-md-5 my-4 d-flex flex-column justify-content-between">
+          <div class="info d-flex flex-wrap">
+            <h3 class="text-secondary text-truncate"><%= @company.user.full_name.titleize %> juan camaney antonio de pedro maria y jesus</h3>
+            <div class="address-info d-flex flex-column">
+              <span><%= address.street %></span>
+              <span><%= address.neighborhood %></span>
+              <span><%= address.state %>, <%= address.city %>, <%= address.zip_code %></span>
+            </div>
+          </div>
+          <div class="options d-flex flex-wrap w-100">
+            <span class="d-flex w-100">
+              <a href="" class="mr-2" data-toggle="modal" data-target="#editModal<%= address.id %>" data-turbolinks="false">Editar</a>
+              <% if @addresses.size > 1 %>
+                <span>|</span>
+                <a href="" class="ml-2" data-toggle="modal" data-target="#deleteModal<%= address.id %>">Eliminar</a>
+              <% end %>
+            </span>
+          </div>
+        </div>
+        <%= render partial: 'delete_modal', locals: { address_id: address.id } %>
+        <%= render partial: 'edit_modal', locals: { address_id: address.id } %>
+      <% end %>
+      <%= render partial: 'add_modal' %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function() {
+    window.Canaco.Signup.init();
+    window.Canaco.addresses.init();
+  })
+</script>

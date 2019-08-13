@@ -49,4 +49,5 @@ Rails.application.routes.draw do
       get '/subcategory', to: 'search#search_by_subcategory'
     end
   end
+  resources :addresses, only: [:index, :create, :update, :destroy]
 end
