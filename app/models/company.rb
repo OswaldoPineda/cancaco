@@ -1,5 +1,5 @@
 class Company < ApplicationRecord
-  has_one :address, dependent: :destroy
+  has_many :address, dependent: :destroy
   has_one :user, dependent: :destroy
   belongs_to :category, dependent: :destroy
   accepts_nested_attributes_for :address

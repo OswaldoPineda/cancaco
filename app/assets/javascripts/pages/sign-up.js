@@ -6,9 +6,8 @@ window.Canaco.Signup = {
 
     $(document).ready(function() {
       var cp = $('#zip_code').val().trim();
-      if (cp.length > 0) { // Si trae datos (posible error en validaciones)
-        console.log(cp);
-        fillData(); //Tu ajax que trae los datos de la API
+      if (cp.length > 0) {
+        fillData(); 
       }
     });
   }
@@ -23,7 +22,7 @@ var fillData = function(e){
       $("#state").val(response.estado);
       $('#neighborhood').empty();
       $.each(response.colonias, function(key, value){
-        $('#neighborhood').append('<option value=' + value + '>' + value + '</option>');
+        $('#neighborhood').append('<option value="'+ value +'">' + value + '</option>');
       });
     }
   });

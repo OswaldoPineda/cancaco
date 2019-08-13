@@ -104,10 +104,10 @@ RSpec.feature 'Sign Up', type: :feature do
   end
 
   def fill_address_fields(*params)
-    fill_in "#{address_id}[zip_code]", with: params[0][:zip_code]
-    fill_in "#{address_id}[city]", with: params[0][:city]
-    fill_in "#{address_id}[state]", with: params[0][:state]
+    fill_in "#{address_id}[0][zip_code]", with: params[0][:zip_code]
+    fill_in "#{address_id}[0][city]", with: params[0][:city]
+    fill_in "#{address_id}[0][state]", with: params[0][:state]
     first('#neighborhood option', minimum: 1).select_option
-    fill_in "#{address_id}[street]", with: params[0][:street]
+    fill_in "#{address_id}[0][street]", with: params[0][:street]
   end
 end
