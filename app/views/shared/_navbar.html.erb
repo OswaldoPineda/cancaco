@@ -22,24 +22,31 @@
               <div class="droprignt subdropdown-categories">
                 <div class="dropdown-submenu">
                   <% if category.subcategories.size == 0 %>
-                    <a href="/categories/<%= category.title %>" class="dropdown-item"><%= category.title %></a>
+                    <%= link_to category.title,
+                                category_search_index_path(title: category.title),
+                                class: "dropdown-item",
+                                "data-turbolinks": false %>
                   <% else %>
-                    <a class="dropdown-item dropdown-toggle"><%= category.title %></a>
+                    <%= link_to category.title,"", class: "dropdown-item dropdown-toggle"%>
                     <div class="dropdown-menu submenu-categories py-2">
                       <div class="submenu-container">
-                        <div class="title-subcategorie text-center mx-2">
-                          <a href="/categories/<%= category.title %>" class="text-decoration-none text-info">
-                            <h4><%= category.title %></h4>
-                          </a>
+                        <div class="title-subcategory text-center mx-2">
+                          <h4>
+                            <%= link_to category.title,
+                                        category_search_index_path(title: category.title),
+                                        class: "text-decoration-none text-info",
+                                        "data-turbolinks": false %>
+                          </h4>
                         </div>
                         <hr class="mx-2">
                         <div class="subcategories-container d-flex flex-wrap justify-content-between mx-2">
                           <div class="subcategories-items col-6 mx-2">
                             <div class="subcategories-list d-flex flex-wrap text-secondary">
                               <% category.subcategories.all.each do |subcategory| %>
-                                <a href="/subcategories/<%= subcategory.title %>" class="text-muted w-100">
-                                  <%= subcategory.title %>
-                                </a>
+                                <%= link_to subcategory.title,
+                                            subcategory_search_index_path(title: subcategory.title),
+                                            class: "text-muted w-100",
+                                            "data-turbolinks": false %>
                               <% end %>
                             </div>
                           </div>
@@ -57,7 +64,7 @@
       <!--Search bar-->
       <div class="search-bar col-5 d-flex align-items-center">
         <div class="input-group">
-          <%= form_tag(search_by_title_path, method: "get", class: 'd-flex w-100') do %>
+          <%= form_tag(search_index_path, method: "get", class: "d-flex w-100") do %>
             <%= search_field_tag :search,
                                  params[:search],
                                  placeholder: "Busca productos, servicios y más...",

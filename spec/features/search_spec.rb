@@ -4,7 +4,10 @@ require 'rails_helper'
 
 RSpec.feature 'Search', type: :feature do
   given(:user) { create(:user) }
-  given(:category) { create(:category) }
+  given(:category) { create(:category, title: 'Tecnologia') }
+  given!(:category_empty) { create(:category, title: 'Salud') }
+  given!(:subcategory) { create(:subcategory, category_id: category.id, title: 'Computacion') }
+  given!(:subcategory_empty) { create(:subcategory, category_id: category.id, title: 'Telefonia') }
   given(:petitioner_company) { create(:company, user: user, category: category) }
   given!(:recipient_company) { create(:company, category: category) }
   given(:measure) { create(:measure) }
@@ -17,15 +20,46 @@ RSpec.feature 'Search', type: :feature do
     visit root_path
   end
 
-  scenario 'search an inexistent sale or petition' do
-    fill_in 'Busca productos, servicios y más...', with: 'Motor de lancha'
-    find(:xpath, "//button[@id='search-btn']").click
-    expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
+  context 'search on searbar' do
+    scenario 'an inexistent sale or petition' do
+      fill_in 'Busca productos, servicios y más...', with: 'Motor de lancha'
+      find(:xpath, "//button[@id='search-btn']").click
+      expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
+    end
+
+    scenario 'a registered sale or petition' do
+      fill_in 'Busca productos, servicios y más...', with: 'wheels'
+      find(:xpath, "//button[@id='search-btn']").click
+      expect(page).to have_content(petition.title)
+    end
   end
 
-  scenario 'search a registered sale or petition' do
-    fill_in 'Busca productos, servicios y más...', with: 'wheels'
-    find(:xpath, "//button[@id='search-btn']").click
-    expect(page).to have_content(petition.title)
+  context 'search on categories dropdown' do
+    scenario 'a category without petitions or sales' do
+      find(:xpath, "//span[@id='dropdownCategories']").click
+      find(:xpath, "//div[@class='dropdown-submenu']//a[@class='dropdown-item']").click
+      expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
+    end
+
+    scenario 'a category with petitions or sales' do
+      find(:xpath, "//span[@id='dropdownCategories']").click
+      find(:xpath, "//div[@class='dropdown-submenu']//a[@class='dropdown-item dropdown-toggle']").click
+      find(:xpath, "//a[@href='#{category_search_index_path(title: category.title)}']").click
+      expect(page).to have_content(category.title)
+    end
+
+    scenario 'a subcategory without petitions or sales' do
+      find(:xpath, "//span[@id='dropdownCategories']").click
+      find(:xpath, "//div[@class='dropdown-submenu']//a[@class='dropdown-item']").click
+      find(:xpath, "//a[@href='#{subcategory_search_index_path(title: subcategory_empty.title)}']").click
+      expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
+    end
+
+    scenario 'a subcategory with petitions or sales' do
+      find(:xpath, "//span[@id='dropdownCategories']").click
+      find(:xpath, "//div[@class='dropdown-submenu']//a[@class='dropdown-item dropdown-toggle']").click
+      find(:xpath, "//a[@href='#{subcategory_search_index_path(title: subcategory.title)}']").click
+      expect(page).to have_content(category.title)
+    end
   end
 end
