@@ -27,7 +27,7 @@
                                 class: "dropdown-item",
                                 "data-turbolinks": false %>
                   <% else %>
-                    <%= link_to category.title,"", class: "dropdown-item dropdown-toggle"%>
+                    <%= link_to category.title, "", class: "dropdown-item dropdown-toggle" %>
                     <div class="dropdown-menu submenu-categories py-2">
                       <div class="submenu-container">
                         <div class="title-subcategory text-center mx-2">
@@ -169,11 +169,11 @@
                 <img src="<%= asset_path('my_order.svg') %>" alt="my order icon">
                 <span class="ml-2">Mi orden</span>
               </a>
-              <%= link_to categories_sales_path,class: "dropdown-item" do %>
+              <%= link_to categories_sales_path, class: "dropdown-item" do %>
                 <img src="<%= asset_path('money_circle.svg') %>" alt="circle money icon">
                 <span class="ml-2">Vender</span>
-              <%end %>
-              <%= link_to categories_petitions_path,class: "dropdown-item" do %>
+              <% end %>
+              <%= link_to categories_petitions_path, class: "dropdown-item" do %>
                 <img src="<%= asset_path('shopping_bag.svg') %>" alt="shopping bag icon">
                 <span class="ml-2">Compras</span>
               <% end %>

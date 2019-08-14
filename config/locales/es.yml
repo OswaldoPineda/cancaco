@@ -160,6 +160,7 @@ es:
       model_invalid: 'La validación falló: %{errors}'
       not_a_number: no es un número
       not_an_integer: debe ser un entero
+      not_found_image: No se encuentra la imagen
       odd: debe ser un número non
       other_than: debe ser diferente a %{count}
       present: debe estar en blanco
