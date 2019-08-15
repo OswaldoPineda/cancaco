@@ -124,9 +124,8 @@
       </div>
 
       <div class="profile-menu d-lg-flex align-items-center">
-        <div class="profile-photo d-none  d-lg-flex ">
-          <!--When paperclip will be installed the name 'default' should change for :thumb'-->
-          <%= image_tag('default.png', size: "45x45", class: "rounded-circle bg-dark") %>
+        <div class="profile-photo d-none d-lg-flex">
+          <%= profile_photo(current_user, "45x45") %>
         </div>
 
         <div class="dropdown pr-1 pr-md-3 pr-lg-4 pr-xl-5">
@@ -143,12 +142,12 @@
           <div class="dropdown-menu menu-profile pt-0 dropdown-menu-right px-1" aria-labelledby="dropdownUserMenu">
             <div class="text-center d-block my-3 d-flex align-items-center justify-content-between justify-content-lg-center px-2">
               <% if user_signed_in? %>
-                <div class="profile-photo d-block d-lg-none ">
-                  <!--When paperclip will be installed the name 'default' should change for :thumb'-->
-                  <%= image_tag('default.png', size: "23x23", class: "rounded-circle bg-dark") %>
+                <% @user_name = current_user.full_name.split%>
+                <div class="profile-photo d-block d-lg-none rounded-circle bg-dark">
+                  <%= profile_photo(current_user, "23x23") %>
                 </div>
 
-                <span>Hola, <%= current_user.full_name.split.first %></span>
+                <span>¡Hola <%= @user_name.first.capitalize %>!</span>
                 <a href="/notifications">
                   <span class="d-block d-lg-none"><img src="<%= asset_path('notification-bell.svg') %>" width="25" height="25"
                       alt="notification-bell icon"></span>

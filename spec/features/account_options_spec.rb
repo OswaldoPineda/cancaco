@@ -19,6 +19,6 @@ RSpec.feature 'Account options', type: :feature do
 
   scenario "Click 'mis datos' option" do
     find(:xpath, "//a[@name='MisDatos']").click
-    expect(page).to have_content("Hola, #{user.full_name.capitalize}")
+    expect(page).to have_content("Hola, #{user.full_name.titleize}")
   end
 end
