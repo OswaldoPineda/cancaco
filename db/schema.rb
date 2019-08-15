@@ -138,6 +138,10 @@ ActiveRecord::Schema.define(version: 2019_08_03_213725) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.bigint "company_id"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
