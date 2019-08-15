@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
                                                                                        :street]]])
 
     devise_parameter_sanitizer.permit(:account_update,
-                                      keys: [:full_name, company_attributes: [:id, :category_id]])
+                                      keys: [:full_name, :avatar, company_attributes: [:id, :category_id]])
   end
 end

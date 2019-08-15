@@ -3,18 +3,24 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+# Amazon Web Services gem for picture storage service
+gem 'aws-sdk-s3', '~> 1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 # bootstrap sass for styles
 gem 'bootstrap', '~> 4.3.1'
 # Devise
 gem 'devise'
+# Gem to help with the credentials to AWS
+gem 'fog-aws'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Jquery for bootstrap
 gem 'jquery-rails'
 # Use this gem to complement premailer gem.
 gem 'nokogiri'
+# Paperclip for customise profile picture
+gem 'paperclip', '~> 6.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use premailer to keep the css styles on the email clients.
