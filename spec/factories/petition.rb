@@ -3,7 +3,7 @@ FactoryBot.define do
     title { 'Petition of wheels' }
     description { 'required wheels of bus' }
     quantity { 5 }
-    deadline { '2019-06-30' }
+    deadline { Time.current + 1.day }
     active { true }
   end
 end
