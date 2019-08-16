@@ -17,6 +17,8 @@ gem 'fog-aws'
 gem 'jbuilder', '~> 2.5'
 # Jquery for bootstrap
 gem 'jquery-rails'
+# Kaminari gem for add pagination
+gem 'kaminari'
 # Use this gem to complement premailer gem.
 gem 'nokogiri'
 # Paperclip for customise profile picture

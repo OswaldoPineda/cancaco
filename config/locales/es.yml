@@ -1,5 +1,12 @@
 ---
 es:
+  views:
+    pagination:
+      first: "&laquo; Primera"
+      last: "Ultima &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Siguiente &rsaquo;"
+      truncate: "&hellip;"
   activerecord:
     errors:
       messages:
@@ -239,7 +246,7 @@ es:
         delimiter: ","
   success:
     messages:
-      petition_published: Su solicitud ha sido publicada correctamente.  
+      petition_published: Su solicitud ha sido publicada correctamente.
       sale_published: Su venta ha sido publicada correctamente.
   support:
     array:

@@ -7,6 +7,7 @@ class SearchController < ApplicationController
     return redirect_to(root_path, alert: I18n.t('errors.messages.blank')) if text_to_search.blank?
 
     @results = Petition.where('title LIKE ?', "%#{text_to_search}%").where(active: true)
+    @results_page = @results.page(params[:page] || 1).per(9)
     render :index
   end
 
@@ -16,6 +17,7 @@ class SearchController < ApplicationController
 
     @title = category.title
     @results = Petition.where(category_id: category.id).where(active: true)
+    @results_page = @results.page(params[:page] || 1).per(9)
     render :index
   end
 
@@ -25,6 +27,7 @@ class SearchController < ApplicationController
 
     @title = subcategory.title
     @results = Petition.where(subcategory_id: subcategory.id).where(active: true)
+    @results_page = @results.page(params[:page] || 1).per(9)
     render :index
   end
 
