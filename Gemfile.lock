@@ -207,7 +207,7 @@ GEM
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
-    paperclip (6.0.0)
+    paperclip (6.1.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
       mime-types
@@ -421,7 +421,7 @@ DEPENDENCIES
   letter_opener
   listen (>= 3.0.5, < 3.2)
   nokogiri
-  paperclip (~> 6.0.0)
+  paperclip (~> 6.1.0)
   pg (>= 0.18, < 2.0)
   premailer-rails
   puma (~> 4.1)
