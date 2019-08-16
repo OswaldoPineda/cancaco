@@ -20,7 +20,7 @@ gem 'jquery-rails'
 # Use this gem to complement premailer gem.
 gem 'nokogiri'
 # Paperclip for customise profile picture
-gem 'paperclip', '~> 6.0.0'
+gem 'paperclip', '~> 6.1.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use premailer to keep the css styles on the email clients.
