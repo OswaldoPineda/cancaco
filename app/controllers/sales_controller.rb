@@ -50,6 +50,7 @@ class SalesController < ApplicationController
                                  :quantity,
                                  :price,
                                  :category_id,
-                                 :subcategory_id)
+                                 :subcategory_id,
+                                 :document)
   end
 end
