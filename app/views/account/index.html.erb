@@ -1,60 +1,60 @@
 <div class="w-100 d-flex justify-content-center">
-  <div class="col-11 rounded border my-5 p-5">
+  <div class="col-11 rounded border my-5 p-5 banner-color">
     <div class="text-muted mb-5">
       <h2 class="subtitle">¡Hola <%= current_user.full_name.split.first %>!</h2>
     </div>
     <div class="container-fluid px-0 d-flex flex-wrap justify-content-center justify-content-xl-between">
-      <div class="px-0 m-2 col-12 col-md-5 col-lg-3 col-xl-2 border border-dark rounded">
-        <%= link_to '/users/edit', name: "MisDatos", class: "text-decoration-none text-secondary" do %>
-          <div class="p-2 d-flex flex-wrap justify-content-center">
+      <div class="px-0 mb-5 m-2 col-12 col-md-5 col-lg-3 col-xl-2 border border-dark rounded bg-white">
+        <%= link_to '/users/edit', name: 'MisDatos', class: 'text-decoration-none text-secondary' do %>
+          <div class="py-4 px-1 d-flex flex-wrap justify-content-center">
             <div class="w-100 mb-3 d-flex justify-content-center">
-              <%= image_tag( 'user_circle.svg', size: "150x150", class: "text-secondary" ) %>
+              <%= image_tag( 'data_user.png', size: '100x100', class: 'text-secondary' ) %>
             </div>
-            <h4 class="text-center">Mis datos</h4>
+            <h5 class="text-center">Mis datos</h5>
           </div>
         <% end %>
       </div>
 
-      <div class="px-0 m-2 col-12 col-md-5 col-lg-3 col-xl-2 border border-dark rounded">
-        <%= link_to '/addresses', class: "text-decoration-none text-secondary" do %>
-          <div class="p-2 d-flex flex-wrap justify-content-center">
+      <div class="px-0 mb-5 m-2 col-12 col-md-5 col-lg-3 col-xl-2 border border-dark rounded bg-white">
+        <%= link_to '/addresses', class: 'text-decoration-none text-secondary' do %>
+          <div class="py-4 px-1 d-flex flex-wrap justify-content-center">
             <div class="w-100 mb-3 d-flex justify-content-center">
-              <%= image_tag( 'map.svg', size: "100x150", class: "text-secondary" ) %>
+              <%= image_tag( 'addresses.png', size: '100x100', class: 'text-secondary' ) %>
             </div>
-            <h4 class="text-center">Mis direcciones</h4>
+            <h5 class="text-center">Mis direcciones</h5>
           </div>
         <% end %>
       </div>
 
-      <div class="px-0 m-2 col-12 col-md-5 col-lg-3 col-xl-2 border border-dark rounded">
-        <%= link_to '/payment', class: "text-decoration-none text-secondary" do %>
-          <div class="p-2 d-flex flex-wrap justify-content-center">
+      <div class="px-0 mb-5 m-2 col-12 col-md-5 col-lg-3 col-xl-2 border border-dark rounded bg-white">
+        <%= link_to '/payment', class: 'text-decoration-none text-secondary' do %>
+          <div class="py-4 px-1 d-flex flex-wrap justify-content-center">
             <div class="w-100 mb-3 d-flex justify-content-center">
-              <%= image_tag( 'credit-card.svg', size: "130x150", class: "text-secondary" ) %>
+              <%= image_tag( 'credit_card.png', size: '100x100', class: 'text-secondary' ) %>
             </div>
-            <h4 class="text-center">Opciones de pago</h4>
+            <h5 class="text-center">Opciones de pago</h5>
           </div>
         <% end %>
       </div>
 
-      <div class="px-0 m-2 col-12 col-md-5 col-lg-3 col-xl-2 border border-dark rounded">
-        <%= link_to '/purchases', class: "text-decoration-none text-secondary" do %>
-          <div class="p-2 d-flex flex-wrap justify-content-center">
+      <div class="px-0 mb-5 m-2 col-12 col-md-5 col-lg-3 col-xl-2 border border-dark rounded bg-white">
+        <%= link_to '/purchases', class: 'text-decoration-none text-secondary' do %>
+          <div class="py-4 px-1 d-flex flex-wrap justify-content-center">
             <div class="w-100 mb-3 d-flex justify-content-center">
-              <%= image_tag( 'shopping_bag.svg', size: "150x150", class: "text-secondary" ) %>
+              <%= image_tag( 'purchases.png', size: '100x100', class: 'text-secondary' ) %>
             </div>
-            <h4 class="text-center">Compras</h4>
+            <h5 class="text-center">Compras</h5>
           </div>
         <% end %>
       </div>
 
-      <div class="px-0 m-2 col-12 col-md-5 col-lg-3 col-xl-2 border border-dark rounded">
-        <%= link_to '/sales', class: "text-decoration-none text-secondary" do %>
-          <div class="p-2 d-flex flex-wrap justify-content-center">
+      <div class="px-0 mb-5 m-2 col-12 col-md-5 col-lg-3 col-xl-2 border border-dark rounded bg-white">
+        <%= link_to '/sales', class: 'text-decoration-none text-secondary' do %>
+          <div class="py-4 px-1 d-flex flex-wrap justify-content-center">
             <div class="w-100 mb-3 d-flex justify-content-center">
-              <%= image_tag( 'money_circle.svg', size: "150x150", class: "text-secondary" ) %>
+              <%= image_tag( 'sales.png', size: '100x100', class: 'text-secondary' ) %>
             </div>
-            <h4 class="text-center">Historial ventas</h4>
+            <h5 class="text-center">Historial ventas</h5>
           </div>
         <% end %>
       </div>
