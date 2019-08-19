@@ -34,7 +34,7 @@ gem 'rails', '~> 5.2.3'
 # Use Redis to store an in-memory data structure
 gem 'redis', '~> 4.1.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 # Use sidekiq to handle the background jobs
 gem 'sidekiq'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
