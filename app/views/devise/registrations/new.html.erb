@@ -1,11 +1,14 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <% @error_messages = resource.errors.messages %>
-  <div class="container col-11 col-md-10 border bg-light rounded pt-3 pb-5 px-3 px-md-5 mt-3 mt-md-5 text-form">
-    <div class="row mb-3 mt-1">
+  <div class="container col-11 col-md-10 border bg-light rounded pt-3 pb-4 px-3 px-md-5 mt-3 mt-md-5 text-form">
+    <div class="row mb-3">
       <div class="col text-center">
-        <p class="my-0">¿Eres afiliado?</p>
-        <h4 class="my-0 subtitle">Registra tu empresa hoy</h4>
-        <p class="my-0 font-weight-light">Comienza a disfrutar de los beneficios</p>
+        <%= link_to root_path do %>
+          <%= image_tag 'canaco-logo.png', size: '120x80' %>
+        <% end %>
+        <p class="mt-2 mb-0 info-text">¿Eres afiliado?</p>
+        <h4 class="my-0 welcome-text">Registra tu empresa hoy</h4>
+        <p class="my-0 font-weight-light info-text">Comienza a disfrutar de los beneficios</p>
       </div>
     </div>
     <div class="row">
@@ -106,11 +109,11 @@
         <p class="small text-sm-center text-md-left">Al continuar aceptas las condiciones de uso y el aviso de privacidad de CANACO</p>
       </div>
       <div class="col-xs-12 col-md-4">
-        <%= f.submit "Crear tu cuenta", class: "btn btn-block text-white primary-button mt-1" %>
+        <%= f.submit "Crear tu cuenta", class: "btn btn-block text-white primary-button my-1" %>
       </div>
     </div>
   </div>
-  <div class="container my-5">
+  <div class="container mb-5 mt-3">
     <div class="row justify-content-center">
       <div class="col-md-8 border-top border-dark">
         <div class="row mt-3 justify-content-around">

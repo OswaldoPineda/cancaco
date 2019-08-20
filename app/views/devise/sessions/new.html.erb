@@ -1,7 +1,9 @@
 <div class="container col-11 col-md-8 col-lg-5 bg-light border rounded px-3 px-md-5 pb-5 pt-3 mt-3 mt-md-5 text-form">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="my-1 d-flex justify-content-center">
-      <%= image_tag 'canaco-logo.png', size: '160x110' %>
+      <%= link_to root_path do %>
+        <%= image_tag 'canaco-logo.png', size: '160x110' %>
+      <% end %>
     </div>
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
