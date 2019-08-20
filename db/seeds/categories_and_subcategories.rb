@@ -21,8 +21,7 @@ categories = { "Tecnología" => ["Computación",
                "Servicios" => ["Fiestas y eventos",
                                "Publicidad",
                                "Transporte",
-                               "Otros servicios"],
-               "Outlet" => [] }
+                               "Otros servicios"] }
 
 categories.each do |main_category, subcategory|
   category = Category.find_or_create_by(title: main_category)

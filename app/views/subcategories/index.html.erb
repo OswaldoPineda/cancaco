@@ -1,41 +1,32 @@
-<div class="container col-11 bg-white py-3 container-subcategories">
-  <div class="row rounded justify-content-center bg-light mx-1 mx-md-5 my-3 border border-dark">
-    <div class="col-12 text-center px-1 py-3 main-title">
-      <h1 class="title">Elige una subcategoría</h1>
-    </div>
-    <div class="col-12 col-lg-6 d-flex mt-3 justify-content-center">
-      <div class="container row rounded justify-content-center mx-3 mx-md-5 mb-2 mb-md-5 pt-2 pt-md-3 category targets-categories-color">
-        <div class="container col-10 d-flex justify-content-center category-image">
-          <% if FileTest.exist?("app/assets/icons/categories/#{@title}.svg") %>
-             <img src='<%= asset_path("categories/#{@title}.svg") %>' class="image">
-          <% else %>
-            <h4 class="text-center text-danger py-5">La imagen no se encuentra</h4>
-          <% end %>
+<div class="container-fluid">
+  <div class="d-flex justify-content-center">
+    <div class="row rounded justify-content-center border container-subcategories pb-3 mb-4 col-lg-11">
+      <div class="col-12 text-center">
+        <h1 class="m-4 main-title">Elige una subcategoría</h1>
+      </div>
+      <div class="d-flex flex-wrap col-12 justify-content-around mb-5">
+        <div class="d-flex justify-content-center col-lg-8 mb-3">
+          <div class="row justify-content-center category border">
+            <div class="d-flex col-12 justify-content-center align-items-center">
+              <span class="m-2 text-center text-danger"><%= load_image(@title) %></span>
+            </div>
+            <div class="d-flex justify-content-center align-items-center col-12">
+              <h3 class="text-center category-title"><%= @title %></h3>
+            </div>
+          </div>
         </div>
-        <div class="container col-12 text-center p-1 py-md-3 m-2 category-title">
-          <p><%= @title %></p>
+        <div class="col-lg-4 text-lg-left text-center subcategories-list">
+            <% @subcategories.each do |subcategory| %>
+              <ul>
+                <li>
+                  <%= link_to subcategory.title, new_petition_path(category: @category,
+                                                                   subcategory: subcategory) %>
+                <li>
+              </ul>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-12 col-md-4 my-3 px-0 pr-md-3 text-center text-md-left subcategories-list">
-      <% if @subcategories.empty? %>
-        <h2 class="mb-5">Esta categoría no tiene subcategorías</h2>
-        <ul>
-          <li><%= link_to 'Continuar con categoría',
-                          new_petition_path(category: @category),
-                          method: :get,
-                          class: "btn btn-info" %><li>
-        </ul>
-      <% else %>
-        <% @subcategories.each do |subcategory| %>
-          <ul>
-            <li>
-              <%= link_to subcategory.title,
-                          petition_or_sale_form(category: @category, subcategory: subcategory) %>
-              <li>
-          </ul>
-        <% end %>
-      <% end %>
     </div>
   </div>
 </div>

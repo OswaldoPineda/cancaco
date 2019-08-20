@@ -1,19 +1,21 @@
-<div class="bg-light">
-  <div class='d-flex justify-content-center'>
-    <div class="d-flex flex-column align-items-center border rounded mb-2 bg-white col-lg-11">
-      <h1 class="m-4 title"><%= petition_or_sale_title %></h1>
-      <div class="d-flex row col-xl-10 col-md-12 justify-content-center">
-        <% @categories.each do |category| %>
-          <div class="d-flex col-lg-6 col-md-12 justify-content-around">
+<div class="bg-white">
+  <div class="container-fluid">
+    <div class='d-flex justify-content-center'>
+      <div class="cards-zone d-flex flex-wrap justify-content-center border rounded mb-4 col-lg-11 p-0">
+        <div class="col-12 text-center">
+          <h1 class="m-4 main-title"><%= petition_or_sale_title %></h1>
+        </div>
+        <div class="row col-xl-10 col-md-12 justify-content-around p-0">
+          <% @categories.each do |category| %>
             <%= link_to petition_or_sale_path(category_id: category.id),
                         class: "text-decoration-none" do %>
-              <div class="d-flex flex-column justify-content-center align-items-center m-2 p-2 border rounded tags targets-categories-color">
-                <span class="m-2"><%= image_tag( "categories/#{category.title}.svg", size: '100x100' ) %></span>
-                <span class="text-white m-2"><h4><%= category.title %></h4></span>
+              <div class="tags d-flex flex-column justify-content-center align-items-center m-2 mb-5 p-2">
+                <span class="m-2 text-center text-danger"><%= load_image(category.title) %></span>
+                <span class="tags-titles m-2"><h4><%= category.title %></h4></span>
               </div>
             <% end %>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
