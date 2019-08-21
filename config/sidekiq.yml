@@ -2,6 +2,8 @@
 :concurrency: 5
 :queues:
   - default
+  - messages
+  - conversations
   - mailers
   - notifications
   - deliver

@@ -1,4 +1,4 @@
-<%= link_to '/notifications', class: :'text-decoration-none' do %>
+<%= link_to conversations_path(company: notification.company), method: :post, class: :"text-decoration-none" do %>
   <% @user = notification.company.user %>
   <div class='dropdown-item w-100 px-3 text-secondary text-wrap py-3 notification-item d-flex align-items-center'>
     <div class="profile-photo d-none d-lg-flex ">
