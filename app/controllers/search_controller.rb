@@ -6,8 +6,10 @@ class SearchController < ApplicationController
     text_to_search = params[:search].downcase
     return redirect_to(root_path, alert: I18n.t('errors.messages.blank')) if text_to_search.blank?
 
-    @results = Petition.where('title LIKE ?', "%#{text_to_search}%").where(active: true)
-    @results_page = @results.page(params[:page] || 1).per(9)
+    petition_results = Petition.where('LOWER(title) LIKE ? AND active = ?', "%#{text_to_search}%", 'true')
+    sale_results = Sale.where('LOWER(title) LIKE ? AND active = ?', "%#{text_to_search}%", 'true')
+    @results = (petition_results + sale_results).sort_by(&:created_at)
+    @results_page = Kaminari.paginate_array(@results).page(params[:page] || 1).per(9)
     render :index
   end
 
@@ -16,8 +18,10 @@ class SearchController < ApplicationController
     return redirect_to(root_path, alert: I18n.t('errors.messages.blank')) if category.blank?
 
     @title = category.title
-    @results = Petition.where(category_id: category.id).where(active: true)
-    @results_page = @results.page(params[:page] || 1).per(9)
+    petition_results = Petition.where('category_id = ? AND active = ?', category.id, 'true')
+    sale_results = Sale.where('category_id = ? AND active = ?', category.id, 'true')
+    @results = (petition_results + sale_results).sort_by(&:created_at)
+    @results_page = Kaminari.paginate_array(@results).page(params[:page] || 1).per(9)
     render :index
   end
 
@@ -26,8 +30,10 @@ class SearchController < ApplicationController
     return redirect_to(root_path, alert: I18n.t('errors.messages.blank')) if subcategory.blank?
 
     @title = subcategory.title
-    @results = Petition.where(subcategory_id: subcategory.id).where(active: true)
-    @results_page = @results.page(params[:page] || 1).per(9)
+    petition_results = Petition.where('subcategory_id = ? AND active = ?', subcategory.id, 'true')
+    sale_results = Sale.where('subcategory_id = ? AND active = ?', subcategory.id, 'true')
+    @results = (petition_results + sale_results).sort_by(&:created_at)
+    @results_page = Kaminari.paginate_array(@results).page(params[:page] || 1).per(9)
     render :index
   end
 

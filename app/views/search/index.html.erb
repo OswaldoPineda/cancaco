@@ -74,12 +74,16 @@
           </select>
         </div>
         <% @results_page.each do |product| %>
-          <%= render partial: 'shared/petition_card', locals: { product: product } %>
+          <% if product.kind_of?(Petition) %>
+            <%= render partial: 'shared/petition_card', locals: { product: product } %>
+          <% else %>
+            <%= render partial: 'shared/sale_card', locals: { product: product } %>
+          <% end %>
         <% end %>
       </div>
     </div>
-    <div class="row offset-xl-3 py-5">
-      <%= paginate @results_page,  window: 2 %>
+    <div class="d-flex offset-xl-3 py-5">
+      <%= paginate @results_page, window: 2 %>
     </div>
   </div>
 <% end %>
