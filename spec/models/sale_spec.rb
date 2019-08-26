@@ -12,5 +12,6 @@ RSpec.describe Sale, type: :model do
   describe 'valid relations' do
     it { should belong_to(:category) }
     it { should belong_to(:company) }
+    it { should have_many(:images) }
   end
 end
