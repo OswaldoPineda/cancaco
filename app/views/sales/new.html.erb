@@ -9,13 +9,15 @@
         </div>
         <div class="text-center w-100 my-4">
           <h1 class="title"><%= @category.title %></h1>
-          <% unless @subcategory.nil? %>
-            <h5 class="text-muted">( <%= @subcategory.title %> )</h5>
-          <% end %>
+          <h5 class="text-muted">( <%= @subcategory.title %> )</h5>
           <h2 class="subtitle">Describe el producto que vendes</h2>
         </div>
         <div class="form-body col-12 col-md-10">
           <%= form_for @sale, url: sales_path do |f| %>
+            <%= f.fields_for @images do |images_fields| %>
+              <%= images_fields.label :image, 'Subir imagenes', class: 'my-3 btn primary-button btn-sm' %>
+              <%= images_fields.file_field :image, multiple: true, accept:'image/*' %>
+            <% end %>
             <% @error_messages = @sale.errors.messages %>
             <div class="d-flex justify-content-center">
               <%= f.label :document, 'Subir PDF (opcional)', class: 'my-3 btn primary-button btn-sm' %>

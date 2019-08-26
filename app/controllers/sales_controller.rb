@@ -7,11 +7,13 @@ class SalesController < ApplicationController
     @error_messages = []
     @sale = Sale.new(category_id: @category.id)
     @sale.subcategory_id = @subcategory&.id
+    @images = @sale.images.new
   end
 
   def create
     @sale = Sale.new(valid_params)
     @sale.company_id = current_user.company_id
+    build_images
     if @sale.save
       redirect_to categories_sales_path, notice: I18n.t('success.messages.sale_published')
     else
@@ -22,6 +24,12 @@ class SalesController < ApplicationController
   end
 
   private
+
+  def build_images
+    (params[:sale][:image][:image] || []).each do |img|
+      @sale.images.build(file: img)
+    end
+  end
 
   def valid_categories_and_subcategories
     @category = Category.find_by(id: params[:category])
@@ -51,6 +59,7 @@ class SalesController < ApplicationController
                                  :price,
                                  :category_id,
                                  :subcategory_id,
-                                 :document)
+                                 :document,
+                                 images_attributes: [:file])
   end
 end
