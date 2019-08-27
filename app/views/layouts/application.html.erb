@@ -14,13 +14,16 @@
   </head>
 
   <body>
-    <% if notice?(params['controller'], params['action']) %>
-      <%= render partial: 'shared/info_messages' %>
-    <% end %>
     <% unless navbar_and_footer?(params['controller'], params['action']) %>
+      <% if notice?(params['controller'], params['action']) %>
+        <%= render partial: 'shared/info_messages' %>
+      <% end %>
       <%= yield %>
     <% else %>
       <%= render partial: 'shared/navbar' %>
+      <% if notice?(params['controller'], params['action']) %>
+        <%= render partial: 'shared/info_messages' %>
+      <% end %>
       <%= yield %>
       <%= render partial: 'shared/footer' %>
     <% end %>
