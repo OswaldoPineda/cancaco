@@ -43,6 +43,8 @@ es:
         quantity: "Cantidad"
         deadline: "Fecha límite"
         active: "Activo"
+      sale:
+        document: "Documento"
   date:
     abbr_day_names:
     - dom

@@ -19,7 +19,7 @@
             <% @subcategories.each do |subcategory| %>
               <ul>
                 <li>
-                  <%= link_to subcategory.title, new_petition_path(category: @category,
+                  <%= link_to subcategory.title, petition_or_sale_form(category: @category,
                                                                    subcategory: subcategory) %>
                 <li>
               </ul>
