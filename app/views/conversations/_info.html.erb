@@ -1,7 +1,6 @@
 <div class="d-flex flex-column align-items-center justify-content-around h-50 border-bottom">
-  <%= profile_photo(current_user, '120x120') %>
   <% @actual_company = company_recipient(current_user, @conversation) %>
-
+  <%= profile_photo(@actual_company.user, '120x120') %>
   <h3 class="text-center"><%= @actual_company.user.full_name.titleize %></h3>
   <h5><%= @actual_company.name %></h5>
 </div>

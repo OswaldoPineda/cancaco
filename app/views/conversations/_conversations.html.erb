@@ -9,11 +9,12 @@
                   class: :"d-flex link-conversation row align-items-center justify-content-sm-around
                            justify-content-center w-100 m-0 p-0 btn btn-outline-dark border-0",
                   id: conversation.id.to_s do %>
+        <% conversation_company = company_recipient(current_user, conversation) %>
         <div class="profile-photo my-2 col-12 col-md-2 justify-content-center profile-image">
-          <%= profile_photo(current_user, '50x50') %>
+          <%= profile_photo(conversation_company.user, '50x50') %>
         </div>
         <div class="d-none col-8 d-md-flex flex-column align-content text-left">
-          <% conversation_company = company_recipient(current_user, conversation) %>
+
           <h5 class="text-truncate m-0"><%= conversation_company.name %></h5>
           <p class="text-truncate m-0 last-message" id="message<%= conversation.id %>">
             <% unless conversation.messages.empty? %>
