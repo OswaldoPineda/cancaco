@@ -6,7 +6,7 @@ RSpec.feature 'Sign Up', type: :feature do
   given(:user) { FactoryBot.create(:user) }
   given!(:category) { Category.create(title: 'Hogar') }
   given(:company_id) { 'user[company_attributes]' }
-  given(:address_id) { 'user[company_attributes][address_attributes]' }
+  given(:address_id) { 'user[company_attributes][addresses_attributes]' }
   background do
     visit root_path
     visit new_user_registration_path
@@ -104,10 +104,10 @@ RSpec.feature 'Sign Up', type: :feature do
   end
 
   def fill_address_fields(*params)
-    fill_in "#{address_id}[zip_code]", with: params[0][:zip_code]
-    fill_in "#{address_id}[city]", with: params[0][:city]
-    fill_in "#{address_id}[state]", with: params[0][:state]
+    fill_in "#{address_id}[0][zip_code]", with: params[0][:zip_code]
+    fill_in "#{address_id}[0][city]", with: params[0][:city]
+    fill_in "#{address_id}[0][state]", with: params[0][:state]
     first('#neighborhood option', minimum: 1).select_option
-    fill_in "#{address_id}[street]", with: params[0][:street]
+    fill_in "#{address_id}[0][street]", with: params[0][:street]
   end
 end

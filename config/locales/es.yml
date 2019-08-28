@@ -20,6 +20,12 @@ es:
       address: "dirección"
       petition: "solicitud"
     attributes:
+      address:
+        zip_code: "Código postal"
+        city: "Ciudad"
+        state: "Estado"
+        neighborhood: "Colonia"
+        street: "Calle"
       user:
         full_name: "Nombre completo"
         email: "Correo"
@@ -251,6 +257,10 @@ es:
     messages:
       petition_published: Su solicitud ha sido publicada correctamente.
       sale_published: Su venta ha sido publicada correctamente.
+    address:
+      added: Dirección agregada correctamente.
+      deleted: Dirección borrada.
+      updated: Dirección actualizada.
   support:
     array:
       last_word_connector: " y "
