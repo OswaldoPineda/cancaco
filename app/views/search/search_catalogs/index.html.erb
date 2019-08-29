@@ -1,0 +1,21 @@
+<div class="row search_catalogs px-0 px-md-4 mx-2 mx-md-5 my-3 py-5 banner-color">
+  <p class="col-12 text-center pb-3 pb-md-5 font-weight-bold">Categorías para compra y ventas</p>
+  <% @categories.each do |category| %>
+    <div class="row col-12 col-md-6 col-lg-4 mx-0">
+      <div class="col-2 image-field">
+        <img class="row mx-0 text-center text-danger img-fluid image"><%= load_image(category.title) %><img>
+      </div>
+      <div class="col-10 font-weight-bold">
+        <%= link_to category.title, category_search_index_path(title: category.title),
+                    class: 'text-decoration-none categories',
+                    'data-turbolinks': false %>
+        <div class="py-3">
+          <% category.subcategories.each do |subcategory| %>
+            <%= link_to subcategory.title, subcategory_search_index_path(title: subcategory.title),
+                        class: 'text-decoration-none subcategories' %><br>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
