@@ -4,8 +4,8 @@
       <div
         class="form-container bg-light border rounded col-12 col-md-8 d-flex justify-content-center flex-wrap py-3 mt-sm-4 mb-5">
         <div class="w-100 mt-3 ml-3">
-          <%= link_to 'Categorias', categories_sales_path %> &gt;
-          <%= link_to 'Subcategorias', :back %> &gt; venta
+          <%= link_to "Categorías", categories_sales_path %> &gt;
+          <%= link_to "Subcategorías", :back %> &gt; Venta
         </div>
         <div class="text-center w-100 my-4">
           <h1 class="title"><%= @category.title %></h1>
@@ -49,9 +49,9 @@
             <%= f.hidden_field :category_id %>
             <%= f.hidden_field :subcategory_id %>
             <%= f.text_area :description,
-                            class: 'form-control form-control-lg mt-5',
-                            style: 'height: 250px;',
-                            placeholder: '¿Qué incluye? Describelo detalladamente' %>
+                            class: "form-control form-control-lg mt-5",
+                            style: "height:250px",
+                            placeholder: "¿Qué incluye? Descríbelo detalladamente" %>
             <div class="invalid-feedback">
               <%= invalid_feedback_message(messages: @error_messages, field: :description) %>
             </div>

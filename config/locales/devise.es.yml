@@ -52,7 +52,7 @@ es:
       unlocked: "Su cuenta ha sido desbloqueada. Por favor inicie sesión para continuar."
   errors:
     messages:
-      already_confirmed: "ya ha sido confirmado, por favor intente iniciar sesión."
+      already_confirmed: "Ya ha sido confirmado, por favor intente iniciar sesión."
       confirmation_period_expired: "necesita ser confirmado en %{period}, por favor vuelva a solicitarla."
       expired: "ha expirado, por favor vuelva a solicitarla."
       not_found: "no se encontró."

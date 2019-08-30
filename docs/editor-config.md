@@ -18,7 +18,7 @@ Open de Atom configuration with the command Ctrl+comma, and paste the following 
  **NOTE:** Install the plugging from the user *"sindresorhus"*.
 
 #### Steps to install on Vim:
-Open your `.vimrf` file and paste the following line in your plugin section.
+Open your `.vimrc` file and paste the following line in your plugin section.
 
 `Plugin 'editorconfig/editorconfig-vim'`
 

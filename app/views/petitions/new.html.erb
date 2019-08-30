@@ -4,8 +4,8 @@
       <div
         class="form-container bg-light border rounded col-12 col-md-8 d-flex justify-content-center flex-wrap py-3 mt-sm-4 mb-5">
         <div class="w-100 mt-3 ml-3">
-          <%= link_to "Categorias", categories_petitions_path %> &gt;
-          <%= link_to "Subcategorias", :back %> &gt; Solicitud
+          <%= link_to "Categorías", categories_petitions_path %> &gt;
+          <%= link_to "Subcategorías", :back %> &gt; Solicitud
         </div>
         <div class="text-center w-100 my-4">
           <h1 class="title"><%= @category.title %></h1>
@@ -53,7 +53,7 @@
                 </div>
               </div>
             </div>
-            <%= f.label :deadline, '¿Para cuando lo necesita?', class: "mt-4" %><br>
+            <%= f.label :deadline, '¿Para cuándo lo necesita?', class: "mt-4" %><br>
             <%= f.select :deadline,
                          options_for_select('1 semana' => 1,
                                             '2 semanas' => 2,
