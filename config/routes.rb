@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
-  #Sales routes
+  # Sales routes
   resources :sales do
     collection do
       get '/categories', to: 'categories#index'
@@ -50,4 +50,5 @@ Rails.application.routes.draw do
     end
   end
   resources :addresses, only: [:index, :create, :update, :destroy]
+  resources :search_catalogs, only: :index
 end

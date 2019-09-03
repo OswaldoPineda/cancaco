@@ -182,10 +182,10 @@
                   <%= image_tag('shopping_bag.svg', alt: 'shopping bag icon') %>
                   <span class="ml-2">Compras</span>
                 <% end %>
-                <div class="dropdown-item d-block d-lg-none">
+                <%= link_to search_catalogs_path, class: 'dropdown-item d-block d-lg-none' do %>
                   <%= image_tag('categories.svg', alt: 'categories icon') %>
                   <span class="ml-2">Categorias</span>
-                </div>
+                <% end %>
                 <% if user_signed_in? %>
                   <%= link_to '/users/sign_out',
                               'data-no-turbolink' => true,
