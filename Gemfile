@@ -11,6 +11,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3.1'
 # Devise
 gem 'devise'
+# Dropzone for drag and drop
+gem 'dropzonejs-rails'
 # Gem to help with the credentials to AWS
 gem 'fog-aws'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
