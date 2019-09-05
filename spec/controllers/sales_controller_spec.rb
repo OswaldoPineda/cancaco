@@ -6,11 +6,12 @@ RSpec.describe SalesController, type: :controller do
   let!(:subcategory) { FactoryBot.create(:subcategory, category_id: category.id) }
   let(:company) { FactoryBot.create(:company) }
   let(:user) { FactoryBot.create(:user, company_id: company.id) }
+  let(:image) { attributes_for :image }
   let(:sale) {
     FactoryBot.attributes_for(:sale,
                               category_id: category.id,
                               subcategory_id: subcategory.id,
-                              company_id: company.id )
+                              company_id: company.id)
   }
 
   before do
@@ -43,7 +44,6 @@ RSpec.describe SalesController, type: :controller do
     before do
       post :create, params: { sale: sale }
     end
-    it { should redirect_to(categories_sales_path) }
     it { should set_flash }
   end
 

@@ -20,7 +20,8 @@
               <ul>
                 <li>
                   <%= link_to subcategory.title, petition_or_sale_form(category: @category,
-                                                                       subcategory: subcategory) %>
+                                                                       subcategory: subcategory),
+                              data: { turbolinks: false } %>
                 <li>
               </ul>
             <% end %>

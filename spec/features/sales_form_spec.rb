@@ -31,6 +31,7 @@ RSpec.feature 'Sales form', type: :feature do
   scenario 'fill without a field' do
     fill_in 'sale_title', with: 'I need something'
     fill_in 'sale_description', with: 'I describe a product that I need'
+    attach_file('fileMultipleItems', File.absolute_path('./spec/support/missing.png'))
     click_button 'Vender'
     expect(page).to have_content('Este campo no puede estar en blanco.')
   end

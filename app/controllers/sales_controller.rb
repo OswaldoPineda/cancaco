@@ -18,7 +18,8 @@ class SalesController < ApplicationController
       redirect_to categories_sales_path, notice: I18n.t('success.messages.sale_published')
     else
       @category = Category.find(@sale.category_id)
-      @subcategory = @category.subcategories.find(@sale.subcategory_id) if params[:subcategory]
+      @subcategory = @category.subcategories.find(@sale.subcategory_id)
+      @images = @sale.images.new
       respond_with @sale
     end
   end
@@ -26,7 +27,7 @@ class SalesController < ApplicationController
   private
 
   def build_images
-    (params[:sale][:image][:image] || []).each do |img|
+    (params.dig(:sale, :image, :file) || []).each do |img|
       @sale.images.build(file: img)
     end
   end
