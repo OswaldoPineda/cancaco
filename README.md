@@ -39,20 +39,47 @@ How to start to use web application of CANACO.
 
 ## Aditional information
 
+This section presents a description of how to perform integration tests and unit tests automatically. In addition, the allowed schedules that were agreed to make changes in the master branch of the project are presented.
+
 ### Running Tests
+
+If you want to verify that all tests (unit tests and integration tests) work correctly, type the follow command:
 
 ```
 bundle exec rake
 ```
 
-### Linters Included:
+Otherwise, if you need to run only the unit tests, you must specify their folder, for example:
 
-- Rubocop
-- erblint
+```
+bundle exec rspec spec/controller
+```
+
+The above command executes all unit tests for the controllers. To run only the integration test, you need to specify the folder where these :
+
+```
+bundle exec rspec spec/features
+```
+
+The project requires a tool for ruby called [SimpleCov](https://github.com/colszowka/simplecov "SimpleCov official documentation").  SimpleCov is a code coverage analysis, this tool allows us to check the coverage of code that has been tested to evaluate its correct function.
+You can make use of this tool, executing all the tests in your project and copy the last line that looks like `/path-your-project-location/coverage`, after you need to paste this in the navigation bar of your browser.
+
+
+
+
+### Linters Included
+
+For avoid errors and mantain clean code we use the follow tools:
+
+- [Rubocop](https://github.com/rubocop-hq/rubocop "Rubocop official documentation")
+- [Erblint](https://github.com/Shopify/erb-lint "Erblint official documentation")
+
+Rubocob verifies the syntax and logical code and ruby ​​conventions in the .rb files. When there are errors, rubocop returns a red message with the number of line of the error and a brief description of it, otherwise, it returns a green message with the legend "no offenses detected".\
+Erblint works just like rubocop, the difference is that erblint only checks the html files with embedded ruby ​​code (html.erb).
 
 ### Running Linters
 
-Install Husky to run linters before each commit by doing `yarn install`.
+In this project, we use a pre-commit hook to run tests automatically before to make a commit, in order to avoid broken builds. To do this configuration in git, you need to install [Husky](https://github.com/typicode/husky "Husky official documentation") to run linters before each commit by doing `yarn install`.
 
 
 ### Deploy zones:
