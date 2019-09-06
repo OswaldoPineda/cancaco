@@ -6,12 +6,12 @@
         <img class="row mx-0 text-center text-danger img-fluid image"><%= load_image(category.title) %><img>
       </div>
       <div class="col-10 font-weight-bold">
-        <%= link_to category.title, category_search_index_path(title: category.title),
+        <%= link_to category.title, category_searches_path(title: category.title),
                     class: 'text-decoration-none categories',
                     'data-turbolinks': false %>
         <div class="py-3">
           <% category.subcategories.each do |subcategory| %>
-            <%= link_to subcategory.title, subcategory_search_index_path(title: subcategory.title),
+            <%= link_to subcategory.title, subcategory_searches_path(title: subcategory.title),
                         class: 'text-decoration-none subcategories' %><br>
           <% end %>
         </div>

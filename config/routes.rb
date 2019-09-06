@@ -12,12 +12,12 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   # Root path
-  root to: 'home#index'
+  root to: 'homes#index'
 
   resources :conversations, only: [:index, :show, :create]
   resources :messages, only: :create
 
-  get '/users/account_options', to: 'account#index'
+  get '/users/account_options', to: 'accounts#index'
 
   resources :conversation, only: :index
 
@@ -42,11 +42,11 @@ Rails.application.routes.draw do
   match '/500', to: 'errors#internal_server_error', via: :all
 
   # search
-  resources :search do
+  resources :searches do
     collection do
-      get '/', to: 'search#search_by_title'
-      get '/category', to: 'search#search_by_category'
-      get '/subcategory', to: 'search#search_by_subcategory'
+      get '/', to: 'searches#search_by_title'
+      get '/category', to: 'searches#search_by_category'
+      get '/subcategory', to: 'searches#search_by_subcategory'
     end
   end
   resources :addresses, only: [:index, :create, :update, :destroy]
