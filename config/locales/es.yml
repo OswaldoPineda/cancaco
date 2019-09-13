@@ -3,7 +3,7 @@ es:
   views:
     pagination:
       first: "&laquo; Primera"
-      last: "Ultima &raquo;"
+      last: "Última &raquo;"
       previous: "&lsaquo; Anterior"
       next: "Siguiente &rsaquo;"
       truncate: "&hellip;"
@@ -29,7 +29,7 @@ es:
       user:
         full_name: "Nombre completo"
         email: "Correo"
-        password: "Contraseña"
+        password: "Nueva contraseña"
         current_password: "Contraseña actual"
         password_confirmation: "Confirma tu contraseña"
         remember_me: "Recordarme"
@@ -173,17 +173,17 @@ es:
       other_than: debe ser diferente a %{count}
       present: debe estar en blanco
       required: debe existir
-      subcategory_not_found: No existe esa subcategoria, inténtelo de nuevo.
+      subcategory_not_found: No existe esa subcategoría, inténtelo de nuevo.
       taken: Este correo ya ha sido tomado.
       too_long:
-        one: Es demasiado largo (máximo 1 carácter)
-        other: Es demasiado largo (máximo %{count} caracteres)
+        one: Es demasiado largo (máximo 1 caracter).
+        other: Es demasiado largo (máximo %{count} caracteres).
       too_short:
-        one: Es demasiado corto (mínimo 1 carácter)
-        other: Es demasiado corto (mínimo %{count} caracteres)
+        one: Es demasiado corto (mínimo 1 caracter).
+        other: Es demasiado corto (mínimo %{count} caracteres).
       wrong_length:
-        one: Longitud errónea (debe ser de 1 carácter)
-        other: Longitud errónea (debe ser de %{count} caracteres)
+        one: Longitud errónea (debe ser de 1 caracter).
+        other: Longitud errónea (debe ser de %{count} caracteres).
     template:
       body: 'Revise que los siguientes campos sean válidos:'
       header:
