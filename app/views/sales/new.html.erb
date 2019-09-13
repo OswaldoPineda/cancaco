@@ -9,14 +9,33 @@
         </div>
         <div class="text-center w-100 my-4">
           <h1 class="title"><%= @category.title %></h1>
-          <% unless @subcategory.nil? %>
-            <h5 class="text-muted">( <%= @subcategory.title %> )</h5>
-          <% end %>
+          <h5 class="text-muted">( <%= @subcategory.title %> )</h5>
           <h2 class="subtitle">Describe el producto que vendes</h2>
         </div>
         <div class="form-body col-12 col-md-10">
           <%= form_for @sale, url: sales_path do |f| %>
-            <% @error_messages = @sale.errors.messages %>
+          <% @error_messages = @sale.errors.messages %>
+          <span id="image-error" class="text-danger"></span>
+            <%= f.fields_for @images do |images_fields| %>
+              <div id="sales-dropzone" class="drop dropzone d-flex flex-wrap justify-content-center mb-5" for='fileMultipleItems'>
+                <div class="needsclick w-100 info-dragdrop">
+                  <div class="text-center d-flex flex-wrap dz-default dz-message">
+                    <div class="w-100 mb-3">
+                      <%= image_tag('drag-images.svg') %>
+                    </div>
+                    <span class="w-100">Agrega tus fotos.</span>
+                    <span class="w-100">Puedes subir un máximo de 5 fotos</span>
+                    <div class="w-100 mt-3">
+                      <%= image_tag('add-image.svg') %>
+                    </div>
+                  </div>
+                  <%= images_fields.file_field :file,
+                                               id: 'fileMultipleItems',
+                                               multiple: true,
+                                               accept: 'image/*' %>
+                </div>
+              </div>
+            <% end %>
             <div class="d-flex justify-content-center">
               <%= f.label :document, 'Subir PDF (opcional)', class: 'my-3 btn primary-button btn-sm' %>
               <%= f.file_field :document, class: 'form-control form-control-lg', accept: 'application/pdf' %>
