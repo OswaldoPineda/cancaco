@@ -31,7 +31,9 @@ There gems should be installed in the system.
 - Bundler 2.0.2
 - Redis 4.0.1
 
-## Usage
+## Usage  
+
+[How to use the application](docs/usage.md)
 
 ### Settings
 
