@@ -3,6 +3,6 @@ class SearchCatalogsController < ApplicationController
 
   def index
     @categories = Category.all
-    render file: 'search/search_catalogs/index'
+    render file: 'searches/search_catalogs/index'
   end
 end

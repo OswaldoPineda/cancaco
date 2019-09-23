@@ -34,25 +34,25 @@ RSpec.feature 'Catalog of the search', type: :feature do
 
   context 'Select category of catalog' do
     scenario 'Exist a purchase or a sale' do
-      page.first(:xpath, "//a[@href='#{category_search_index_path(title: category.title)}']").click
+      page.first(:xpath, "//a[@href='#{category_searches_path(title: category.title)}']").click
       expect(page).to have_content('Responder solicitud')
     end
 
     scenario 'No exist a purchase or a sale' do
-      page.first(:xpath, "//a[@href='#{category_search_index_path(title: category_empty.title)}']").click
+      page.first(:xpath, "//a[@href='#{category_searches_path(title: category_empty.title)}']").click
       expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
     end
   end
 
   context 'Select subcategory of catalog' do
     scenario 'Exist a purchase or a sale' do
-      page.first(:xpath, "//a[@href='#{subcategory_search_index_path(title: subcategory.title)}']").click
+      page.first(:xpath, "//a[@href='#{subcategory_searches_path(title: subcategory.title)}']").click
       expect(page).to have_content('Responder solicitud')
     end
 
     scenario 'No exist a purchase or a sale' do
       page.first(:xpath,
-                 "//a[@href='#{subcategory_search_index_path(title: subcategory_empty.title)}']").click
+                 "//a[@href='#{subcategory_searches_path(title: subcategory_empty.title)}']").click
       expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
     end
   end

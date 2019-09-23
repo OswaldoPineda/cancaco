@@ -23,7 +23,7 @@
                 <div class="dropdown-submenu">
                   <% if category.subcategories.size == 0 %>
                     <%= link_to category.title,
-                                category_search_index_path(title: category.title),
+                                category_searches_path(title: category.title),
                                 class: "dropdown-item",
                                 "data-turbolinks": false %>
                   <% else %>
@@ -33,7 +33,7 @@
                         <div class="title-subcategory text-center mx-2">
                           <h4>
                             <%= link_to category.title,
-                                        category_search_index_path(title: category.title),
+                                        category_searches_path(title: category.title),
                                         class: "text-decoration-none text-info",
                                         "data-turbolinks": false %>
                           </h4>
@@ -44,7 +44,7 @@
                             <div class="subcategories-list d-flex flex-wrap text-secondary">
                               <% category.subcategories.all.each do |subcategory| %>
                                 <%= link_to subcategory.title,
-                                            subcategory_search_index_path(title: subcategory.title),
+                                            subcategory_searches_path(title: subcategory.title),
                                             class: "text-muted w-100",
                                             "data-turbolinks": false %>
                               <% end %>
@@ -63,7 +63,7 @@
 
       <div class="search-bar d-none col-md-4 col-xl-5 d-lg-flex align-items-center">
         <div class="input-group">
-          <%= form_tag(search_index_path, method: "get", class: "d-flex w-100") do %>
+          <%= form_tag(searches_path, method: "get", class: "d-flex w-100") do %>
             <%= search_field_tag :search,
                                  params[:search],
                                  placeholder: "Busca productos, servicios y más...",
@@ -211,7 +211,7 @@
         <div id="closeSearchBar" class="return d-flex d-lg-none align-items-center px-2">
           <%= image_tag('arrow-left.svg', class: 'd-lg-none', alt: 'arrow left icon', size: '25') %>
         </div>
-          <%= form_tag(search_index_path, method: "get", class: "d-flex w-100 h-100") do %>
+          <%= form_tag(searches_path, method: "get", class: "d-flex w-100 h-100") do %>
             <%= search_field_tag :search,
                                  params[:search],
                                  placeholder: "Busca productos, servicios y más",

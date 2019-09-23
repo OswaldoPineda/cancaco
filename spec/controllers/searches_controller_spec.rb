@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SearchController, type: :controller do
+RSpec.describe SearchesController, type: :controller do
   let(:user) { create(:user) }
   let(:category) { create(:category) }
   let(:subcategory) { create(:subcategory, category_id: category.id) }

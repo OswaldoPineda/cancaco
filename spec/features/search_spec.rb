@@ -44,21 +44,21 @@ RSpec.feature 'Search', type: :feature do
     scenario 'a category with petitions or sales' do
       find(:xpath, "//span[@id='dropdownCategories']").click
       find(:xpath, "//div[@class='dropdown-submenu']//a[@class='dropdown-item dropdown-toggle']").click
-      find(:xpath, "//a[@href='#{category_search_index_path(title: category.title)}']").click
+      find(:xpath, "//a[@href='#{category_searches_path(title: category.title)}']").click
       expect(page).to have_content(category.title)
     end
 
     scenario 'a subcategory without petitions or sales' do
       find(:xpath, "//span[@id='dropdownCategories']").click
       find(:xpath, "//div[@class='dropdown-submenu']//a[@class='dropdown-item']").click
-      find(:xpath, "//a[@href='#{subcategory_search_index_path(title: subcategory_empty.title)}']").click
+      find(:xpath, "//a[@href='#{subcategory_searches_path(title: subcategory_empty.title)}']").click
       expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
     end
 
     scenario 'a subcategory with petitions or sales' do
       find(:xpath, "//span[@id='dropdownCategories']").click
       find(:xpath, "//div[@class='dropdown-submenu']//a[@class='dropdown-item dropdown-toggle']").click
-      find(:xpath, "//a[@href='#{subcategory_search_index_path(title: subcategory.title)}']").click
+      find(:xpath, "//a[@href='#{subcategory_searches_path(title: subcategory.title)}']").click
       expect(page).to have_content(category.title)
     end
   end
