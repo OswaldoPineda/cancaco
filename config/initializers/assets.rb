@@ -13,4 +13,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 
 Rails.application.config.assets.precompile += %w( '.svg' )
-Rails.application.config.assets.precompile += %w( layout/mailer.css )
+Rails.application.config.assets.precompile += %w( layout/_mailer.css )
