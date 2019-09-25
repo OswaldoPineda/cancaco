@@ -21,6 +21,7 @@ class RegistrationsController < Devise::RegistrationsController
       set_flash_message :notice, :updated
       respond_with resource, location: after_update_path_for(resource)
     else
+      resource.reload
       clean_up_passwords resource
       respond_with resource
     end

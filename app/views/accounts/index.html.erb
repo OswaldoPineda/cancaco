@@ -5,7 +5,7 @@
     </div>
     <div class="container-fluid px-0 d-flex flex-wrap justify-content-center justify-content-xl-between">
       <div class="px-0 mb-5 m-2 col-12 col-md-5 col-lg-3 col-xl-2 border border-dark rounded bg-white">
-        <%= link_to '/users/edit', name: 'MisDatos', class: 'text-decoration-none text-secondary' do %>
+        <%= link_to '/users/edit', name: 'MisDatos', class: 'text-decoration-none text-secondary', data: { turbolinks: false } do %>
           <div class="py-4 px-1 d-flex flex-wrap justify-content-center">
             <div class="w-100 mb-3 d-flex justify-content-center">
               <%= image_tag( 'data_user.png', size: '100x100', class: 'text-secondary' ) %>
