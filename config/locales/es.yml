@@ -29,7 +29,7 @@ es:
       user:
         full_name: "Nombre completo"
         email: "Correo"
-        password: "Nueva contraseña"
+        password: "Contraseña"
         current_password: "Contraseña actual"
         password_confirmation: "Confirma tu contraseña"
         remember_me: "Recordarme"
