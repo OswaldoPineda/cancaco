@@ -51,4 +51,8 @@ Rails.application.routes.draw do
   end
   resources :addresses, only: [:index, :create, :update, :destroy]
   resources :search_catalogs, only: :index
+
+  resources :user do
+    resources :notifications
+  end
 end

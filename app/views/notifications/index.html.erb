@@ -1,0 +1,84 @@
+<% @user_notifications = current_user_notifications(current_user) %>
+<% @last_notifications = last_hundred_notifications(@user_notifications) %>
+<div class="container mt-2 mt-sm-5">
+  <div class="row">
+    <div class="col-2 col-sm-1 d-flex justify-content-center background-secondary">
+      <span class="align-self-center">
+        <%= image_tag('notification-bell.svg', alt: 'notification bell icon', size: '25') %>
+      </span>
+    </div>
+    <div class="col-10 col-sm-11 d-flex justify-content-between py-1 background-primary">
+      <div class="align-self-center">
+        <h1>Notificaciones</h1>
+      </div>
+
+      <% unless @last_notifications.empty? %>
+        <div class="align-self-center text-right">
+          <a>Seleccionar todo</a>
+          <input type="checkbox" onclick="mark(this);">
+          <button class="btn btn-danger">Eliminar</button>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<div class="container mb-5">
+  <% if @last_notifications.empty? %>
+    <div class="text-center py-5 text-secondary">
+      <h2>Sin notificaciones pendientes</h2>
+    </div>
+  <% else %>
+    <ul class="list-group">
+      <% @last_notifications.each do |notification| %>
+        <% @user = notification.company.user %>
+
+        <div class="row pt-2">
+          <div class="col-12 col-sm-11 offset-sm-1 px-0">
+
+            <div class="text-center type1-notification-container">
+              <span>Solicitud</span>
+            </div>
+
+            <li class="list-group-item">
+              <div class="container px-0">
+                <div class="row">
+                  <div class="col-6 col-md-7 d-flex align-items-center pl-0 pl-sm-3">
+                    <div>
+                      <!--When paperclip will be installed the name 'default' should change for :thumb'-->
+                      <%= image_tag('default.png', size: '50x50',
+                                                   class: 'rounded-circle bg-dark image-company',
+                                                   alt: 'Default user image') %>
+                    </div>
+                    <div class="ml-2">
+                      <span class="company-title font-weight-bold"><%= notification.company.name %></span>
+                      <br>
+                      <span class="product"><%= notification.action %></span>
+                      <br>
+                      <span class="date"><%= get_time_difference(notification.created_at) %></span>
+                    </div>
+                  </div>
+
+                  <div class="col-4 col-md-4 text-center d-flex justify-content-end">
+                    <div class="align-self-center">
+                      <button class="btn btn-sm badge-pill mb-1 mb-md-0 btn-option btn-color-secondary">Ver</button>
+                      <button class="btn btn-sm badge-pill mb-1 mb-md-0 btn-option btn-color-secondary">Ir al chat</button>
+                      <button class="btn btn-danger btn-sm badge-pill mb-1 mb-md-0 btn-option">Rechazar</button>
+                    </div>
+                  </div>
+
+                  <div class="col-1 align-self-center">
+                    <%= check_box_tag notification.id, notification.id, false, class: 'check' %>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </div>
+
+      <% end %>
+    </ul>
+  <% end %>
+</div>
