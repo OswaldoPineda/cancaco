@@ -9,17 +9,13 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", tabindex: 1 %>
     <div class="d-flex">
       <%= f.label :password %>
-      <%= link_to "¿Olvidaste tu contraseña?",
-                  new_password_path(resource_name),
-                  class: "ml-auto d-none d-md-block",
-                  tabindex: 4 %><br>
     </div>
     <%= f.password_field :password, autocomplete: "current-password", class: "form-control", tabindex: 2 %>
     <%= link_to "¿Olvidaste tu contraseña?",
                 new_password_path(resource_name),
-                class: "ml-auto d-block d-md-none" %><br>
+                class: "form-label",
+                tabindex: 4 %><br>
     <%= f.submit "Iniciar sesión", class: "btn btn-block primary-button", tabindex: 3 %>
-    <p class="my-3 text-center text-lg-left">Al continuar aceptas las condiciones de uso y el aviso de privacidad de CANACO.</p>
     <% if devise_mapping.rememberable? %>
       <div class="field text-center text-md-left">
         <%= f.check_box :remember_me %>
