@@ -57,6 +57,7 @@ $bg-alert: #F9F985;
 
 .messages-section {
   height: auto;
+  min-height: 700px;
 
   @media screen and (min-width: 768px) { height: 700px; }
 
