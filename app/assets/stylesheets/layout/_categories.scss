@@ -34,6 +34,11 @@
     .tags-titles {
       color: $secondary;
       text-align: center;
+      font-size: 15px;
+
+      @media screen and (min-width: 375px) { font-size: 20px; }
+
+      @media screen and (min-width: 450px) { font-size: 30px; }
     }
 
     .image {
