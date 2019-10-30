@@ -91,7 +91,7 @@
   @media screen and (min-width: 1180px) { font-size: 1.4rem; }
 }
 
-.footer-text {
+%footer-text {
   color: $white;
   font-family: $roboto;
   font-size: 0.95rem;
@@ -99,7 +99,7 @@
 
   @media screen and (min-width: 815px) { font-size: 1rem; }
 
-  @media screen and (min-width: 1180px) { font-size: 1.5rem; }
+  @media screen and (min-width: 1180px) { font-size: 1rem; }
 }
 
 .banner-color { background-color: $banners; }
