@@ -14,9 +14,9 @@ RSpec.feature 'Catalog of the search', type: :feature do
                       subcategory_id: subcategory.id, measure: measure)
   }
 
-  background(:each) do |scenario|
+  before do
     user.confirm
-    sign_in user unless scenario.metadata[:sign_out]
+    sign_in user
     visit root_path
     find(:xpath, "//a[@href='#{search_catalogs_path}']").click
     petition
@@ -28,7 +28,7 @@ RSpec.feature 'Catalog of the search', type: :feature do
     end
 
     scenario 'User is not signed in', :sign_out do
-      expect(page).to have_text('Necesita iniciar sesión o registrarse para continuar.')
+      expect(page).to have_content('Categorías')
     end
   end
 

@@ -4,23 +4,22 @@
 }
 
 .navbar {
-  background-color: $primary;
-  border-bottom: 1px solid $primary;
+  background-image: linear-gradient(120deg, $primary 30%, $secondary 30%);
   z-index: 10;
 
   .logo {
 
     img {
-      height: 30px;
+      height: 45px;
 
-      @media screen and (min-width: 568px) { height: 60px; }
+      @media screen and (min-width: 568px) { height: 100px; }
     }
   }
 
   .dropdown-menu {
-    margin-top: 12px;
+    margin-top: 17px;
 
-		@media screen and (min-width: 568px) { margin-top: 24px; }
+		@media screen and (min-width: 568px) { margin-top: 12px; }
 
     .notification-cable {
       max-height: 312px;
