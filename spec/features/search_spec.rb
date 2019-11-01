@@ -27,11 +27,6 @@ RSpec.feature 'Search', type: :feature do
       expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
     end
 
-    scenario 'redirect to select category' do
-      find("a[href='#{categories_petitions_path}']").click
-      expect(page).to have_content('¿Qué estás buscando?')
-    end
-
     scenario 'a registered sale or petition' do
       fill_in 'Busca productos, servicios y más...', with: 'wheels'
       find(:xpath, "//button[@id='search-btn']").click

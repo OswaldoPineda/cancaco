@@ -1,13 +1,39 @@
-<div class="row banner-homepage-welcome mt-0 mb-5 my-md-5 mx-0 px-1 px-lg-5 banner-color">
-  <div class="col-12 col-md-6 row text-center text-md-left align-items-center justify-content-center mx-0 px-1 pl-md-5 py-5">
-    <h1 class="title">Mejora la manera de hacer comercio</h1>
-    <p class="paragraph">
-      Nuestra comunidad te ofrece la eficacia y coordinacción
-      necesaría para completar de manera segura tus
-      compras y ventas
-    </p>
+<div id="carouselWelcome" class="carousel slide carousel-fade" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-interval="5000">
+      <div class="carousel-info-container">
+        <img src="<%= asset_path('carousel-medicine.jpg') %>" alt="Medicine" class="img-fluid img-carousel-info">
+        <div class="carousel-container-text">
+          <h1 class="display-1 carousel-title">Salud y cuidado personal</h1>
+          <p class="carousel-subtitle">Más de 1000 empresas afiliadas que te facilitarán el proceso de compra venta.</p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item" data-interval="5000">
+      <div class="carousel-info-container">
+        <img src="<%= asset_path('carousel-food.jpg') %>" alt="Technology" class="img-fluid img-carousel-info">
+        <div class="carousel-container-text">
+          <h1 class="display-1 carousel-title">Alimentos y bebidas</h1>
+          <p class="carousel-subtitle">Más de 1000 empresas afiliadas que te facilitarán el proceso de compra venta.</p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item" data-interval="5000">
+      <div class="carousel-info-container">
+        <img src="<%= asset_path('carousel-home.jpg') %>" alt="Technology" class="img-fluid img-carousel-info">
+        <div class="carousel-container-text">
+          <h1 class="display-1 carousel-title">Hogar</h1>
+          <p class="carousel-subtitle">Más de 1000 empresas afiliadas que te facilitarán el proceso de compra venta.</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-12 col-md-6 row pb-5 pt-0 py-md-5 px-1 px-md-5 mx-0 justify-content-center align-items-center">
-    <img src="<%= asset_path('borough-market.jpg') %>" alt="Borough Market" width="700" class="rounded img-fluid">
-  </div>
+  <a class="carousel-control-prev" href="#carouselWelcome" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselWelcome" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>

@@ -12,10 +12,11 @@
 }
 
 .banners-button {
-  background-color: $primary;
+  background-color: $info;
   color: $white;
   font-family: $roboto;
   font-size: 1rem;
+  text-shadow: 2px 2px 8px #000000;
 
   @media screen and (min-width: 1024px) { font-size: 2rem; }
 }
@@ -109,4 +110,39 @@
 .targets-buy-color {
   background-color: $secondary;
   color: $white;
+}
+
+.carousel-info-container {
+  position: relative;
+}
+
+.img-carousel-info {
+  filter: brightness(.6);
+}
+
+.carousel-container-text {
+  position: absolute;top: 16%;
+  color: #fff;
+  left: 15%;
+  width: 40%;
+}
+
+.carousel-title {
+  font-weight: bold;
+  font-size: 1rem;
+  @media screen and (min-width: 815px) { font-size: 3rem; }
+  @media screen and (min-width: 1180px) { font-size: 5rem; }
+}
+
+.carousel-subtitle {
+  font-size: 0.7rem;
+  @media screen and (min-width: 815px) { font-size: 1.3rem; }
+  @media screen and (min-width: 1180px) { font-size: 2.5rem; }
+}
+
+.banner-img-bg {
+  background-image: url(asset_path('banner-offer-bg.png'));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
