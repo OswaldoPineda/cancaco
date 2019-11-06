@@ -32,6 +32,23 @@ RSpec.describe SearchesController, type: :controller do
     end
   end
 
+  context 'when user is logged out' do
+    describe '#GET search by title' do
+      it 'return to the homepage if the param is nil' do
+        sign_out user
+        get :search_by_title, params: { search: nil }
+        should redirect_to(root_path)
+      end
+
+      it 'redirect to the search view and have @resuts' do
+        sign_out user
+        get :search_by_title, params: { search: 'wheels' }
+        should render_template :index
+        expect(assigns(:results)).to match_array(petition)
+      end
+    end
+  end
+
   describe '#GET search by category' do
     it 'return to the homepage if the param is nil' do
       get :search_by_category, params: { title: nil }

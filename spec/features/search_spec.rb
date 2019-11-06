@@ -34,6 +34,22 @@ RSpec.feature 'Search', type: :feature do
     end
   end
 
+  context 'search on searchbar when user is logged out' do
+    scenario 'an inexistent sale or petition' do
+      sign_out user
+      fill_in 'Busca productos, servicios y más...', with: 'Motor de lancha'
+      find(:xpath, "//button[@id='search-btn']").click
+      expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
+    end
+
+    scenario 'a registered sale or petition' do
+      sign_out user
+      fill_in 'Busca productos, servicios y más...', with: 'wheels'
+      find(:xpath, "//button[@id='search-btn']").click
+      expect(page).to have_content(petition.title)
+    end
+  end
+
   context 'search on categories dropdown' do
     scenario 'a category without petitions or sales' do
       find(:xpath, "//span[@id='dropdownCategories']").click
