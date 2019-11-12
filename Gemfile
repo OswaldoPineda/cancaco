@@ -30,7 +30,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use premailer to keep the css styles on the email clients.
 gem 'premailer-rails'
 # Use Puma as the app server
-gem 'puma', '~> 4.2'
+gem 'puma', '~> 4.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use Redis to store an in-memory data structure
