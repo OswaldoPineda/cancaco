@@ -1,0 +1,26 @@
+<div class="card-sale">
+  <div class="image-container">
+    <%= image_tag(sale.images.first.file.url,
+                      class: "image-sale card-img-top",
+                      alt: sale.title) %>
+  </div>
+  <div class="body-sale">
+    <div class="container">
+      <div class="row">
+        <div class="col col-sm col-md canaco">
+          <small class="label">precio canaco</small>
+          <span class="price">$<span><%= sale.price %></span></span>
+        </div>
+        <div class="col col-sm col-md normal">
+          <span class="label"><small>precio al publico</small></span>
+          <span class="price">$800.00</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col company">
+          <a href="#">Producto de <span><%= sale.company.name %></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+.carousel {
+  align-items: center;
+  display: flex;
+  height: auto;
+  justify-content: center;
+  padding: 20px;
+}
+
+.slick-prev, .slick-next {
+  border-radius: 200px;
+  display: flex;
+  height: 83px;
+  position: relative;
+  top: auto;
+  width: 87px;
+
+  @media screen and (min-width: 320px) and (max-width: 550px) {
+    height: 350px;
+    top: 170px;
+    width: 31px;
+  }
+}
+
+.slick-list {
+  width: 100%;
+}
+
+.slick-prev::before, .slick-next::before {
+  content: " ";
+}
+
+.slick-prev, .slick-prev:hover, .slick-prev:focus {
+  background-color: $bg-arrow-carousel;
+  background-image: url(asset_path('back.svg'));
+  background-size: 35px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: 320px) and (max-width: 550px) {
+    border-radius: 50px 0 0 50px;
+  }
+}
+
+.slick-next, .slick-next:hover, .slick-next:focus {
+  background-color: $bg-arrow-carousel;
+  background-image: url(asset_path('next.svg'));
+  background-size: 35px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: 320px) and (max-width: 550px) {
+    border-radius: 0 50px 50px 0;
+  }
+}

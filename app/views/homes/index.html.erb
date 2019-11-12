@@ -1,9 +1,17 @@
+<% content_for :for_head do %>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css">
+<% end %>
+
 <%= render partial: "shared/banner_welcome" %>
 <% if user_signed_in? %>
-  <%= render partial: "shared/banner_offer" %>
+<%= render partial: "shared/banner_offer" %>
 <% else %>
   <%= render partial: "shared/banner_info" %>
 <% end %>
+<%= show_latest_sales_by_category(1) %>
+<%= show_latest_sales_by_category(2) %>
+<%= show_latest_sales_by_category(3) %>
 <%= render partial: "shared/slider" %>
 <%= render partial: "shared/offercards_banner" %>
 <%= render partial: "shared/offercards" %>
