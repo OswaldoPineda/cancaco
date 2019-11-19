@@ -1,25 +1,28 @@
 .footer {
   background-color: $info;
+  @extend %footer-text;
 
   a {
-    color: $white;
-    font-family: $roboto;
-    text-decoration: none;
+  @extend %footer-text;
   }
 
-  .address-container {
-    .logo {
-      .img {
-        height: 3rem;
+  ul {
+    li {
+      margin-bottom: 0px;
 
-        @media screen and (min-width: 815px) { height: 4rem; }
+      a {
+        text-decoration: underline;
       }
     }
   }
 
-  ul {
-    list-style: none;
+  .logo {
+    .img {
+      height: 3rem;
+    }
+  }
 
-    li { padding: 7px; }
+   h5 {
+    font-weight: bold;
   }
 }
