@@ -15,29 +15,37 @@
 }
 
 .empty-search-container {
-  h1 {
-    font-size: 2rem;
+  h3 {
+    color: $secondary;
+    font-size: 1.5rem;
+    border-bottom: solid 2px $secondary;
 
-    @media screen and(min-width: 768px) { font-size: 3rem; }
+    @media screen and(min-width: 768px) {
+      width: 505px;
+      font-size: 1.8rem;
+    }
+  }
 
-    @media screen and(min-width: 1800px) { font-size: 4rem; }
+  .information-container {
+    margin: 0 auto;
+  }
+
+  .information-list {
+    list-style-type: disc;
   }
 
   p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-
-    @media screen and(min-width: 768px) {
-      font-size: 1.5rem;
-      margin-bottom: 0;
-    }
-
-    @media screen and(min-width: 1800px) { font-size: 2.5rem; }
+    font-size: 1.2rem;
   }
 
-  .search-icon {
-    height: 100%;
-    width: 100%;
+  .surprise-icon {
+    height: auto;
+    width: 170px;
+    @media screen and(min-width: 768px) { width: 270px; }
+  }
+
+  .text-color-primary {
+    color: $primary;
   }
 }
 

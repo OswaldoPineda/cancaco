@@ -1,21 +1,28 @@
 <% if @results.empty? %>
   <div class="row justify-content-center m-md-5 mx-2 pl-lg-5 pr-lg-3">
     <div class="empty-search-container col-12">
-      <div class="row justify-content-center my-5">
-        <div class="col-12 text-center text-md-left text-xl-center">
-          <h1>No hay publicaciones que coincidan con tu búsqueda.</h1>
-        </div>
-      </div>
       <div class="row justify-content-center my-5 p-0 p-md-5">
-        <div class="col-8 col-sm-5 col-md-3">
-          <img src="<%= asset_path('search-icon.png') %>" class=" search-icon" alt="Icono de busqueda">
+        <div class="col-12 col-lg-8 pl-md-5 d-flex flex-column justify-content-between order-2 order-lg-1">
+          <div class="information-container">
+            <h3 class="py-1 text-center text-md-left">No hay coincidencias con tu búsqueda</h3>
+            <p class="py-3">El producto que buscas no coincide con nuestra información.</p>
+            <ul class="mx-5 information-list">
+              <li>Revisa la ortografía.</li>
+              <li>Utiliza palabras más genéricas o menos palabras.</li>
+              <li>Navega por las <span class="text-color-primary">categorías</span> para encontrar un producto similar.</li>
+              <li>Realiza una solicitud para encontrar el producto que buscas.</li>
+            </ul>
+            <div class="text-center text-md-right">
+              <%= link_to 'Solicitar producto', categories_petitions_path,
+                          class: 'btn primary-button mt-2' %>
+
+              <%= link_to 'Pagina principal', '/',
+                          class: 'btn primary-button-outline mt-2 ml-md-4' %>
+            </div>
+          </div>
         </div>
-        <div class="col-12 col-lg-9 px-0 pl-md-5 d-flex flex-column justify-content-between text-center text-md-left">
-          <p class="font-weight-light mt-5 mt-md-0">Revisa la ortografía.</p>
-          <p class="font-weight-light">Utiliza palabras más genéricas o menos palabras.</p>
-          <p class="font-weight-light">Navega por las categorías para encontrar un producto similar.</p>
-          <%= link_to 'Solicitar producto', categories_petitions_path,
-                      class: 'btn btn-lg rounded banners-button' %>
+        <div class="col-12 col-lg-4 text-center text-lg-left order-1 order-lg-2 align-self-center">
+          <%= image_tag('surprise-icon.png', class: 'surprise-icon', alt: 'Icono de busqueda') %>
         </div>
       </div>
     </div>

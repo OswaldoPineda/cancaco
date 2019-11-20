@@ -40,7 +40,7 @@ RSpec.feature 'Catalog of the search', type: :feature do
 
     scenario 'No exist a purchase or a sale' do
       page.first(:xpath, "//a[@href='#{category_searches_path(title: category_empty.title)}']").click
-      expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
+      expect(page).to have_content('No hay coincidencias con tu búsqueda')
     end
   end
 
@@ -53,7 +53,7 @@ RSpec.feature 'Catalog of the search', type: :feature do
     scenario 'No exist a purchase or a sale' do
       page.first(:xpath,
                  "//a[@href='#{subcategory_searches_path(title: subcategory_empty.title)}']").click
-      expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
+      expect(page).to have_content('No hay coincidencias con tu búsqueda')
     end
   end
 end
