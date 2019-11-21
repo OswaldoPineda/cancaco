@@ -1,9 +1,12 @@
 <%= render partial: "shared/banner_welcome" %>
-<%= render partial: "shared/banner_offer" %>
+<% if user_signed_in? %>
+  <%= render partial: "shared/banner_offer" %>
+<% else %>
+  <%= render partial: "shared/offercards_banner" %>
+<% end %>
 <%= render partial: "shared/slider" %>
 <%= render partial: "shared/banner_info" %>
 <%= render partial: "shared/offercards" %>
-<%= render partial: "shared/offercards_banner" %>
 
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">
