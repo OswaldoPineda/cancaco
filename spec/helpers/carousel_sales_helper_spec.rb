@@ -7,8 +7,14 @@ RSpec.describe CarouselSalesHelper, type: :helper do
     @category_b = FactoryBot.create(:category)
     @company = FactoryBot.create(:company, category: @category)
     @subcategory = FactoryBot.create(:subcategory, category: @category)
-    @sale = FactoryBot.create_list(:sale_image, 10, company: @company, category: @category, subcategory_id: @subcategory.id)
-    @sale_b = FactoryBot.create_list(:sale, 10, company: @company, category: @category_b, subcategory_id: @subcategory.id)
+    @sales = FactoryBot.create_list(:sale_image, 10, company: @company, category: @category, subcategory_id: @subcategory.id)
+    @sales_b = FactoryBot.create_list(:sale, 10, company: @company, category: @category_b, subcategory_id: @subcategory.id)
+  end
+
+  describe '#subcategory' do
+    it 'gets the sale subcategory' do
+      expect(subcategory(@sales.first)).to eql(@subcategory)
+    end
   end
 
   describe '#latest_sales' do

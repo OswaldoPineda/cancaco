@@ -87,9 +87,9 @@ $(document).ready(function() {
         ];
     }
   }
-  var slides = $('.carousel').attr('latest');
+  var slides = $('.carousel-track').attr('latest');
 
-  $('.carousel').slick({
+  $('.carousel-track').slick({
     infinite: true,
     speed: 300,
     slidesToScroll: 1,

@@ -7,6 +7,12 @@
   <div class="body-sale">
     <div class="container">
       <div class="row">
+        <div class="col info">
+          <span class="sub"><%= subcategory(sale).title %></span>
+          <span class="quantity"><%= sale.quantity.to_i %> piezas</span>
+        </div>
+      </div>
+      <div class="row">
         <div class="col col-sm col-md canaco">
           <small class="label">precio canaco</small>
           <span class="price">$<span><%= sale.price %></span></span>

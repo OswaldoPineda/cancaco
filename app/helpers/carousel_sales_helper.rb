@@ -1,4 +1,8 @@
 module CarouselSalesHelper
+  def subcategory(sale)
+    Subcategory.where(id: sale.subcategory_id).first
+  end
+
   def latest_sales(category, limit = 8)
     Sale.where(category_id: category.id).last(limit).select { |s| s.images.first.nil? == false }
   end

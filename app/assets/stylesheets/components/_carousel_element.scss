@@ -13,8 +13,26 @@
 
   .body-sale {
     margin-bottom: 1%;
-    padding-top: 3%;
     text-align: center;
+
+    .info {
+      color: $secondary;
+      margin-bottom: 2%;
+      text-align: center;
+
+      .sub {
+        font-size: 16px;
+        font-weight: normal;
+        float: left;
+        width: 100%;
+      }
+
+      .quantity{
+        font-size: 12px;
+        width: 100%;
+      }
+
+    }
 
     .label {
       color: $secondary;
@@ -54,6 +72,19 @@
     margin-top: 3%;
     page-break-after: 1%;
     text-decoration: underline;
+  }
+
+  .image-container {
+    height: 250px;
+    padding: 5% 5% 1% 5%;
+    width: auto;
+
+  }
+
+  .image-sale {
+    display: block;
+    height: 100%;
+    object-fit: contain;
   }
 }
 
@@ -98,17 +129,4 @@
       float: unset;
     }
   }
-}
-
-.image-container {
-  height: 250px;
-  padding: 5% 5% 1% 5%;
-  width: auto;
-
-}
-
-.image-sale {
-  display: block;
-  height: 100%;
-  object-fit: contain;
 }
