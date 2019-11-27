@@ -1,5 +1,4 @@
 class SearchesController < ApplicationController
-  before_action :authenticate_user!
   before_action :load_categories
 
   def search_by_title
