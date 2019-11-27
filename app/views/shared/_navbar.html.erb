@@ -80,7 +80,7 @@
                     <%= image_tag('burger-menu.svg', alt: 'burguer menu icon', size: '25') %>
                   </span>
 
-                  <div class="dropdown-menu menu-profile pt-0 dropdown-menu-right px-1" aria-labelledby="dropdownUserMenu">
+                  <div class="dropdown-menu menu-profile pt-0 dropdown-menu-right px-1 mr-md-2" aria-labelledby="dropdownUserMenu">
                     <div
                       class="text-center d-block my-3 d-flex align-items-center justify-content-between justify-content-lg-center px-2">
                       <% if user_signed_in? %>
@@ -125,7 +125,7 @@
 
             <% else %>
               <%= button_to 'Iniciar sesión', '/users/sign_in',
-                            method: :get, class: 'btn primary-button px-md-1 mx-3 my-2' %>
+                            method: :get, class: 'btn primary-button px-md-1 ml-2 mx-md-3 my-2' %>
             <% end %>
           </div>
 
