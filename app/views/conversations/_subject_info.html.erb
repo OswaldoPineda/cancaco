@@ -1,13 +1,13 @@
-<div class="bg-white d-block p-1 border">
+<div class="bg-white col-12 d-block p-1">
   <div class="petition-notification d-flex flex-column col-12 rounded">
-
-    <h3 class="m-1"><%= @recipient.name %></h3>
     <% if @notifications.size == 1 %>
-      <p class="mx-1 my-0">Está buscando <b>cotización</b> de <b><%= @notifications.first.action %></b></p>
-      <div class="text-primary mb-1">ver mi solicitud</div>
+      <p class="mx-1 mt-2 d-inline-block text-truncate">Está buscando cotización de <b>
+        <%= @notifications.first.action %>.</b></p>
+      <%= link_to 'ver solicitud', '#', class: 'link-to mx-1 mb-2' %>
+      </div>
     <% else %>
-      <p class="mx-1 my-0">Tiene <b><%= @notifications.size %></b> solicitdues que pueden interesarte.</p>
-      <div class="text-primary mb-1">ver todas</div>
+      <p class="mx-1 mt-2">Tienes <b><%= @notifications.size %></b> solicitdues pendientes.</p>
+      <%= link_to 'ver todas', '#', class: 'link-to mx-1 mb-2' %>
+      </div>
     <% end %>
-  </div>
 </div>

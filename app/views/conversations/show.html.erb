@@ -1,16 +1,16 @@
 <div class="container-fluid" data-turbolinks="false">
   <div class="row justify-content-center">
-    <div class="d-flex flex-wrap justify-content-center col-11 px-0 my-2">
-      <div class="top-bar d-flex row justify-content-between border col-12 d-block d-xl-none py-1">
+    <div class="d-flex flex-wrap justify-content-center col-12 m-1 m-md-5">
+      <div class="top-bar d-flex row justify-content-between col-12 d-block d-xl-none">
         <%= render partial: "topbar" %>
       </div>
-      <div class="users-bar border col-xl-3 col-md-5 col-3 p-0 overflow-auto">
+      <div class="users-bar col-xl-3 col-md-5 col-3 py-3 px-0 overflow-auto">
         <%= render partial: "conversations" %>
       </div>
-      <div class="messages-section border col-xl-7 col-md-7 col-9 p-0">
+      <div class="messages-section col-xl-5 col-md-7 col-9 mx-xl-1">
         <%= render partial: "messages" %>
       </div>
-      <div class="info-section d-none d-xl-block border col-xl-2">
+      <div class="info-section d-none d-xl-flex col-xl-3 align-items-center">
         <%= render partial: "info" %>
       </div>
     </div>

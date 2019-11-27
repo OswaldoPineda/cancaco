@@ -1,13 +1,16 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <div class="d-flex flex-wrap justify-content-center col-11 px-0 my-md-5 my-sm-0">
-      <div class="users-bar border col-xl-3 col-md-5 col-3 p-0 overflow-auto">
+    <div class="d-flex flex-wrap justify-content-center col-12 m-1 m-md-5">
+      <div class="top-bar d-flex row justify-content-between col-12 d-block d-xl-none">
+        <%= render partial: "topbar" %>
+      </div>
+      <div class="users-bar col-xl-3 col-md-5 col-3 py-3 px-0 overflow-auto">
         <%= render partial: "conversations" %>
       </div>
-      <div class="messages-section border col-xl-7 col-md-7 col-9 p-0 bg-light d-flex justify-content-center align-items-center">
+      <div class="messages-section d-flex align-items-center justify-content-center col-xl-5 col-md-7 col-9 mx-xl-1">
         <span class="text-secondary">No hay ningun chat seleccionado</span>
       </div>
-      <div class="info-section d-none d-xl-flex d-xl-block border col-xl-2 justify-content-center align-items-center">
+      <div class="info-section d-none d-xl-flex align-items-center justify-content-center col-xl-3">
         <span class="text-secondary">No hay información</span>
       </div>
     </div>

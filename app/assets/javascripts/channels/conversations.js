@@ -49,9 +49,9 @@ $(function () {
   function setMessagesStyles(userId, content) {
     if (userId === currentId) {
       content[0].classList.add('justify-content-end');
-      content.children()[0].classList.add('bg-primary');
+      content.children()[0].classList.add('chat-message-container-me');
     } else {
-      content.children()[0].classList.add('bg-secondary');
+      content.children()[0].classList.add('chat-message-container');
     }
   }
 });
