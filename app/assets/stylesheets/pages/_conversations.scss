@@ -96,6 +96,10 @@
     }
   }
 
+  .selected-conversation {
+    background-color: $bg-lightblue;
+  }
+
   .form-control {
     @include search-bar(70%, 15%);
   }
