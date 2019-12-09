@@ -32,6 +32,15 @@
     }
   }
 
+  .dropdown-notifications {
+    left: 50%;
+    margin-left: -177px;
+    @media screen and (min-width: 568px) {
+      left: auto;
+      margin-left: 0px;
+    }
+  }
+
   .dropdown-submenu {
     position: relative;
   }
