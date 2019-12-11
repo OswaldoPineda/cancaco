@@ -2,8 +2,13 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap");
 $roboto: 'Roboto', sans-serif;
 //Colors
+$chat-border: rgba(32, 70, 83, 0.5);
+$chat-bubble-lightblue: #97c3d9;
+$chat-bubble-lightgray: #a9b9c2;
 $banners: #E5F0F5;
-$bg-lightblue: rgba(229,240,245,0.55);
+$bg-alert: #F9F985;
+$bg-lightblue: rgba(229, 240, 245, 0.55);
+$bg-lightgray: rgba(196, 195, 195, 0.26);
 $black: #000000;
 $info: #97C3D9;
 $primary: #1778AB;

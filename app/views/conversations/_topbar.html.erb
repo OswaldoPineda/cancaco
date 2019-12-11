@@ -1,11 +1,11 @@
-<div class="d-flex align-items-center w-75">
-  <input type="text" class="h-75 form-control my-2"
-          placeholder="Buscar usuario" aria-label="Search"
+<div class="d-flex align-items-center w-75 py-1 col-10">
+  <input type="text" class="h-70 form-control px-5"
+          placeholder="Buscar" aria-label="Search"
           aria-describedby="search-btn">
 </div>
-
-<div class="dropdown">
-  <span class="dropdown d-block d-xl-none align-items-center"
+<% if @conversation.present? %>
+<div class="dropdown col-2">
+  <span class="dropdown d-block d-xl-none py-1"
         id="dropdownUserMenu"
         data-display="static"
         data-toggle="dropdown"
@@ -15,7 +15,10 @@
     <%= profile_photo(conversation_company.user, '50x50') %>
   </span>
 
-  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-    <%= render partial: "info" %>
+  <div class="dropdown-menu dropdown-menu-right p-0 m-0" aria-labelledby="dropdownMenuButton">
+    <div class="dropdown-container d-flex align-items-center h-100">
+      <%= render partial: "info" %>
+    </div>
   </div>
 </div>
+<% end %>

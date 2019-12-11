@@ -5,6 +5,14 @@ $(function () {
     conversationId = $element.data('conversation-id');
     messageTemplate = $('[data-role="message-template"]');
     $('.chat-zone').scrollTop($element.prop('scrollHeight'));
+    $('.link-conversation').each(function (index, value) {
+      if (parseInt(value.id) === conversationId) {
+        value.classList.add('selected-conversation')
+      }
+      else {
+        value.classList.remove('selected-conversation')
+      }
+    });
 
     App.cable.subscriptions.create({ channel: 'ConversationChannel', conversation: conversationId },
       {
@@ -17,7 +25,7 @@ $(function () {
     );
   });
 
-  function removeMessageNumber(data){
+  function removeMessageNumber(data) {
     $('.link-conversation').each(function (index, value) {
       if (parseInt(value.id) === data.conversation_id && data.user_id === currentId) {
         $('#conversation-number' + value.id)[0].classList.remove('d-flex')
@@ -49,9 +57,9 @@ $(function () {
   function setMessagesStyles(userId, content) {
     if (userId === currentId) {
       content[0].classList.add('justify-content-end');
-      content.children()[0].classList.add('bg-primary');
+      content.children()[0].classList.add('chat-message-container-me');
     } else {
-      content.children()[0].classList.add('bg-secondary');
+      content.children()[0].classList.add('chat-message-container');
     }
   }
 });

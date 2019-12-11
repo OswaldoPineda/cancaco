@@ -1,9 +1,8 @@
-<div class="p-2">
-  <input type="text" class="h-100 form-control d-none d-xl-block" placeholder="Buscar usuario" aria-label="Search"
+<div class="p-0">
+  <input type="text" class="h-70 form-control d-none d-xl-block px-5" placeholder="Buscar" aria-label="Search"
     aria-describedby="search-btn">
-  <hr class="d-none d-xl-block">
   <% if @conversations.present? %>
-    <nav class="nav flex-column" data-turbolinks="false">
+    <nav class="conversations-container nav flex-column" data-turbolinks="false">
     <% @conversations.each do |conversation| %>
       <%= link_to conversation_path(conversation),
                   class: :"d-flex link-conversation row align-items-center justify-content-sm-around
@@ -40,8 +39,8 @@
     <% end %>
     </nav>
   <% else %>
-    <div class="text-muted d-flex justify-content-center align-items-center">
-      No hay conversaciones.
+    <div class="d-flex justify-content-center align-items-center">
+     <p class="text-muted text-break"> No hay conversaciones </p>
     </div>
   <% end %>
 </div>

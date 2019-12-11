@@ -18,7 +18,7 @@ RSpec.feature 'Chat view', type: :feature do
   end
 
   scenario 'Not conversations to show' do
-    expect(page).to have_content('No hay conversaciones.')
+    expect(page).to have_content('No hay conversaciones')
   end
 
   scenario 'Any chat selected' do
