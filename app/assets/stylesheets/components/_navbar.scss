@@ -88,6 +88,11 @@
     text-decoration: none;
   }
 
+  .badge-pill {
+    background-color: $notification-pills;
+    font-size: 9px;
+  }
+
   .salir-svg {
     img {
       margin-left: -2px;
