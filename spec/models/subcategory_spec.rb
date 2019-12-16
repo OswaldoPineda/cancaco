@@ -8,4 +8,8 @@ RSpec.describe Subcategory, type: :model do
   describe 'Validate association' do
     it { should belong_to(:category) }
   end
+
+  describe 'Validate uniqueness' do
+    it { should validate_uniqueness_of(:title) }
+  end
 end
