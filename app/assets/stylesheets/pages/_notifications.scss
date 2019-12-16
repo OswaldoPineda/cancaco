@@ -1,0 +1,50 @@
+.background-primary {
+  background-color: $primary;
+  color: $white;
+  h1 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    @media screen and(min-width: 768px) { font-size: 2rem; }
+  }
+}
+
+.background-secondary {
+  background-color: $secondary;
+  color: $white;
+}
+
+.btn-color-secondary {
+  background: $secondary;
+}
+
+.btn-color-secondary:hover {
+  background: $dark-secondary;
+  color: $white;
+}
+
+.btn-option {
+  color: $white;
+  width: 73px;
+}
+
+.company-title {
+  color: $secondary;
+}
+
+.date {
+  color: $gray;
+}
+
+.image-company {
+  box-shadow: 3px 2px 3px $gray;
+}
+
+.product {
+  color: $yellow;
+}
+
+.type1-notification-container {
+  background-color: $bg-type1-notification;
+  font-size: 0.8rem;
+  width: 100%;
+}

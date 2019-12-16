@@ -30,7 +30,12 @@ RSpec.feature 'Navbar', type: :feature do
   scenario 'notification bell dropdown' do
     find(:xpath, "//div[@id='dropdownNotification']").click
     expect(page).to have_content('Notificaciones')
-    expect(page).to have_content('Ver todo')
+    expect(page).to have_link('Ver todo')
+  end
+
+  scenario 'redirect to all notifications view' do
+    find("a[href='#{user_notifications_path(user)}']").click
+    expect(page).to have_content('Notificaciones')
   end
 
   scenario 'My profile dropdown' do

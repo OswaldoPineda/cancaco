@@ -47,7 +47,9 @@
                   </div>
                   <hr class="mt-0">
                   <div class="text-center">
-                    <a href="/notifications">Ver todo</a>
+                    <% if user_signed_in? %>
+                      <%= link_to 'Ver todo', user_notifications_path(current_user) %>
+                    <% end %>
                   </div>
                 </div>
               </div>
