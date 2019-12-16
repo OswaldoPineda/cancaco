@@ -24,7 +24,7 @@ RSpec.feature 'Search', type: :feature do
     scenario 'an inexistent sale or petition' do
       fill_in 'Busca productos, servicios y más...', with: 'Motor de lancha'
       find(:xpath, "//button[@id='search-btn']").click
-      expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
+      expect(page).to have_content('No hay coincidencias con tu búsqueda')
     end
 
     scenario 'a registered sale or petition' do
@@ -39,7 +39,12 @@ RSpec.feature 'Search', type: :feature do
       sign_out user
       fill_in 'Busca productos, servicios y más...', with: 'Motor de lancha'
       find(:xpath, "//button[@id='search-btn']").click
-      expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
+      expect(page).to have_content('No hay coincidencias con tu búsqueda')
+    end
+
+    scenario 'redirect to home' do
+      find("a[href='/']").click
+      expect(page).to have_content('Categorías')
     end
 
     scenario 'a registered sale or petition' do
@@ -54,7 +59,7 @@ RSpec.feature 'Search', type: :feature do
     scenario 'a category without petitions or sales' do
       find(:xpath, "//span[@id='dropdownCategories']").click
       find(:xpath, "//div[@class='dropdown-submenu']//a[@class='dropdown-item']").click
-      expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
+      expect(page).to have_content('No hay coincidencias con tu búsqueda')
     end
 
     scenario 'a category with petitions or sales' do
@@ -68,7 +73,7 @@ RSpec.feature 'Search', type: :feature do
       find(:xpath, "//span[@id='dropdownCategories']").click
       find(:xpath, "//div[@class='dropdown-submenu']//a[@class='dropdown-item']").click
       find(:xpath, "//a[@href='#{subcategory_searches_path(title: subcategory_empty.title)}']").click
-      expect(page).to have_content('No hay publicaciones que coincidan con tu búsqueda.')
+      expect(page).to have_content('No hay coincidencias con tu búsqueda')
     end
 
     scenario 'a subcategory with petitions or sales' do
