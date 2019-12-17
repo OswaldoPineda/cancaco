@@ -106,6 +106,7 @@ GEM
     crass (1.0.5)
     css_parser (1.7.0)
       addressable
+    database_cleaner (1.7.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.7.1)
@@ -416,6 +417,7 @@ DEPENDENCIES
   bootstrap (~> 4.3.1)
   byebug
   capybara
+  database_cleaner
   devise
   dropzonejs-rails
   erb_lint
