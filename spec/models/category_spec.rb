@@ -8,4 +8,8 @@ RSpec.describe Category, type: :model do
   describe 'Validate association' do
     it { should have_many(:subcategories) }
   end
+
+  describe 'Validate uniqueness' do
+    it { should validate_uniqueness_of(:title) }
+  end
 end

@@ -83,6 +83,7 @@ end
 group :test do
   gem 'action-cable-testing'
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
   gem 'rspec-sidekiq'
