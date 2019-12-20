@@ -7,3 +7,16 @@ FactoryBot.define do
     price { 1500 }
   end
 end
+
+FactoryBot.define do
+  factory :sale_image, class: Sale do
+    title { 'Producto random' }
+    description { 'Something...' }
+    extra_info { 'Amazing!' }
+    quantity { 1 }
+    price { 1500 }
+    after(:create) do |sale|
+      create(:fake_image, sale: sale)
+    end
+  end
+end

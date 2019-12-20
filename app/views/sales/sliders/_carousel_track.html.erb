@@ -1,0 +1,19 @@
+<div class="carousel-section">
+  <div class="row">
+    <div class="col">
+      <h2 class="title"><%= category.title %></h2>
+      <%= link_to "Ver más",
+                  category_searches_path(title: category.title),
+                  class: "link",
+                  "data-turbolinks": false %>
+    </div>
+  </div>
+  <%= tag.div class: "carousel-track",
+              name: category.title,
+              id: "carr-#{category.id}",
+              latest: sales.length do %>
+    <% sales.each do |sale| %>
+    <%= render partial: "sales/sliders/sale_slide", locals: { sale: sale } %>
+    <% end %>
+  <% end %>
+</div>
