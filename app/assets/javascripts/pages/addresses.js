@@ -49,17 +49,19 @@ window.Canaco.addresses = {
 }
 
 var fillDataEdit = function(id, zip_code){
-  fetch(`https://api-sepomex.hckdrk.mx/query/info_cp/${zip_code}`)
+  fetch('https://api-sepomex.hckdrk.mx/query/info_cp/' + zip_code);
     .then((resp) => resp.json())
     .then((body) => {
-      const { estado, municipio } = body[0].response;
-      const city = document.getElementById(`city_edit_${id}`);
-      const state = document.getElementById(`state_edit_${id}`);
-      const neighborhoodSelect = document.getElementById(`neighborhood_edit_${id}`);
+      const response = body[0].response;
+      const municipio = response.municipio;
+      const estado = response.estado;
+      const city = document.getElementById('city_edit_' + id);
+      const state = document.getElementById('state_edit_' + id);
+      const neighborhoodSelect = document.getElementById('neighborhood_edit_' + id);
       neighborhoodSelect.innerHTML = '';
       city.value = municipio;
       state.value = estado;
-      body.forEach((value) => {
+      body.forEach(function (value){
         const colonia = value.response.asentamiento;
         $(`#neighborhood_edit_${id}`).append('<option value="'+ colonia +'">' + colonia + '</option>');
       });

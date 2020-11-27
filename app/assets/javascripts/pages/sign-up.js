@@ -14,20 +14,22 @@ window.Canaco.Signup = {
 }
 
 var fillData = function(e){
-  fetch(`https://api-sepomex.hckdrk.mx/query/info_cp/${$('#zip_code').val()}`)
+  fetch('https://api-sepomex.hckdrk.mx/query/info_cp/' + $('#zip_code').val());
     .then((resp) => resp.json())
     .then((body) => {
-      const { estado, municipio } = body[0].response;
+      const response = body[0].response;
+      const municipio = response.municipio;
+      const estado = response.estado;
       const city = document.getElementById('city');
       const state = document.getElementById('state');
       city.value = municipio;
       state.value = estado;
-      body.forEach((value) => {
+      body.forEach(funtion (value) {
         const colonia = value.response.asentamiento;
         $('#neighborhood').append('<option value="'+ colonia +'">' + colonia + '</option>');
       });
     })
-    .catch((err) => {
+    .catch(function(err) {
       console.error(err);
     });
 }
