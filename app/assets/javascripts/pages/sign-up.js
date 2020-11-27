@@ -2,9 +2,8 @@ window.Canaco = window.Canaco || {};
 
 window.Canaco.Signup = {
   init: function() {
-    $('#zip_code').blur(fillData($('#zip_code').val().trim()));
     var zipCode = $('#zip_code').val().trim();
-    debugger
+    $('#zip_code').blur(fillData(zipCode));
     if (zipCode.length > 0) {
       fillData(zipCode);
     }
@@ -12,6 +11,7 @@ window.Canaco.Signup = {
 }
 
 var fillData = function(zipCode){
+  console.log('before debugger')
   debugger
   console.log("zipcode: "+zipCode)
   $.ajax({
