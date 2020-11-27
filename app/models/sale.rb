@@ -10,6 +10,6 @@ class Sale < ApplicationRecord
 
   validates_attachment_content_type :document, content_type: /pdf/
 
-  has_many :images, dependent: :destroy
-  accepts_nested_attributes_for :images
+  # has_many :images, dependent: :destroy
+  # accepts_nested_attributes_for :images
 end

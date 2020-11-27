@@ -14,16 +14,20 @@ window.Canaco.Signup = {
 }
 
 var fillData = function(e){
-  $.ajax({
-    url: 'https://api-codigos-postales.herokuapp.com/v2/codigo_postal/'+$("#zip_code").val(),
-    type: 'GET',
-    success: function(response){
-      $('#city').val(response.municipio);
-      $('#state').val(response.estado);
-      $('#neighborhood').empty();
-      $.each(response.colonias, function(key, value){
-        $('#neighborhood').append('<option value="'+ value +'">' + value + '</option>');
+  fetch(`https://api-sepomex.hckdrk.mx/query/info_cp/${$('#zip_code').val()}`)
+    .then((resp) => resp.json())
+    .then((body) => {
+      const { estado, municipio } = body[0].response;
+      const city = document.getElementById('city');
+      const state = document.getElementById('state');
+      city.value = municipio;
+      state.value = estado;
+      body.forEach((value) => {
+        const colonia = value.response.asentamiento;
+        $('#neighborhood').append('<option value="'+ colonia +'">' + colonia + '</option>');
       });
-    }
-  });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 }

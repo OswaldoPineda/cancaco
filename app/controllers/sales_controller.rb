@@ -7,7 +7,7 @@ class SalesController < ApplicationController
     @error_messages = []
     @sale = Sale.new(category_id: @category.id)
     @sale.subcategory_id = @subcategory&.id
-    @images = @sale.images.new
+    # @images = @sale.images.new
   end
 
   def create

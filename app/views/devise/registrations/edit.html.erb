@@ -13,10 +13,10 @@
       <div class="col-12 col-md-8">
         <div class="update-image py-5 d-flex flex-column align-items-center">
           <%= profile_photo(current_user, "200x200", :medium, "img-upload") %>
-          <div class="field">
-            <%= f.label :avatar, "Cambiar foto", id: "file-field-text" %>
-            <%= f.file_field :avatar, placeholder: "Add profile picture", class: "img-input", accept:'image/*'%>
-          </div>
+          <%# <div class="field"> %>
+            <%# <%= f.label :avatar, "Cambiar foto", id: "file-field-text" %1> %>
+            <%# <%= f.file_field :avatar, placeholder: "Add profile picture", class: "img-input", accept:'image/*'%>
+          <%# </div> %>
           <h3 class="font-weight-light">¡Hola, <%= current_user.full_name.titleize %>!</h3>
         </div>
         <div>
