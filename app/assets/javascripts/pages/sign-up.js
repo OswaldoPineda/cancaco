@@ -2,6 +2,7 @@ window.Canaco = window.Canaco || {};
 
 window.Canaco.Signup = {
   init: function() {
+    debugger
     $('#zip_code').blur(fillData($('#zip_code').val().trim()));
 
     $(document).ready(function() {
@@ -16,6 +17,7 @@ window.Canaco.Signup = {
 
 var fillData = function(zipCode){
   debugger
+  console.log(zipCode)
   $.ajax({
     url: 'https://api-sepomex.hckdrk.mx/query/info_cp/' + zipCode,
     type: 'GET', 
