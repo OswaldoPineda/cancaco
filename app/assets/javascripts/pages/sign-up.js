@@ -14,9 +14,10 @@ window.Canaco.Signup = {
 }
 
 var fillData = function(e){
-  fetch('https://api-sepomex.hckdrk.mx/query/info_cp/' + $('#zip_code').val());
-    .then((resp) => resp.json())
-    .then((body) => {
+  $.ajax({
+    url: 'https://api-sepomex.hckdrk.mx/query/info_cp/' + zip_code,
+    type: 'GET',
+    success: function(response){
       const response = body[0].response;
       const municipio = response.municipio;
       const estado = response.estado;
@@ -24,12 +25,10 @@ var fillData = function(e){
       const state = document.getElementById('state');
       city.value = municipio;
       state.value = estado;
-      body.forEach(funtion (value) {
+      body.forEach(function (value) {
         const colonia = value.response.asentamiento;
         $('#neighborhood').append('<option value="'+ colonia +'">' + colonia + '</option>');
       });
-    })
-    .catch(function(err) {
-      console.error(err);
-    });
+    }
+  });
 }
