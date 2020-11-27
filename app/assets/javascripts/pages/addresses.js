@@ -53,17 +53,17 @@ var fillDataEdit = function(id, zip_code){
     url: 'https://api-sepomex.hckdrk.mx/query/info_cp/' + zip_code,
     type: 'GET',
     success: function(response){
-      const response = body[0].response;
-      const municipio = response.municipio;
-      const estado = response.estado;
-      const city = document.getElementById('city_edit_' + id);
-      const state = document.getElementById('state_edit_' + id);
-      const neighborhoodSelect = document.getElementById('neighborhood_edit_' + id);
+      var response = body[0].response;
+      var municipio = response.municipio;
+      var estado = response.estado;
+      var city = document.getElementById('city_edit_' + id);
+      var state = document.getElementById('state_edit_' + id);
+      var neighborhoodSelect = document.getElementById('neighborhood_edit_' + id);
       neighborhoodSelect.innerHTML = '';
       city.value = municipio;
       state.value = estado;
       body.forEach(function (value){
-        const colonia = value.response.asentamiento;
+        var colonia = value.response.asentamiento;
         $(`#neighborhood_edit_${id}`).append('<option value="'+ colonia +'">' + colonia + '</option>');
       });
     }

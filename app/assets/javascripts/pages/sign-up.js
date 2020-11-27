@@ -18,15 +18,15 @@ var fillData = function(e){
     url: 'https://api-sepomex.hckdrk.mx/query/info_cp/' + zip_code,
     type: 'GET',
     success: function(response){
-      const response = body[0].response;
-      const municipio = response.municipio;
-      const estado = response.estado;
-      const city = document.getElementById('city');
-      const state = document.getElementById('state');
+      var response = body[0].response;
+      var municipio = response.municipio;
+      var estado = response.estado;
+      var city = document.getElementById('city');
+      var state = document.getElementById('state');
       city.value = municipio;
       state.value = estado;
       body.forEach(function (value) {
-        const colonia = value.response.asentamiento;
+        var colonia = value.response.asentamiento;
         $('#neighborhood').append('<option value="'+ colonia +'">' + colonia + '</option>');
       });
     }
