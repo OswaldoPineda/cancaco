@@ -16,7 +16,13 @@ window.Canaco.Signup = {
 var fillData = function(zipCode){
   $.ajax({
     url: 'https://api-sepomex.hckdrk.mx/query/info_cp/' + zipCode,
-    type: 'GET',
+    type: 'GET', 
+    cors: true ,
+    contentType:'application/json',
+    secure: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
     success: function(response){
       var response = body[0].response;
       var municipio = response.municipio;
