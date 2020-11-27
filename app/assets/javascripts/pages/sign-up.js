@@ -6,8 +6,9 @@ window.Canaco.Signup = {
 
     $(document).ready(function() {
       var zipCode = $('#zip_code').val().trim();
+      debugger
       if (zipCode.length > 0) {
-        fillData(zipCode.val());
+        fillData(zipCode;
       }
     });
   }
