@@ -7,15 +7,15 @@ window.Canaco.Signup = {
     $(document).ready(function() {
       var zipCode = $('#zip_code').val().trim();
       if (zipCode.length > 0) {
-        fillData();
+        fillData(zipCode);
       }
     });
   }
 }
 
-var fillData = function(e){
+var fillData = function(zipCode){
   $.ajax({
-    url: 'https://api-sepomex.hckdrk.mx/query/info_cp/' + zip_code,
+    url: 'https://api-sepomex.hckdrk.mx/query/info_cp/' + zipCode,
     type: 'GET',
     success: function(response){
       var response = body[0].response;
