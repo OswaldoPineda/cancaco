@@ -13,7 +13,7 @@ window.Canaco.Signup = {
 
 var fillData = function(zipCode){
   debugger
-  console.log(zipCode)
+  console.log("zipcode: "+zipCode)
   $.ajax({
     url: 'https://api-sepomex.hckdrk.mx/query/info_cp/' + zipCode,
     type: 'GET', 
