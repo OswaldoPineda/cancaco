@@ -2,16 +2,12 @@ window.Canaco = window.Canaco || {};
 
 window.Canaco.Signup = {
   init: function() {
-    debugger
     $('#zip_code').blur(fillData($('#zip_code').val().trim()));
-
-    $(document).ready(function() {
-      var zipCode = $('#zip_code').val().trim();
-      debugger
-      if (zipCode.length > 0) {
-        fillData(zipCode);
-      }
-    });
+    var zipCode = $('#zip_code').val().trim();
+    debugger
+    if (zipCode.length > 0) {
+      fillData(zipCode);
+    }
   }
 }
 
